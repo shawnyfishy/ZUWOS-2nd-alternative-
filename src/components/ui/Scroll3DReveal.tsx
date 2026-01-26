@@ -23,7 +23,7 @@ export default function Scroll3DReveal({ children, className = "", delay = 0 }: 
                 scale: 1,
                 y: 0
             }}
-            viewport={{ once: true, margin: "-10% 0px -10% 0px" }} // Trigger when 10% inside from bottom
+            viewport={{ once: true, margin: "-10%" }}
             transition={{
                 duration: 1.2,
                 ease: [0.16, 1, 0.3, 1], // Ultra-smooth "Apple/Dropbox" ease

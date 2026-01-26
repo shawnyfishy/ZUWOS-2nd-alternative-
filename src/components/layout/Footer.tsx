@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
     return (
         <footer className="bg-graphite text-coconut py-20 px-6 md:px-12">
@@ -25,7 +27,7 @@ export default function Footer() {
                         <li>About</li>
                         <li>Manifesto</li>
                         <li>Careers</li>
-                        <li>Contact</li>
+                        <li><Link to="/request-access" className="hover:text-white transition-colors">Contact</Link></li>
                     </ul>
                 </div>
 

@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Users, Briefcase, Building2, Wallet } from 'lucide-react'
+import { ArrowLeft, Users, Briefcase, Building2, Wallet, Calculator, Package, ShieldCheck } from 'lucide-react'
 import { GridSystem } from '../components/layout/GridSystem'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
@@ -16,17 +16,20 @@ const docData: Record<string, any> = {
         textColor: "text-white",
         icon: Users,
         sections: [
+            // Productivity & Collaboration
             {
-                head: "Unified Profile",
-                body: "A single digital identity for access control, payroll, and internal reputation. No more scattered data across HRMS and Slack."
+                head: "Productivity & Collaboration",
+                body: "Everything an employee needs to get work done: Community Page, Project & Task Management, Chat & Collaboration, To Do Management, Calendar, Document Drive, and Personal Performance Dashboard."
             },
+            // Workplace Services
             {
-                head: "Performance Wallet",
-                body: "Real-time tracking of tasks, goals, and incentives. Employees see exactly what they earn as they work."
+                head: "Smart Workplace Services",
+                body: "Seamless utilization of office resources: Visitor Management, Meeting Room Booking, Seat & Space Management, Parking Management, F&B Cafeteria Management, and Helpdesk (Admin, HR & IT)."
             },
+            // Identity & HR
             {
-                head: "Service Requests",
-                body: "Raise tickets for IT, Admin, or HR in seconds. Track resolution status in real-time."
+                head: "Identity, HR & Perks",
+                body: "Manage your professional life: Digital Business Card, HRMS integration, and the Employee Incentive Cold Wallet for rewards."
             }
         ]
     },
@@ -71,6 +74,22 @@ const docData: Record<string, any> = {
             {
                 head: "Space Utilization",
                 body: "Understand how your office is actually used with sensor-based heatmaps."
+            },
+            {
+                head: "Transitioning & Projects",
+                body: "Seamlessly manage site takeovers and fitouts: Hoto (Handover Takeover), Snagging, and Fitout Management."
+            },
+            {
+                head: "Operations & Maintenance",
+                body: "End-to-end control: Helpdesk/Tickets, Asset Lifecycle, Inventory, AMC Management, Scheduling, Audits, Waste Mgmt, and Surveys."
+            },
+            {
+                head: "Safety & Security (EHS)",
+                body: "Protect your people and premises: Permit to Work, Incident Mgmt, M-Safe Training, Visitor/Staff Entry, Gatepass, and Patrolling."
+            },
+            {
+                head: "Utilities & Services (VAS)",
+                body: "Manage Energy, Water, and Soft Services: F&B, Parking, Mailroom, Lease Mgmt, Space Booking, and OSR."
             }
         ]
     },
@@ -93,6 +112,76 @@ const docData: Record<string, any> = {
             {
                 head: "Cost Center Allocation",
                 body: "Automatically map expenses to the right teams and projects based on usage."
+            }
+        ]
+    },
+    accountants: {
+        title: "Accountants OS",
+        subtitle: "Audit Ready, Always.",
+        description: "Designed for precision and compliance. ZUWOS empowers accountants with automated tools that ensure every penny is accounted for and every regulation met.",
+        color: "bg-accent-blue",
+        textColor: "text-graphite",
+        icon: Calculator,
+        sections: [
+            {
+                head: "Smart Reconciliation",
+                body: "Automatically match bank transactions with internal records using AI-powered pattern recognition to spot discrepancies instantly."
+            },
+            {
+                head: "Tax Compliance Engine",
+                body: "Stay ahead of regulations with built-in tax rule updates that automatically flag potential compliance issues before they become penalties."
+            },
+            {
+                head: "Continuous Audit Trail",
+                body: "Every transaction is logged with timestamps, user IDs, and change history, making year-end audits a seamless, stress-free process."
+            }
+        ]
+    },
+    procurement: {
+        title: "Procurement OS",
+        subtitle: "Sourcing Intelligence.",
+        description: "Transform procurement from a bottleneck into a strategic advantage. Manage vendors, optimize spend, and streamline purchasing in one unified platform.",
+        color: "bg-graphite",
+        textColor: "text-white",
+        icon: Package,
+        sections: [
+            {
+                head: "Vendor & Material Management",
+                body: "Centralized Vendor Portal and detailed Material Management to track stock levels, quality, and consumption."
+            },
+            {
+                head: "Intelligent Purchase Orders",
+                body: "Automate PO generation based on inventory levels and historical data, with customizable approval workflows to maintain budget control."
+            },
+            {
+                head: "Spend Analytics & Insights",
+                body: "Visualize spending patterns across departments and categories to identify cost-saving opportunities and negotiate better terms."
+            }
+        ]
+    },
+    admins: {
+        title: "Admin OS",
+        subtitle: "Total System Command.",
+        description: "The control center for your entire operation. Manage users, security, and configurations with granular precision and complete visibility.",
+        color: "bg-primary",
+        textColor: "text-white",
+        icon: ShieldCheck,
+        sections: [
+            {
+                head: "CRM & Stakeholder Management",
+                body: "Manage relationships with tenants, employees, and clients in a unified CRM module."
+            },
+            {
+                head: "Role-Based Access Control (RBAC)",
+                body: "Define and enforce access levels with granular permissions, ensuring employees only see what they need to do their jobs securely."
+            },
+            {
+                head: "System Configuration Manager",
+                body: "Customize workflows, fields, and notifications globally or per-department without writing a single line of code."
+            },
+            {
+                head: "Comprehensive Activity Logs",
+                body: "Monitor system health and user activity with detailed logs that provide actionable insights into usage patterns and security events."
             }
         ]
     }

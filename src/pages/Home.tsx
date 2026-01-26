@@ -1,5 +1,6 @@
 import Navbar from '../components/layout/Navbar'
 import Hero from '../components/sections/Hero'
+import ValueProposition from '../components/sections/ValueProposition'
 import BentoGrid from '../components/sections/BentoGrid'
 import TheReveal from '../components/sections/TheReveal'
 import StakeholderTabs from '../components/sections/StakeholderTabs'
@@ -12,10 +13,17 @@ export default function Home() {
             <Navbar />
             <main>
                 <Hero />
-                <BentoGrid />
+                <div id="solutions">
+                    <ValueProposition />
+                </div>
+                <div id="features">
+                    <BentoGrid />
+                </div>
                 <TheReveal />
                 <StakeholderTabs />
-                <AntiBigTech />
+                <div id="manifesto">
+                    <AntiBigTech />
+                </div>
             </main>
             <Footer />
         </>
