@@ -8,17 +8,17 @@ import { GooeyText } from '../ui/GooeyText'
 
 export default function Hero() {
     return (
-        <section className="min-h-screen bg-coconut text-graphite pt-40 pb-20 overflow-hidden relative">
+        <section className="min-h-dvh bg-coconut text-graphite pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden relative">
             <GridSystem>
                 <div className="col-span-12 lg:col-span-10">
                     <div className="text-display-md md:text-display-lg font-display mb-12 tracking-tighter leading-[1.05] flex flex-col items-start">
                         <TextRevealer
                             text="India’s Integrated"
                         />
-                        <div className="h-24 md:h-32 w-full relative -mt-4">
+                        <div className="h-16 md:h-32 w-full relative -mt-2 md:-mt-4">
                             <GooeyText
                                 texts={["Workplace Management OS", "Employee Super-App", "Smart Facility Control"]}
-                                textClassName="text-blue-600 leading-[1.1]"
+                                textClassName="text-blue-600 leading-tight text-[clamp(1.5rem,7vw,4.5rem)]"
                                 morphTime={1.5}
                                 cooldownTime={0.5}
                             />

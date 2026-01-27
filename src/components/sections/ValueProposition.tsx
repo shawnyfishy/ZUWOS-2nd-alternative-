@@ -29,7 +29,7 @@ export default function ValueProposition() {
     const [selectedFeature, setSelectedFeature] = useState<typeof features[0] | null>(null)
 
     return (
-        <section className="py-24 bg-coconut relative">
+        <section className="section-padding bg-coconut relative">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col items-center text-center mb-24">
                     <TextRevealer
@@ -44,7 +44,7 @@ export default function ValueProposition() {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     {features.map((feature, idx) => (
                         <CinematicReveal key={idx} delay={0.3 + (idx * 0.15)}>
                             <motion.div
@@ -57,7 +57,7 @@ export default function ValueProposition() {
                                 className="group cursor-pointer h-full"
                                 data-cursor="View"
                             >
-                                <div className="h-full p-10 bg-white border border-graphite/5 rounded-3xl shadow-sm group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-300 relative overflow-hidden">
+                                <div className="h-full p-8 md:p-10 bg-white border border-graphite/5 rounded-3xl shadow-sm group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-300 relative overflow-hidden">
                                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-3xl transition-colors duration-300 pointer-events-none" />
 
                                     <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">

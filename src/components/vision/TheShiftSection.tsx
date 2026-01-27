@@ -56,7 +56,7 @@ const TheShiftSection = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full min-h-[80vh] flex flex-col md:flex-row items-center justify-center bg-white p-8 md:p-20 overflow-hidden"
+            className="w-full min-h-dvh flex flex-col md:flex-row items-center justify-center bg-white p-6 md:p-20 overflow-hidden"
         >
             {/* Left Side: Content */}
             <div ref={leftColRef} className="w-full md:w-1/2 flex flex-col gap-8 md:pr-16 mb-16 md:mb-0">

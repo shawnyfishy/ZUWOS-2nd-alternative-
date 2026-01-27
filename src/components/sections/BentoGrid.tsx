@@ -179,12 +179,12 @@ export default function BentoGrid() {
     const navigate = useNavigate()
 
     return (
-        <section className="py-24 bg-coconut relative" id="solutions">
+        <section className="section-padding bg-coconut relative" id="solutions">
             <GridSystem>
-                <div className="col-span-12 mb-20 flex flex-col items-center">
+                <div className="col-span-12 mb-12 md:mb-20 flex flex-col items-center">
                     <TextRevealer
                         text="One OS. Infinite Possibilities."
-                        className="text-display-md font-display font-bold tracking-tighter justify-center"
+                        className="text-display-sm md:text-display-md font-display font-bold tracking-tighter justify-center text-center"
                     />
                 </div>
             </GridSystem>
@@ -205,21 +205,21 @@ export default function BentoGrid() {
                         >
                             <TiltCard
                                 whileHover="hover"
-                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-5 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
+                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-6 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
                             >
                                 {/* Visual Background */}
                                 {item.visual && <item.visual />}
 
                                 <motion.div layoutId={`content-${item.id}`} className="flex justify-between items-start relative z-10">
-                                    <item.icon className="w-10 h-10" />
+                                    <item.icon className="w-8 h-8 md:w-10 md:h-10" />
                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-xs font-bold uppercase tracking-widest border border-current px-3 py-1 rounded-full">Explore</span>
+                                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest border border-current px-2 md:px-3 py-1 rounded-full">Explore</span>
                                     </div>
                                 </motion.div>
 
                                 <motion.div layoutId={`title-${item.id}`} className="relative z-10">
-                                    <h3 className="text-2xl md:text-3xl font-display font-bold mb-1 tracking-tight">{item.title}</h3>
-                                    <p className="text-base opacity-80 font-medium">{item.subtitle}</p>
+                                    <h3 className="text-xl md:text-3xl font-display font-bold mb-1 tracking-tight">{item.title}</h3>
+                                    <p className="text-sm md:text-base opacity-80 font-medium">{item.subtitle}</p>
                                 </motion.div>
                             </TiltCard>
                         </motion.div>
@@ -243,7 +243,7 @@ export default function BentoGrid() {
                             <motion.div
                                 key={item.id}
                                 layoutId={item.id}
-                                className={`w-full max-w-2xl ${item.bg} ${item.text} p-8 md:p-16 rounded-3xl shadow-2xl relative overflow-hidden`}
+                                className={`w-full max-w-2xl ${item.bg} ${item.text} p-8 md:p-16 rounded-3xl shadow-2xl relative overflow-hidden h-fit max-h-[90vh] overflow-y-auto`}
                             >
                                 <button
                                     onClick={(e) => { e.stopPropagation(); setSelectedId(null); }}

@@ -55,7 +55,7 @@ const RevealSection = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full h-screen relative bg-graphite text-white flex flex-col items-center justify-center overflow-hidden pt-52 md:pt-72"
+            className="w-full min-h-dvh relative bg-graphite text-white flex flex-col items-center justify-center overflow-hidden pt-32 md:pt-72 px-4 md:px-0"
         >
             {/* Background Radial Gradient */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-800 to-graphite z-0" />

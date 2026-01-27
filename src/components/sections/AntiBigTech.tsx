@@ -7,10 +7,10 @@ import TextRevealer from '../utils/TextRevealer'
 
 export default function AntiBigTech() {
     return (
-        <section className="py-32 bg-graphite text-coconut relative overflow-hidden" id="manifesto">
-            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
+        <section className="section-padding bg-graphite text-coconut relative overflow-hidden" id="manifesto">
+            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center relative z-10">
                 <div>
-                    <div className="font-display font-bold text-4xl md:text-6xl mb-12 tracking-tighter leading-tight flex flex-col items-start">
+                    <div className="font-display font-bold text-3xl md:text-6xl mb-8 md:mb-12 tracking-tighter leading-tight flex flex-col items-start">
                         <TextRevealer text="Big Tech sells software licenses." />
                         <TextRevealer text="We build workplace infrastructure." className="text-primary italic" delay={0.1} />
                     </div>
@@ -47,7 +47,7 @@ export default function AntiBigTech() {
 
                 <CinematicReveal direction="left" delay={0.3}>
                     <div
-                        className="bg-atlas p-10 md:p-14 rounded-3xl border border-coconut/10 relative overflow-hidden shadow-2xl"
+                        className="bg-atlas p-8 md:p-14 rounded-3xl border border-coconut/10 relative overflow-hidden shadow-2xl"
                         data-cursor="The Promise"
                     >
                         <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 blur-[120px] rounded-full"></div>

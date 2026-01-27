@@ -72,21 +72,21 @@ export default function StakeholderTabs() {
 
     // Left Content: The Menu
     const LeftContent = (
-        <div className="space-y-8">
-            <div className="mb-12">
-                <h2 className="font-display font-bold text-5xl mb-6">Built for everyone<br />you work with.</h2>
-                <p className="text-xl opacity-60">Select a stakeholder to explore their journey.</p>
+        <div className="space-y-6 md:space-y-8">
+            <div className="mb-8 md:mb-12">
+                <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 md:mb-6 leading-tight">Built for everyone<br className="hidden md:block" /> you work with.</h2>
+                <p className="text-lg md:text-xl opacity-60">Select a stakeholder to explore their journey.</p>
             </div>
 
-            <div className="flex flex-col items-start gap-4">
+            <div className="flex flex-col items-start gap-3 md:gap-4 overflow-x-auto pb-4 -mx-2 px-2 no-scrollbar">
                 {stakeholders.map((s) => (
                     <button
                         key={s.id}
                         onClick={() => setActiveTab(s.id)}
-                        className={`text-2xl font-display font-bold transition-all duration-300 flex items-center gap-4 group ${activeTab === s.id ? 'text-graphite translate-x-4' : 'text-graphite/30 hover:text-graphite/60'
+                        className={`text-xl md:text-2xl font-display font-bold transition-all duration-300 flex items-center gap-3 md:gap-4 group whitespace-nowrap ${activeTab === s.id ? 'text-graphite translate-x-1 md:translate-x-4' : 'text-graphite/30 hover:text-graphite/60'
                             }`}
                     >
-                        {activeTab === s.id && <ArrowRight className="w-6 h-6 text-primary" />}
+                        {activeTab === s.id && <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />}
                         {s.label}
                     </button>
                 ))}
@@ -112,11 +112,11 @@ export default function StakeholderTabs() {
                     <h3 className="font-display font-bold text-4xl">{activeData.tagline}</h3>
                 </div>
 
-                <div className="grid gap-8">
+                <div className="grid gap-4 md:gap-8">
                     {activeData.features.map((feature, idx) => (
-                        <div key={idx} className="bg-white p-8 border border-graphite/10 hover:shadow-brutalist transition-shadow duration-300">
+                        <div key={idx} className="bg-white p-6 md:p-8 border border-graphite/10 hover:shadow-brutalist transition-shadow duration-300">
                             <div className="font-bold text-lg mb-2">{feature.title}</div>
-                            <p className="text-graphite/70">{feature.desc}</p>
+                            <p className="text-graphite/70 text-base">{feature.desc}</p>
                         </div>
                     ))}
                 </div>
