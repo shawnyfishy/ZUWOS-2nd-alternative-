@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { Check, Smartphone, Zap, MessageCircle, LayoutGrid, Users } from 'lucide-react';
+import { Check, Zap, MessageCircle, LayoutGrid, Users } from 'lucide-react';
 
 const TheShiftSection = () => {
     const sectionRef = useRef<HTMLDivElement>(null);

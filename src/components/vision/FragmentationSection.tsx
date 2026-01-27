@@ -38,8 +38,8 @@ const FragmentationSection = () => {
                 // Scroll Progress: Move apart
                 gsap.to(boxes, {
                     x: (i) => (i - 2) * 50, // Spread out horizontally
-                    y: (i) => (Math.random() - 0.5) * 50, // Random vertical jitter
-                    rotation: (i) => (Math.random() - 0.5) * 15,
+                    y: () => (Math.random() - 0.5) * 50, // Random vertical jitter
+                    rotation: () => (Math.random() - 0.5) * 15,
                     scrollTrigger: {
                         trigger: sectionRef.current,
                         start: "top center",

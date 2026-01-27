@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { LayoutDashboard, Users, Building2, Wallet } from 'lucide-react';
+import { LayoutDashboard, Users, Wallet } from 'lucide-react';
 
 const RevealSection = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
