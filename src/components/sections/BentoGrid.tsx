@@ -190,7 +190,7 @@ export default function BentoGrid() {
             </GridSystem>
 
             {/* The Grid */}
-            <GridSystem className="gap-6">
+            <GridSystem className="gap-4 max-w-6xl mx-auto lg:px-20">
                 {silos.map((item, idx) => (
                     <CinematicReveal
                         key={item.id}
@@ -205,7 +205,7 @@ export default function BentoGrid() {
                         >
                             <TiltCard
                                 whileHover="hover"
-                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-6 md:p-8 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
+                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-5 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
                             >
                                 {/* Visual Background */}
                                 {item.visual && <item.visual />}

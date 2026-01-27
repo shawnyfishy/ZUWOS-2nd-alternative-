@@ -17,15 +17,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <button
                 ref={ref}
                 className={cn(
-                    'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50',
+                    'inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 active:scale-95 touch-manipulation',
                     {
-                        'bg-primary text-white hover:bg-red-500': variant === 'primary', // Dropbox primary blue
-                        'bg-atlas text-white hover:bg-graphite': variant === 'secondary',
+                        'bg-primary text-white hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)]': variant === 'primary',
+                        'bg-graphite text-white hover:bg-graphite/90': variant === 'secondary',
                         'border-2 border-graphite text-graphite hover:bg-graphite hover:text-white': variant === 'outline',
-                        'hover:bg-gray-100 text-graphite': variant === 'ghost',
-                        'h-9 px-4 text-sm': size === 'sm',
-                        'h-12 px-6 text-base': size === 'md',
-                        'h-14 px-8 text-lg': size === 'lg',
+                        'hover:bg-graphite/5 text-graphite': variant === 'ghost',
+                        'h-9 px-4 text-sm rounded-lg': size === 'sm',
+                        'h-12 px-8 text-base rounded-xl': size === 'md',
+                        'h-14 px-10 text-lg rounded-2xl': size === 'lg',
                     },
                     className
                 )}

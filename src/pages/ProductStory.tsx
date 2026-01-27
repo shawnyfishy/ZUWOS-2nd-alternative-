@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import StoryHero from '../components/story/StoryHero'
@@ -42,22 +43,39 @@ export default function ProductStory() {
 
                 {/* Philosophy Section */}
                 <section className="relative z-10 py-48 bg-black px-6 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
-                    <div className="container mx-auto max-w-5xl text-center">
-                        {philosophy.map((text, i) => (
-                            <div key={i} className="mb-20 last:mb-0 flex justify-center w-full">
-                                <TextRevealer
-                                    text={text}
-                                    className="text-4xl md:text-7xl font-display font-bold leading-tight text-white tracking-tighter justify-center text-center w-full"
-                                    duration={1.5}
-                                    delay={i * 0.2}
-                                />
-                            </div>
-                        ))}
+                    <div className="container mx-auto max-w-6xl text-center">
+                        {philosophy.map((text, i) => {
+                            const [they, we] = text.split(". ")
+                            return (
+                                <div key={i} className="mb-24 last:mb-0">
+                                    <div className="flex flex-col items-center gap-4">
+                                        <TextRevealer
+                                            text={they + "."}
+                                            className="text-2xl md:text-4xl font-display font-medium text-white/40 tracking-tight justify-center"
+                                            duration={1.2}
+                                            delay={i * 0.2}
+                                        />
+                                        <TextRevealer
+                                            text={we}
+                                            className="text-4xl md:text-8xl font-display font-bold text-white tracking-tighter justify-center leading-none"
+                                            duration={1.5}
+                                            delay={i * 0.2 + 0.3}
+                                        />
+                                        <motion.div
+                                            initial={{ scaleX: 0 }}
+                                            whileInView={{ scaleX: 1 }}
+                                            transition={{ delay: i * 0.2 + 0.6, duration: 1 }}
+                                            className="h-px w-24 bg-primary/30 mt-8"
+                                        />
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </section>
 
                 {/* Sticky Scroll Experience */}
-                <section className="relative z-20 bg-black pt-32 pb-48 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
+                <section className="relative z-20 bg-black pt-24 pb-48 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
                     <div className="container mx-auto px-4">
                         <CinematicReveal>
                             <h3 className="text-center text-primary font-bold uppercase tracking-[0.3em] mb-12 text-sm">One Platform. All Stakeholders.</h3>

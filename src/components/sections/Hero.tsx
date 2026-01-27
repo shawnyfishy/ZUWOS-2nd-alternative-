@@ -4,6 +4,7 @@ import CinematicReveal from '../utils/CinematicReveal'
 import Magnetic from '../utils/Magnetic'
 import { Button } from '../ui/Button'
 import TextRevealer from '../utils/TextRevealer'
+import { GooeyText } from '../ui/GooeyText'
 
 export default function Hero() {
     return (
@@ -14,11 +15,14 @@ export default function Hero() {
                         <TextRevealer
                             text="India’s Integrated"
                         />
-                        <TextRevealer
-                            text="Workplace Management OS"
-                            className="text-primary"
-                            delay={0.1}
-                        />
+                        <div className="h-24 md:h-32 w-full relative -mt-4">
+                            <GooeyText
+                                texts={["Workplace Management OS", "Employee Super-App", "Smart Facility Control"]}
+                                textClassName="text-blue-600 leading-[1.1]"
+                                morphTime={1.5}
+                                cooldownTime={0.5}
+                            />
+                        </div>
                     </div>
                 </div>
 

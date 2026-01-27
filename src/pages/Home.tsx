@@ -19,7 +19,9 @@ export default function Home() {
                 <div id="features">
                     <BentoGrid />
                 </div>
-                <TheReveal />
+                <div id="vision">
+                    <TheReveal />
+                </div>
                 <StakeholderTabs />
                 <div id="manifesto">
                     <AntiBigTech />

@@ -4,7 +4,7 @@ export default function TheReveal() {
     return (
         <section className="py-40 bg-coconut text-center relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
-                <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-8 block">The Transformation</span>
+                <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-8 block">The Vision</span>
                 <div className="font-display font-bold text-5xl md:text-8xl text-graphite mb-12 tracking-tighter leading-none flex flex-col items-center">
                     <TextRevealer text="One Workplace." duration={1.2} className="justify-center" />
                     <TextRevealer text="One Operating System." delay={0.2} duration={1.2} className="justify-center" />

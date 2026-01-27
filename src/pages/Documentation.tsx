@@ -200,7 +200,7 @@ export default function Documentation() {
            Actually, let's keep it for visual consistency.
        */}
 
-            <main className="flex-grow pt-32 pb-24">
+            <main className="flex-grow pt-24 pb-24">
                 <GridSystem>
                     {/* Header */}
                     <div className="col-span-12 lg:col-span-8 mb-24">

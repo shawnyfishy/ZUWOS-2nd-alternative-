@@ -1,0 +1,24 @@
+{
+    "name": "zuwos-backend",
+    "version": "1.0.0",
+    "description": "Backend for ZUWOS website",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^4.18.2",
+        "express-rate-limit": "^8.2.1",
+        "helmet": "^8.1.0",
+        "jsonwebtoken": "^9.0.3",
+        "sqlite3": "^5.1.7",
+        "xss-clean": "^0.1.4"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    }
+}

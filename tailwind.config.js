@@ -16,6 +16,15 @@ export default {
         'accent-yellow': '#FAE100', // For bento grids
         'accent-pink': '#FFD7E4',
         'accent-blue': '#E6F5FF',
+        // Vision Page Colors - Indigenous & Roles
+        saffron: '#FF9933',
+        'india-green': '#138808',
+        terracotta: '#E97451',
+        employee: '#4A90E2',
+        hr: '#2DBECD',
+        facilities: '#FF9933', // Reusing saffron or similar orange
+        finance: '#5B3A9B',
+        procurement: '#27AE60',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

@@ -4,17 +4,50 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-rgb: 37, 99, 235;
+  /* Blue 600 */
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     @apply font-sans antialiased bg-coconut text-graphite;
+    overflow-x: hidden;
+  }
+
+  /* Optimized Fluid Typography for Premium Feel */
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    @apply leading-[0.9] tracking-tighter;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    @apply leading-[1] tracking-tight;
+  }
+
+  p {
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    @apply leading-relaxed;
   }
 
   /* Custom Selection Color */
   ::selection {
     @apply bg-primary text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+
+  .tap-feedback {
+    @apply active:scale-[0.98] transition-transform duration-200;
   }
 }

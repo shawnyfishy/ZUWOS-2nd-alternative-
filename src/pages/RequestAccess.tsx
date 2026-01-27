@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ArrowLeft, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { GridSystem } from '../components/layout/GridSystem'
@@ -8,11 +9,47 @@ import CinematicReveal from '../components/utils/CinematicReveal'
 import { Button } from '../components/ui/Button'
 
 export default function RequestAccess() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: ''
+    });
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        try {
+            const response = await fetch('http://localhost:5000/api/leads', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', phone: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setStatus('error');
+        }
+    };
+
     return (
         <div className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-24 relative overflow-hidden">
+            <main className="flex-grow pt-24 pb-24 relative overflow-hidden">
                 <GridSystem>
                     {/* Left Column: Context/Pitch */}
                     <div className="col-span-12 lg:col-span-5 mb-12 lg:mb-0 relative z-10">
@@ -57,42 +94,81 @@ export default function RequestAccess() {
 
                                 <h3 className="font-display font-bold text-3xl mb-8 relative z-10">Request Early Access</h3>
 
-                                <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
-                                    <div className="space-y-2">
-                                        <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider opacity-60">Full Name</label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            placeholder="John Doe"
-                                            className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg"
-                                        />
-                                    </div>
+                                <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
+                                    {status === 'success' ? (
+                                        <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center animate-in fade-in zoom-in duration-300">
+                                            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
+                                                <CheckCircle2 className="w-6 h-6" />
+                                            </div>
+                                            <h4 className="text-xl font-bold text-green-800 mb-2">Request Received</h4>
+                                            <p className="text-green-700">
+                                                Thank you for your interest. Our team will be in touch shortly to schedule your personalized onboarding.
+                                            </p>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <div className="space-y-2">
+                                                <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider opacity-60">Full Name</label>
+                                                <input
+                                                    type="text"
+                                                    id="name"
+                                                    name="name"
+                                                    value={formData.name}
+                                                    onChange={handleChange}
+                                                    required
+                                                    placeholder="John Doe"
+                                                    disabled={status === 'loading'}
+                                                    className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg disabled:opacity-50"
+                                                />
+                                            </div>
 
-                                    <div className="space-y-2">
-                                        <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider opacity-60">Work Email</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            placeholder="john@company.com"
-                                            className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg"
-                                        />
-                                    </div>
+                                            <div className="space-y-2">
+                                                <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider opacity-60">Work Email</label>
+                                                <input
+                                                    type="email"
+                                                    id="email"
+                                                    name="email"
+                                                    value={formData.email}
+                                                    onChange={handleChange}
+                                                    required
+                                                    placeholder="john@company.com"
+                                                    disabled={status === 'loading'}
+                                                    className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg disabled:opacity-50"
+                                                />
+                                            </div>
 
-                                    <div className="space-y-2">
-                                        <label htmlFor="phone" className="text-sm font-bold uppercase tracking-wider opacity-60">Phone Number</label>
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            placeholder="+91 99999 99999"
-                                            className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg"
-                                        />
-                                    </div>
+                                            <div className="space-y-2">
+                                                <label htmlFor="phone" className="text-sm font-bold uppercase tracking-wider opacity-60">Phone Number</label>
+                                                <input
+                                                    type="tel"
+                                                    id="phone"
+                                                    name="phone"
+                                                    value={formData.phone}
+                                                    onChange={handleChange}
+                                                    placeholder="+91 99999 99999"
+                                                    disabled={status === 'loading'}
+                                                    className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg disabled:opacity-50"
+                                                />
+                                            </div>
 
-                                    <div className="pt-4">
-                                        <Button variant="primary" size="lg" className="w-full justify-center text-lg py-6">
-                                            Submit Request
-                                        </Button>
-                                    </div>
+                                            {status === 'error' && (
+                                                <div className="p-3 bg-red-50 text-red-600 text-sm rounded-lg">
+                                                    Something went wrong. Please try again.
+                                                </div>
+                                            )}
+
+                                            <div className="pt-4">
+                                                <Button
+                                                    variant="primary"
+                                                    size="lg"
+                                                    className="w-full justify-center text-lg py-6"
+                                                    disabled={status === 'loading'}
+                                                >
+                                                    {status === 'loading' ? 'Submitting...' : 'Submit Request'}
+                                                </Button>
+                                            </div>
+                                        </>
+                                    )}
 
                                     <p className="text-center text-sm opacity-50 pt-4">
                                         Limited spots available for the beta program.

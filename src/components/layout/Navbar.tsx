@@ -37,7 +37,6 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
 
     const textColor = theme === 'dark' ? 'text-white' : 'text-graphite'
     const bgColor = theme === 'dark' ? 'bg-black/90' : 'bg-coconut/90'
-    const mobileBg = theme === 'dark' ? 'bg-black text-white' : 'bg-coconut text-graphite'
 
     return (
         <motion.header
@@ -47,7 +46,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div className="max-w-[1920px] mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
+            <div className="max-w-[1920px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center">
                     <motion.div
@@ -68,7 +67,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-12">
-                    <Link to="/story" className={`${textColor} font-medium text-lg hover:opacity-50 transition-opacity`} data-cursor="Vision">Vision</Link>
+                    <Link to="/vision" className={`${textColor} font-medium text-lg hover:opacity-50 transition-opacity`} data-cursor="Vision">Vision</Link>
 
                     {isHome ? (
                         <>
@@ -85,7 +84,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
                     )}
 
                     <Link to="/request-access">
-                        <Button variant="primary" size="md" className="rounded-none" data-cursor="Action">Get Started</Button>
+                        <Button variant="primary" size="md" className="rounded-full font-bold shadow-lg shadow-primary/20" data-cursor="Action">Get Started</Button>
                     </Link>
                 </nav>
 
@@ -101,15 +100,21 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <motion.div
-                    className={`md:hidden absolute top-24 left-0 right-0 ${mobileBg} border-b border-white/10 p-6 flex flex-col gap-6 h-screen`}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    className="md:hidden fixed inset-0 z-40 bg-white/80 backdrop-blur-xl pt-24 px-6 flex flex-col gap-8 h-[100dvh]"
+                    initial={{ opacity: 0, x: '100%' }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                 >
-                    <a href="#solutions" className="text-3xl font-display font-bold">Solutions</a>
-                    <a href="#features" className="text-3xl font-display font-bold">Features</a>
-                    <a href="#manifesto" className="text-3xl font-display font-bold">Manifesto</a>
-                    <Link to="/request-access" className="w-full mt-4">
-                        <Button variant="primary" className="w-full py-6 text-xl">Get Started</Button>
+                    {isHome ? (
+                        <a href="#vision" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-display font-bold tracking-tight">Vision</a>
+                    ) : (
+                        <Link to="/vision" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-display font-bold tracking-tight">Vision</Link>
+                    )}
+                    <a href="#solutions" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-display font-bold tracking-tight">Solutions</a>
+                    <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-display font-bold tracking-tight">Features</a>
+                    <a href="#manifesto" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-display font-bold tracking-tight">Manifesto</a>
+                    <Link to="/request-access" onClick={() => setIsMobileMenuOpen(false)} className="w-full mt-auto mb-12">
+                        <Button variant="primary" size="lg" className="w-full py-8 text-xl shadow-2xl">Get Started</Button>
                     </Link>
                 </motion.div>
             )}
