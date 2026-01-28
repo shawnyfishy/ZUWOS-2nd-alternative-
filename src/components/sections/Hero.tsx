@@ -8,7 +8,7 @@ import { GooeyText } from '../ui/GooeyText'
 
 export default function Hero() {
     return (
-        <section className="min-h-dvh bg-coconut text-graphite pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden relative">
+        <section className="w-full bg-coconut text-graphite pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden relative">
             <GridSystem>
                 <div className="col-span-12 lg:col-span-10">
                     <div className="text-display-md md:text-display-lg font-display mb-12 tracking-tighter leading-[1.05] flex flex-col items-start">

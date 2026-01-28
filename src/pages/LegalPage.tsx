@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import ReactLenis from 'lenis/react';
+import PageTransition from '../components/layout/PageTransition';
 
 const content = {
     privacy: {
@@ -68,35 +69,37 @@ const LegalPage = () => {
 
     return (
         <ReactLenis root>
-            <div className="min-h-screen bg-coconut text-graphite font-sans">
-                <Navbar theme="light" />
+            <PageTransition>
+                <div className="min-h-screen bg-coconut text-graphite font-sans">
+                    <Navbar theme="light" />
 
-                <main className="pt-40 pb-20 px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <div className="mb-16 border-b border-graphite/10 pb-12">
-                            <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 tracking-tight">
-                                {data.title}
-                            </h1>
-                            <p className="text-gray-500 font-mono text-sm">
-                                Last Updated: {data.lastUpdated}
-                            </p>
+                    <main className="pt-40 pb-20 px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="mb-16 border-b border-graphite/10 pb-12">
+                                <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 tracking-tight">
+                                    {data.title}
+                                </h1>
+                                <p className="text-gray-500 font-mono text-sm">
+                                    Last Updated: {data.lastUpdated}
+                                </p>
+                            </div>
+
+                            <div className="space-y-16">
+                                {data.sections.map((section, i) => (
+                                    <div key={i}>
+                                        <h3 className="text-2xl font-bold mb-4">{section.heading}</h3>
+                                        <p className="text-lg text-graphite/80 leading-relaxed max-w-2xl">
+                                            {section.body}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
+                    </main>
 
-                        <div className="space-y-16">
-                            {data.sections.map((section, i) => (
-                                <div key={i}>
-                                    <h3 className="text-2xl font-bold mb-4">{section.heading}</h3>
-                                    <p className="text-lg text-graphite/80 leading-relaxed max-w-2xl">
-                                        {section.body}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </main>
-
-                <Footer />
-            </div>
+                    <Footer />
+                </div>
+            </PageTransition>
         </ReactLenis>
     );
 };

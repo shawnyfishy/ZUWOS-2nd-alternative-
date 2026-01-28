@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import PageTransition from '../components/layout/PageTransition'
 import { ArrowLeft, Users, Briefcase, Building2, Wallet, Calculator, Package, ShieldCheck } from 'lucide-react'
 import { GridSystem } from '../components/layout/GridSystem'
 import Navbar from '../components/layout/Navbar'
@@ -194,7 +195,7 @@ export default function Documentation() {
     if (!data) return <div>Not Found</div>
 
     return (
-        <div className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
+        <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
             <Navbar />
             {/* Use Global Navbar but maybe we want a back button too? Navbar has links to home anchors which might fail.
            Actually, let's keep it for visual consistency.
@@ -212,7 +213,7 @@ export default function Documentation() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
                         >
                             <div className={`inline-block p-4 rounded-xl ${data.color} ${data.textColor} mb-6`}>
                                 <data.icon className="w-12 h-12" />
@@ -255,6 +256,6 @@ export default function Documentation() {
             </main>
 
             <Footer />
-        </div>
+        </PageTransition>
     )
 }

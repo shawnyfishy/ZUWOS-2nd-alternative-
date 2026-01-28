@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import { Lock, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import PageTransition from '../components/layout/PageTransition';
 
 export default function AdminLogin() {
     const [password, setPassword] = useState('');
@@ -38,7 +39,7 @@ export default function AdminLogin() {
     };
 
     return (
-        <div className="min-h-screen bg-coconut text-graphite font-sans">
+        <PageTransition className="min-h-screen bg-coconut text-graphite font-sans">
             <Navbar theme="light" />
 
             <main className="flex items-center justify-center pt-28 px-6">
@@ -87,6 +88,6 @@ export default function AdminLogin() {
                     </p>
                 </div>
             </main>
-        </div>
+        </PageTransition>
     );
 }

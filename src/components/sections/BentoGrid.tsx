@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { GridSystem } from '../layout/GridSystem'
 import { TiltCard } from '../ui/TiltCard'
 import { Users, Building2, Wallet, Briefcase, X, Calculator, Package, ShieldCheck } from 'lucide-react'
@@ -15,6 +14,7 @@ import {
     ProcurementVisual,
     AdminsVisual
 } from './BentoVisuals'
+import AppMergingAnimation from '../ui/AppMergingAnimation'
 
 // Bento Grid Items
 const silos = [
@@ -175,13 +175,15 @@ const silos = [
 ]
 
 export default function BentoGrid() {
-    const [selectedId, setSelectedId] = useState<string | null>(null)
     const navigate = useNavigate()
 
     return (
-        <section className="section-padding bg-coconut relative" id="solutions">
+        <section className="py-12 md:py-20 bg-coconut relative" id="solutions">
             <GridSystem>
                 <div className="col-span-12 mb-12 md:mb-20 flex flex-col items-center">
+                    <div className="w-full max-w-lg mb-8">
+                        <AppMergingAnimation />
+                    </div>
                     <TextRevealer
                         text="One OS. Infinite Possibilities."
                         className="text-display-sm md:text-display-md font-display font-bold tracking-tighter justify-center text-center"
@@ -198,10 +200,11 @@ export default function BentoGrid() {
                         delay={idx * 0.1}
                     >
                         <motion.div
-                            layoutId={item.id}
-                            onClick={() => setSelectedId(item.id)}
+                            onClick={() => navigate(`/docs/${item.id}`)}
                             className="relative z-10 w-full"
                             data-cursor="Experience"
+                            whileHover={{ scale: 0.98 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
                         >
                             <TiltCard
                                 whileHover="hover"
@@ -210,81 +213,22 @@ export default function BentoGrid() {
                                 {/* Visual Background */}
                                 {item.visual && <item.visual />}
 
-                                <motion.div layoutId={`content-${item.id}`} className="flex justify-between items-start relative z-10">
+                                <div className="flex justify-between items-start relative z-10">
                                     <item.icon className="w-8 h-8 md:w-10 md:h-10" />
                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                                         <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest border border-current px-2 md:px-3 py-1 rounded-full">Explore</span>
                                     </div>
-                                </motion.div>
+                                </div>
 
-                                <motion.div layoutId={`title-${item.id}`} className="relative z-10">
+                                <div className="relative z-10">
                                     <h3 className="text-xl md:text-3xl font-display font-bold mb-1 tracking-tight">{item.title}</h3>
                                     <p className="text-sm md:text-base opacity-80 font-medium">{item.subtitle}</p>
-                                </motion.div>
+                                </div>
                             </TiltCard>
                         </motion.div>
                     </CinematicReveal>
                 ))}
             </GridSystem>
-
-            {/* The Overlay (Expanded Card) */}
-            <AnimatePresence>
-                {selectedId && (
-                    <div className="fixed inset-0 z-50 grid place-items-center p-4">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setSelectedId(null)}
-                            className="absolute inset-0 bg-graphite/60 backdrop-blur-sm"
-                        />
-
-                        {silos.filter(item => item.id === selectedId).map(item => (
-                            <motion.div
-                                key={item.id}
-                                layoutId={item.id}
-                                className={`w-full max-w-2xl ${item.bg} ${item.text} p-8 md:p-16 rounded-3xl shadow-2xl relative overflow-hidden h-fit max-h-[90vh] overflow-y-auto`}
-                            >
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); setSelectedId(null); }}
-                                    className="absolute top-6 right-6 p-2 hover:bg-black/10 rounded-full transition-colors"
-                                    data-cursor="Close"
-                                >
-                                    <X className="w-8 h-8" />
-                                </button>
-
-                                <motion.div layoutId={`content-${item.id}`} className="mb-8">
-                                    <item.icon className="w-16 h-16" />
-                                </motion.div>
-
-                                <motion.div layoutId={`title-${item.id}`} className="mb-8">
-                                    <h3 className="text-5xl font-display font-bold mb-2 tracking-tight">{item.title}</h3>
-                                    <p className="text-2xl opacity-80 font-medium">{item.subtitle}</p>
-                                </motion.div>
-
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 10 }}
-                                    transition={{ delay: 0.2 }}
-                                >
-                                    <div className="border-t border-current/20 pt-8 mt-8">
-                                        {item.content}
-                                    </div>
-
-                                    <button
-                                        onClick={() => navigate(`/docs/${item.id}`)}
-                                        className="mt-8 bg-black/10 hover:bg-black/20 text-current px-8 py-4 font-bold rounded-2xl text-lg transition-colors w-full md:w-auto"
-                                        data-cursor="Action"
-                                    >
-                                        View Documentation
-                                    </button>
-                                </motion.div>
-                            </motion.div>
-                        ))}
-                    </div>
-                )}
-            </AnimatePresence>
         </section>
     )
 }

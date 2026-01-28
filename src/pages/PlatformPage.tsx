@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import ReactLenis from 'lenis/react';
+import PageTransition from '../components/layout/PageTransition';
 
 const content = {
     employees: {
@@ -47,53 +48,55 @@ const PlatformPage = () => {
 
     return (
         <ReactLenis root>
-            <div className={`min-h-screen ${data.color} ${data.textColor} font-sans selection:bg-black selection:text-white`}>
-                <Navbar theme={data.textColor === 'text-white' ? 'dark' : 'light'} />
+            <PageTransition>
+                <div className={`min-h-screen ${data.color} ${data.textColor} font-sans selection:bg-black selection:text-white`}>
+                    <Navbar theme={data.textColor === 'text-white' ? 'dark' : 'light'} />
 
-                <main className="pt-24 pb-20 px-6">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="max-w-4xl mb-24">
-                            <h1 className="text-6xl md:text-8xl font-display font-bold mb-8 tracking-tighter leading-none">
-                                {data.title}
-                            </h1>
-                            <p className="text-2xl md:text-3xl font-medium opacity-80 max-w-2xl leading-relaxed">
-                                {data.subtitle}
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                            <div>
-                                <h3 className="text-xl font-bold uppercase tracking-widest mb-8 opacity-70">Overiew</h3>
-                                <p className="text-xl md:text-2xl leading-relaxed opacity-90">
-                                    {data.description}
+                    <main className="pt-24 pb-20 px-6">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="max-w-4xl mb-24">
+                                <h1 className="text-6xl md:text-8xl font-display font-bold mb-8 tracking-tighter leading-none">
+                                    {data.title}
+                                </h1>
+                                <p className="text-2xl md:text-3xl font-medium opacity-80 max-w-2xl leading-relaxed">
+                                    {data.subtitle}
                                 </p>
+                            </div>
 
-                                <div className="mt-12">
-                                    <Link to="/request-access">
-                                        <button className={`px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 active:scale-95 ${data.textColor === 'text-white' ? 'bg-white text-black' : 'bg-black text-white'}`}>
-                                            Book a Demo
-                                        </button>
-                                    </Link>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                                <div>
+                                    <h3 className="text-xl font-bold uppercase tracking-widest mb-8 opacity-70">Overiew</h3>
+                                    <p className="text-xl md:text-2xl leading-relaxed opacity-90">
+                                        {data.description}
+                                    </p>
+
+                                    <div className="mt-12">
+                                        <Link to="/request-access">
+                                            <button className={`px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 active:scale-95 ${data.textColor === 'text-white' ? 'bg-white text-black' : 'bg-black text-white'}`}>
+                                                Book a Demo
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                <div className={`p-12 rounded-3xl ${data.textColor === 'text-white' ? 'bg-white/10 border border-white/20' : 'bg-black/5 border border-black/10'}`}>
+                                    <h3 className="text-xl font-bold uppercase tracking-widest mb-8 opacity-70">Key Capabilities</h3>
+                                    <ul className="space-y-6">
+                                        {data.features.map((feature, i) => (
+                                            <li key={i} className="text-xl flex items-center gap-4">
+                                                <div className={`w-3 h-3 rounded-full ${data.textColor === 'text-white' ? 'bg-white' : 'bg-black'}`} />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
-
-                            <div className={`p-12 rounded-3xl ${data.textColor === 'text-white' ? 'bg-white/10 border border-white/20' : 'bg-black/5 border border-black/10'}`}>
-                                <h3 className="text-xl font-bold uppercase tracking-widest mb-8 opacity-70">Key Capabilities</h3>
-                                <ul className="space-y-6">
-                                    {data.features.map((feature, i) => (
-                                        <li key={i} className="text-xl flex items-center gap-4">
-                                            <div className={`w-3 h-3 rounded-full ${data.textColor === 'text-white' ? 'bg-white' : 'bg-black'}`} />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
                         </div>
-                    </div>
-                </main>
+                    </main>
 
-                <Footer />
-            </div>
+                    <Footer />
+                </div>
+            </PageTransition>
         </ReactLenis>
     );
 };

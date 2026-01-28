@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ArrowLeft, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import PageTransition from '../components/layout/PageTransition'
 import { GridSystem } from '../components/layout/GridSystem'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
@@ -46,7 +47,7 @@ export default function RequestAccess() {
     };
 
     return (
-        <div className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
+        <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
             <Navbar />
 
             <main className="flex-grow pt-24 pb-24 relative overflow-hidden">
@@ -184,6 +185,6 @@ export default function RequestAccess() {
             </main>
 
             <Footer />
-        </div>
+        </PageTransition>
     )
 }

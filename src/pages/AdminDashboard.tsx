@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import { useNavigate } from 'react-router-dom';
 import { User, Briefcase, LogOut } from 'lucide-react';
+import PageTransition from '../components/layout/PageTransition';
 
 interface Lead {
     id: number;
@@ -65,7 +66,7 @@ export default function AdminDashboard() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 text-graphite font-sans">
+        <PageTransition className="min-h-screen bg-gray-50 text-graphite font-sans">
             <Navbar theme="light" />
 
             <main className="pt-24 pb-20 px-6">
@@ -179,6 +180,6 @@ export default function AdminDashboard() {
                     </div>
                 </div>
             </main>
-        </div>
+        </PageTransition>
     );
 }

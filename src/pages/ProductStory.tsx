@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PageTransition from '../components/layout/PageTransition'
 import { motion } from 'framer-motion'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
@@ -35,7 +36,7 @@ const storyContent = [
 
 export default function ProductStory() {
     return (
-        <div className="bg-black text-coconut min-h-screen font-sans selection:bg-primary selection:text-white">
+        <PageTransition className="bg-black text-coconut min-h-screen font-sans selection:bg-primary selection:text-white">
             <Navbar theme="dark" />
 
             <main>
@@ -156,6 +157,6 @@ export default function ProductStory() {
             </main>
 
             <Footer />
-        </div>
+        </PageTransition>
     )
 }

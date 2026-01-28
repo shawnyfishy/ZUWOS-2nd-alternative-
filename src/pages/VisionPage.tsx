@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ReactLenis from 'lenis/react';
+import PageTransition from '../components/layout/PageTransition';
 import HeroSection from '../components/vision/HeroSection';
 import FragmentationSection from '../components/vision/FragmentationSection';
 import TheShiftSection from '../components/vision/TheShiftSection';
@@ -19,19 +20,21 @@ const VisionPage = () => {
 
     return (
         <ReactLenis root>
-            <div
-                ref={containerRef}
-                className="w-full min-h-screen bg-coconut text-graphite font-sans overflow-x-hidden selection:bg-saffron selection:text-white"
-            >
-                <Navbar />
-                <HeroSection />
-                <FragmentationSection />
-                <TheShiftSection />
-                <RevealSection />
-                <StakeholderSection />
-                <IndigenousSection />
-                <FinalCTA />
-            </div>
+            <PageTransition>
+                <div
+                    ref={containerRef}
+                    className="w-full min-h-screen bg-coconut text-graphite font-sans overflow-x-hidden selection:bg-saffron selection:text-white"
+                >
+                    <Navbar />
+                    <HeroSection />
+                    <FragmentationSection />
+                    <TheShiftSection />
+                    <RevealSection />
+                    <StakeholderSection />
+                    <IndigenousSection />
+                    <FinalCTA />
+                </div>
+            </PageTransition>
         </ReactLenis>
     );
 };
