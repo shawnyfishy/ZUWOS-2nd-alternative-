@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { GridSystem } from '../layout/GridSystem'
 import { TiltCard } from '../ui/TiltCard'
-import { Users, Building2, Wallet, Briefcase, Calculator, Package, ShieldCheck } from 'lucide-react'
+import { Users, Building2, Wallet, Briefcase, Package, ShieldCheck } from 'lucide-react'
 import CinematicReveal from '../utils/CinematicReveal'
 import TextRevealer from '../utils/TextRevealer'
 import {
@@ -10,7 +10,6 @@ import {
     HROpsVisual,
     FacilitiesVisual,
     FinanceVisual,
-    AccountantsVisual,
     ProcurementVisual,
     AdminsVisual
 } from './BentoVisuals'

@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageTransition from '../components/layout/PageTransition'
-import { ArrowLeft, Briefcase, Building2, Wallet, Calculator, Package, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, Briefcase, Building2, Wallet, Package, ShieldCheck } from 'lucide-react'
 import { GridSystem } from '../components/layout/GridSystem'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
