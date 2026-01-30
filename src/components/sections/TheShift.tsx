@@ -32,6 +32,7 @@ export default function TheShift() {
                         animate={{ scale: [1.2, 1, 1.2], opacity: [0, 0.5, 0] }}
                         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
                     />
+
                     <div className="relative z-10 p-8 bg-atlas rounded-2xl border border-coconut/10 max-w-sm">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-xl">🚀</div>

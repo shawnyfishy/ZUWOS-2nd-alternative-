@@ -15,6 +15,7 @@ export default {
         warning: '#9B6400',
         'accent-yellow': '#FAE100', // For bento grids
         'accent-pink': '#FFD7E4',
+        'accent-pink-dark': '#DB2777',
         'accent-blue': '#E6F5FF',
         // Vision Page Colors - Indigenous & Roles
         saffron: '#FF9933',

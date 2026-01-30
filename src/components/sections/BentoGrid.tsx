@@ -15,17 +15,18 @@ import {
     AdminsVisual
 } from './BentoVisuals'
 import AppMergingAnimation from '../ui/AppMergingAnimation'
+import ZuwosEcosystem from './ZuwosEcosystem'
 
 // Bento Grid Items
 const silos = [
     {
         id: "employees",
-        title: "Employees",
-        subtitle: "One App, Zero Friction",
+        title: "Employee OS",
+        subtitle: "One App for Everything",
         icon: Users,
         visual: EmployeesVisual,
-        bg: "bg-primary",
-        text: "text-white",
+        bg: "bg-primary", // RESTORED: Blue Background
+        text: "text-white", // RESTORED: White text
         colSpan: "col-span-12 md:col-span-6",
         aspect: "aspect-[2/1]",
         content: (
@@ -86,44 +87,22 @@ const silos = [
     },
     {
         id: "finance",
-        title: "Finance",
-        subtitle: "Real-time Truth",
+        title: "Finance and Accounts",
+        subtitle: "Real-time Truth & Compliance",
         icon: Wallet,
         visual: FinanceVisual,
         bg: "bg-accent-pink",
         text: "text-graphite",
-        colSpan: "col-span-12 md:col-span-4",
-        aspect: "aspect-square",
+        colSpan: "col-span-12 md:col-span-8",
+        aspect: "aspect-[2/1]",
         content: (
             <div className="space-y-6">
-                <h4 className="text-2xl font-bold">Financial Precision</h4>
-                <p className="text-xl opacity-90">Eliminate reconciliation lag. See costs as they happen.</p>
+                <h4 className="text-2xl font-bold">Total Financial Control</h4>
+                <p className="text-xl opacity-90">From real-time budget tracking to audit-ready books, manage your entire financial lifecycle in one place.</p>
                 <ul className="list-disc pl-5 space-y-2 opacity-80">
-                    <li>Live Budget Tracking</li>
-                    <li>Automated Expense Approvals</li>
-                    <li>Cost Center Allocation</li>
-                </ul>
-            </div>
-        )
-    },
-    {
-        id: "accountants",
-        title: "Accountants",
-        subtitle: "Audit Ready",
-        icon: Calculator,
-        visual: AccountantsVisual,
-        bg: "bg-accent-blue",
-        text: "text-graphite",
-        colSpan: "col-span-12 md:col-span-4",
-        aspect: "aspect-square",
-        content: (
-            <div className="space-y-6">
-                <h4 className="text-2xl font-bold">Error-Free Accounting</h4>
-                <p className="text-xl opacity-90">Keep your books balanced with automated tools and real-time syncing.</p>
-                <ul className="list-disc pl-5 space-y-2 opacity-80">
-                    <li>Automated Reconciliation</li>
-                    <li>Tax Compliance</li>
-                    <li>Audit Trails</li>
+                    <li>Live Budget & Expense Tracking</li>
+                    <li>Automated Reconciliation & Tax Compliance</li>
+                    <li>Cost Center Allocation & Audit Trails</li>
                 </ul>
             </div>
         )
@@ -181,9 +160,15 @@ export default function BentoGrid() {
         <section className="py-12 md:py-20 bg-coconut relative" id="solutions">
             <GridSystem>
                 <div className="col-span-12 mb-12 md:mb-20 flex flex-col items-center">
-                    <div className="w-full max-w-lg mb-8">
+                    <div className="w-full mb-8">
                         <AppMergingAnimation />
                     </div>
+
+                    {/* NEW SECTION: Ecosystem Showcase */}
+                    <div className="w-full mb-20 md:mb-32">
+                        <ZuwosEcosystem />
+                    </div>
+
                     <TextRevealer
                         text="One OS. Infinite Possibilities."
                         className="text-display-sm md:text-display-md font-display font-bold tracking-tighter justify-center text-center"
@@ -200,7 +185,7 @@ export default function BentoGrid() {
                         delay={idx * 0.1}
                     >
                         <motion.div
-                            onClick={() => navigate(`/docs/${item.id}`)}
+                            onClick={() => item.id === 'employees' ? navigate('/values/employees') : navigate(`/docs/${item.id}`)}
                             className="relative z-10 w-full"
                             data-cursor="Experience"
                             whileHover={{ scale: 0.98 }}

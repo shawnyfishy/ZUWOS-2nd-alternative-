@@ -24,41 +24,43 @@ export default function ValueProposition() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    {features.map((feature, idx) => (
-                        <CinematicReveal key={feature.id} delay={0.3 + (idx * 0.15)}>
-                            <motion.div
-                                whileHover={{
-                                    y: -16,
-                                    scale: 1.02,
-                                    transition: { type: "spring", stiffness: 300, damping: 20 }
-                                }}
-                                onClick={() => navigate(`/values/${feature.id}`)}
-                                className="group cursor-pointer h-full"
-                                data-cursor="View"
-                            >
-                                <div className="h-full p-8 md:p-10 bg-white border border-graphite/5 rounded-3xl shadow-sm group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-300 relative overflow-hidden">
-                                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-3xl transition-colors duration-300 pointer-events-none" />
+                    {features
+                        .filter(feature => feature.id !== 'employees') // Filter out Employee OS
+                        .map((feature, idx) => (
+                            <CinematicReveal key={feature.id} delay={0.3 + (idx * 0.15)}>
+                                <motion.div
+                                    whileHover={{
+                                        y: -16,
+                                        scale: 1.02,
+                                        transition: { type: "spring", stiffness: 300, damping: 20 }
+                                    }}
+                                    onClick={() => navigate(`/values/${feature.id}`)}
+                                    className="group cursor-pointer h-full"
+                                    data-cursor="View"
+                                >
+                                    <div className="h-full p-8 md:p-10 bg-white border border-graphite/5 rounded-3xl shadow-sm group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-300 relative overflow-hidden">
+                                        <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-3xl transition-colors duration-300 pointer-events-none" />
 
-                                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                        <feature.icon className="w-8 h-8" />
-                                    </div>
-                                    <h3 className="font-display font-bold text-2xl text-graphite mb-4 group-hover:text-primary transition-colors duration-300">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-lg text-graphite/70 leading-relaxed">
-                                        {feature.description}
-                                    </p>
+                                        <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                            <feature.icon className="w-8 h-8" />
+                                        </div>
+                                        <h3 className="font-display font-bold text-2xl text-graphite mb-4 group-hover:text-primary transition-colors duration-300">
+                                            {feature.title}
+                                        </h3>
+                                        <p className="text-lg text-graphite/70 leading-relaxed">
+                                            {feature.description}
+                                        </p>
 
-                                    <div className="mt-8 flex items-center text-primary font-bold opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm">
-                                        <span>Read More</span>
-                                        <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                        </svg>
+                                        <div className="mt-8 flex items-center text-primary font-bold opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm">
+                                            <span>Read More</span>
+                                            <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        </CinematicReveal>
-                    ))}
+                                </motion.div>
+                            </CinematicReveal>
+                        ))}
                 </div>
             </div>
         </section>

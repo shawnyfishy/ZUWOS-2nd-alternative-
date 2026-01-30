@@ -1,4 +1,4 @@
-import { Layers, Zap, Unlock } from 'lucide-react'
+import { Layers, Zap, Unlock, Users } from 'lucide-react'
 
 export const features = [
     {
@@ -50,5 +50,14 @@ export const features = [
                 <li class="pl-2"><strong class="text-graphite">No Vendor Lock-in:</strong> <span class="text-graphite/80">Open standards and exportable data ensure you're never held hostage.</span></li>
             </ul>
         `
+    },
+    {
+        // Placeholder for Employee OS page handling in ValueDetailPage.tsx
+        id: "employees",
+        icon: Users,
+        title: "Employee OS",
+        description: "One App for Everything",
+        detail: "",
+        longContent: ""
     }
 ]

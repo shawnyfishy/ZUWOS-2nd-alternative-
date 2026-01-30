@@ -1,38 +1,24 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageTransition from '../components/layout/PageTransition'
-import { ArrowLeft, Users, Briefcase, Building2, Wallet, Calculator, Package, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, Briefcase, Building2, Wallet, Calculator, Package, ShieldCheck } from 'lucide-react'
 import { GridSystem } from '../components/layout/GridSystem'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import Scroll3DReveal from '../components/ui/Scroll3DReveal'
+import EmployeeCarousel from '../components/sections/EmployeeCarousel'
+import HROpsShowcase from '../components/sections/HROpsShowcase'
+import FacilitiesShowcase from '../components/sections/FacilitiesShowcase'
+import FinanceShowcase from '../components/sections/FinanceShowcase'
+import ProcurementShowcase from '../components/sections/ProcurementShowcase'
 
 
 const docData: Record<string, any> = {
+    // employees data removed from here effectively as we handle it separately, 
+    // or kept for fallback but not used.
     employees: {
         title: "Employees OS",
-        subtitle: "One App for Everything.",
-        description: "The average employee switches between 10+ apps daily. ZUWOS unifies culture, admin, and performance into a single mobile-first interface.",
-        color: "bg-primary",
-        textColor: "text-white",
-        icon: Users,
-        sections: [
-            // Productivity & Collaboration
-            {
-                head: "Productivity & Collaboration",
-                body: "Everything an employee needs to get work done: Community Page, Project & Task Management, Chat & Collaboration, To Do Management, Calendar, Document Drive, and Personal Performance Dashboard."
-            },
-            // Workplace Services
-            {
-                head: "Smart Workplace Services",
-                body: "Seamless utilization of office resources: Visitor Management, Meeting Room Booking, Seat & Space Management, Parking Management, F&B Cafeteria Management, and Helpdesk (Admin, HR & IT)."
-            },
-            // Identity & HR
-            {
-                head: "Identity, HR & Perks",
-                body: "Manage your professional life: Digital Business Card, HRMS integration, and the Employee Incentive Cold Wallet for rewards."
-            }
-        ]
+        // ... (data kept just in case, but won't be used for rendering)
     },
     hr: {
         title: "HR Operations OS",
@@ -95,46 +81,32 @@ const docData: Record<string, any> = {
         ]
     },
     finance: {
-        title: "Finance OS",
-        subtitle: "Real-time Financial Truth.",
-        description: "Eliminate the lag between operations and accounting. Capture costs as they happen.",
+        title: "Finance and Accounts OS",
+        subtitle: "Real-time Truth & Compliance.",
+        description: "From real-time budget tracking to audit-ready books, manage your entire financial lifecycle in one place. Eliminate reconciliation lag and ensure every penny is accounted for.",
         color: "bg-accent-pink",
         textColor: "text-graphite",
         icon: Wallet,
         sections: [
             {
                 head: "Live Budget Tracking",
-                body: " Budgets update in real-time as purchase orders are raised, not when invoices are paid."
+                body: "Budgets update in real-time as purchase orders are raised, not when invoices are paid."
             },
             {
                 head: "Automated Reconciliation",
-                body: "Ops data syncs directly with finance ledgers, eliminating manual data entry errors."
+                body: "Ops data syncs directly with finance ledgers, eliminating manual data entry errors. Match bank transactions with internal records instantly."
             },
             {
                 head: "Cost Center Allocation",
                 body: "Automatically map expenses to the right teams and projects based on usage."
-            }
-        ]
-    },
-    accountants: {
-        title: "Accountants OS",
-        subtitle: "Audit Ready, Always.",
-        description: "Designed for precision and compliance. ZUWOS empowers accountants with automated tools that ensure every penny is accounted for and every regulation met.",
-        color: "bg-accent-blue",
-        textColor: "text-graphite",
-        icon: Calculator,
-        sections: [
-            {
-                head: "Smart Reconciliation",
-                body: "Automatically match bank transactions with internal records using AI-powered pattern recognition to spot discrepancies instantly."
             },
             {
                 head: "Tax Compliance Engine",
-                body: "Stay ahead of regulations with built-in tax rule updates that automatically flag potential compliance issues before they become penalties."
+                body: "Stay ahead of regulations with built-in tax rule updates that automatically flag potential compliance issues."
             },
             {
                 head: "Continuous Audit Trail",
-                body: "Every transaction is logged with timestamps, user IDs, and change history, making year-end audits a seamless, stress-free process."
+                body: "Every transaction is logged with timestamps, user IDs, and change history, making year-end audits a seamless process."
             }
         ]
     },
@@ -190,17 +162,111 @@ const docData: Record<string, any> = {
 
 export default function Documentation() {
     const { id } = useParams()
-    const data = docData[id || 'employees']
+
+    // Default to employees if no ID, but specific handling for 'employees'
+    const isEmployees = id === 'employees' || !id
+    const isHR = id === 'hr'
+    const isFinance = id === 'finance'
+    const isFacilities = id === 'facilities'
+    const isProcurement = id === 'procurement'
+
+    if (isEmployees) {
+        return (
+            <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                    <div className="w-full max-w-7xl mx-auto px-6 mb-8">
+                        <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="font-medium">Back to Overview</span>
+                        </Link>
+                    </div>
+                    <EmployeeCarousel />
+                </main>
+                <Footer />
+            </PageTransition>
+        )
+    }
+
+    if (isHR) {
+        return (
+            <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                    <div className="w-full max-w-7xl mx-auto px-6 mb-8">
+                        <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="font-medium">Back to Overview</span>
+                        </Link>
+                    </div>
+                    <HROpsShowcase />
+                </main>
+                <Footer />
+            </PageTransition>
+        )
+    }
+
+    if (isFinance) {
+        return (
+            <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                    <div className="w-full max-w-7xl mx-auto px-6 mb-8">
+                        <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="font-medium">Back to Overview</span>
+                        </Link>
+                    </div>
+                    <FinanceShowcase />
+                </main>
+                <Footer />
+            </PageTransition>
+        )
+    }
+
+    if (isFacilities) {
+        return (
+            <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                    <div className="w-full max-w-7xl mx-auto px-6 mb-8">
+                        <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="font-medium">Back to Overview</span>
+                        </Link>
+                    </div>
+                    <FacilitiesShowcase />
+                </main>
+                <Footer />
+            </PageTransition>
+        )
+    }
+
+    if (isProcurement) {
+        return (
+            <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                    <div className="w-full max-w-7xl mx-auto px-6 mb-8">
+                        <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="font-medium">Back to Overview</span>
+                        </Link>
+                    </div>
+                    <ProcurementShowcase />
+                </main>
+                <Footer />
+            </PageTransition>
+        )
+    }
+
+    const data = docData[id!]
 
     if (!data) return <div>Not Found</div>
 
     return (
         <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
             <Navbar />
-            {/* Use Global Navbar but maybe we want a back button too? Navbar has links to home anchors which might fail.
-           Actually, let's keep it for visual consistency.
-       */}
-
             <main className="flex-grow pt-24 pb-24">
                 <GridSystem>
                     {/* Header */}
@@ -243,8 +309,6 @@ export default function Documentation() {
                                 </Scroll3DReveal>
                             ))}
                         </div>
-
-
                     </div>
 
                     {/* Abstract Sidebar */}
