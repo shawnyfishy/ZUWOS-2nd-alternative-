@@ -25,7 +25,7 @@ export default function ValueProposition() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     {features
-                        .filter(feature => feature.id !== 'employees') // Filter out Employee OS
+                        .filter(feature => feature.id !== 'employees' && feature.id !== 'admins') // Filter out Employee OS and Admin OS
                         .map((feature, idx) => (
                             <CinematicReveal key={feature.id} delay={0.3 + (idx * 0.15)}>
                                 <motion.div
