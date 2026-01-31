@@ -363,15 +363,76 @@ export default function ZuwosEcosystem() {
                                 `}
                                 delay={delay}
                             >
-                                <motion.div
-                                    className="w-full h-full bg-[#0061FE] flex items-center justify-center relative overflow-hidden rounded-lg shadow-lg"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-[#0061FE] to-[#39D3FA]" />
-                                    <div className="absolute w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
-                                    <h2 className="text-2xl md:text-4xl font-display font-black text-white select-none relative z-10 tracking-widest">
-                                        ZUWOS
-                                    </h2>
-                                </motion.div>
+                                <div className="w-full h-full relative flex items-center justify-center p-[2px] rounded-lg overflow-hidden shrink-0">
+                                    {/* Rotating Gradient Border */}
+                                    <motion.div
+                                        className="absolute inset-[-50%]"
+                                        style={{
+                                            background: "conic-gradient(from 0deg, transparent 0deg, #39D3FA 90deg, transparent 180deg, #0061FE 270deg, transparent 360deg)"
+                                        }}
+                                        animate={{ rotate: 360 }}
+                                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                    />
+
+                                    {/* Ripple/Pulse Effect behind */}
+                                    <motion.div
+                                        className="absolute inset-0 bg-[#0061FE] rounded-lg z-0"
+                                        animate={{
+                                            boxShadow: [
+                                                "0 0 0 0px rgba(57, 211, 250, 0)",
+                                                "0 0 0 20px rgba(57, 211, 250, 0.2)",
+                                                "0 0 0 40px rgba(57, 211, 250, 0)"
+                                            ]
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: "linear"
+                                        }}
+                                    />
+
+                                    {/* Main Card Content */}
+                                    <motion.div
+                                        className="relative z-10 w-full h-full bg-[#0061FE] flex items-center justify-center rounded-[6px] overflow-hidden"
+                                        whileHover={{ scale: 0.98 }}
+                                    >
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[#0061FE] to-[#162A4C]" />
+
+                                        {/* Dynamic moving background accent */}
+                                        <motion.div
+                                            className="absolute w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(57,211,250,0.3)_0%,transparent_50%)]"
+                                            animate={{
+                                                x: ["-50%", "0%", "-50%"],
+                                                y: ["-50%", "0%", "-50%"],
+                                            }}
+                                            transition={{
+                                                duration: 8,
+                                                repeat: Infinity,
+                                                ease: "easeInOut"
+                                            }}
+                                        />
+
+                                        <div className="absolute w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay" />
+
+                                        <motion.h2
+                                            className="text-2xl md:text-4xl font-display font-black text-white select-none relative z-10 tracking-widest drop-shadow-lg"
+                                            animate={{
+                                                textShadow: [
+                                                    "0px 0px 0px rgba(255,255,255,0)",
+                                                    "0px 0px 10px rgba(255,255,255,0.5)",
+                                                    "0px 0px 0px rgba(255,255,255,0)"
+                                                ]
+                                            }}
+                                            transition={{
+                                                duration: 2,
+                                                repeat: Infinity,
+                                                ease: "easeInOut"
+                                            }}
+                                        >
+                                            ZUWOS
+                                        </motion.h2>
+                                    </motion.div>
+                                </div>
                             </CinematicReveal>
                         );
                     }
@@ -399,7 +460,7 @@ export default function ZuwosEcosystem() {
                     viewport={{ once: true }}
                     className="text-3xl md:text-5xl font-display font-bold tracking-tighter text-[#162A4C]"
                 >
-                    One Solution. Multiple Stakeholder.
+                    One OS. Infinite Possibilities.
                 </motion.p>
             </div>
 

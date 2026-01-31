@@ -11,6 +11,7 @@ import EngagementCycle from '../components/sections/EngagementCycle'
 import AppMergingAnimation from '../components/ui/AppMergingAnimation'
 import GratificationTabs from '../components/sections/GratificationTabs'
 import EmployeeOSShowcase from '../components/sections/EmployeeOSShowcase'
+import AdminOSShowcase from '../components/sections/AdminOSShowcase'
 
 export default function ValueDetailPage() {
     const { id } = useParams()
@@ -63,6 +64,14 @@ export default function ValueDetailPage() {
             return (
                 <div className="w-full">
                     <EmployeeOSShowcase />
+                </div>
+            )
+        }
+
+        if (id === 'admins') {
+            return (
+                <div className="w-full">
+                    <AdminOSShowcase />
                 </div>
             )
         }
@@ -128,7 +137,7 @@ export default function ValueDetailPage() {
                 */}
 
                 {/* Conditional Header Rendering */}
-                {id !== 'employees' && (
+                {id !== 'employees' && id !== 'admins' && (
                     <div className="container mx-auto px-6 max-w-4xl">
                         {/* Back Button */}
                         <button
@@ -160,7 +169,7 @@ export default function ValueDetailPage() {
                     Let's include just back button for employees separately or let them navigate via browser? 
                     Better UX: Keep a specialized simplified header or back button for employees.
                 */}
-                {id === 'employees' && (
+                {(id === 'employees' || id === 'admins') && (
                     <div className="container mx-auto px-6 max-w-7xl mb-8">
                         <button
                             onClick={() => navigate(-1)}

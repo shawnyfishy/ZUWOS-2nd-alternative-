@@ -169,7 +169,7 @@ export default function BentoGrid() {
                     </div>
 
                     <TextRevealer
-                        text="One OS. Infinite Possibilities."
+                        text="One Solution. Multiple Stakeholder."
                         className="text-display-sm md:text-display-md font-display font-bold tracking-tighter justify-center text-center"
                     />
                 </div>
@@ -184,7 +184,7 @@ export default function BentoGrid() {
                         delay={idx * 0.1}
                     >
                         <motion.div
-                            onClick={() => item.id === 'employees' ? navigate('/values/employees') : navigate(`/docs/${item.id}`)}
+                            onClick={() => (item.id === 'employees' || item.id === 'admins') ? navigate(`/values/${item.id}`) : navigate(`/docs/${item.id}`)}
                             className="relative z-10 w-full"
                             data-cursor="Experience"
                             whileHover={{ scale: 0.98 }}

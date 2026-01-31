@@ -59,5 +59,14 @@ export const features = [
         description: "One App for Everything",
         detail: "",
         longContent: ""
+    },
+    {
+        // Placeholder for Admin OS page handling in ValueDetailPage.tsx
+        id: "admins",
+        icon: Users, // Icon doesn't matter as it's not rendered for this view
+        title: "Admin OS",
+        description: "Total System Command",
+        detail: "",
+        longContent: ""
     }
 ]
