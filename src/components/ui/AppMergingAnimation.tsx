@@ -17,7 +17,6 @@ const AppMergingAnimation: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
     const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
-    const singularityRef = useRef<HTMLDivElement>(null);
 
     // 24 High-Quality Inline SVGs
     const apps = [
@@ -57,7 +56,7 @@ const AppMergingAnimation: React.FC = () => {
     ];
 
     useEffect(() => {
-        if (!containerRef.current || !logoRef.current || !singularityRef.current) return;
+        if (!containerRef.current || !logoRef.current) return;
 
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({
@@ -115,62 +114,44 @@ const AppMergingAnimation: React.FC = () => {
                 });
             });
 
-            gsap.set(singularityRef.current, { scale: 0, opacity: 0 });
-            gsap.set(logoRef.current, { opacity: 0, scale: 0, y: 50 });
+            // LOGO initial state: HIDDEN (Per user request: "Do not show Zuwos logo in the beginning")
+            gsap.set(logoRef.current, { opacity: 0, scale: 0 });
 
             // --- SEQUENCE ---
 
-            // 1. Reveal (Floating Upwards)
+            // 1. Reveal Apps (Floating Upwards)
             tl.to(elementsRef.current, {
                 opacity: 1,
                 scale: 1,
-                duration: 0.6, // Even Faster
+                duration: 0.8, // Slightly slower for elegance
                 stagger: {
                     from: "random",
-                    amount: 0.3 // Reduced stagger
+                    amount: 0.4
                 },
-                ease: "power2.out",
+                ease: "power3.out", // Smoother ease
             })
 
-                // 2. Singularity Appears (Immediately after reveal starts)
-                .to(singularityRef.current, {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.3,
-                    ease: "expo.out"
-                }, "-=0.2")
-
-                // 3. The Merge (Direct Suction)
+                // 2. The Merge: Apps sucked into the center
                 .to(elementsRef.current, {
                     x: 0,
                     y: 0,
                     scale: 0,
                     opacity: 0,
-                    rotation: 0,
-                    duration: 0.8, // Quick suction
-                    ease: "power4.in",
+                    duration: 0.6, // Faster suck-in for punchiness
+                    ease: "expo.in", // Dramatic suction
                     stagger: {
                         from: "center",
-                        amount: 0.1
+                        amount: 0.05 // Tighter stagger for cohesive merge
                     }
-                })
+                }, "+=0.2") // Slight pause before merge
 
-                // 5. Explosion
-                .to(singularityRef.current, {
-                    scale: 80,
-                    opacity: 0,
-                    duration: 0.4,
-                    ease: "power2.out"
-                })
-
-                // 6. Reveal
+                // 3. Logo Pop & Bounce (In-and-Out Scale Bounce)
                 .to(logoRef.current, {
                     opacity: 1,
                     scale: 1,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "elastic.out(1, 0.75)"
-                }, "<+=0.1");
+                    duration: 1.5, // Total time for pop + elastic settle
+                    ease: "elastic.out(1, 0.3)", // The "Pop and Bounce" (High elasticity for wobble)
+                }, "-=0.1"); // Start IMMEDIATELY as apps vanish
 
         }, containerRef);
 
@@ -182,10 +163,7 @@ const AppMergingAnimation: React.FC = () => {
             ref={containerRef}
             className="relative w-full h-[600px] flex items-center justify-center overflow-hidden bg-transparent perspective-1000"
         >
-            <div
-                ref={singularityRef}
-                className="absolute w-6 h-6 bg-primary rounded-full z-0 pointer-events-none"
-            />
+            {/* NO Singularity Dot anymore */}
 
             {apps.map((app, i) => (
                 <div

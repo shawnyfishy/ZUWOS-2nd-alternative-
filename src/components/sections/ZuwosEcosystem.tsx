@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { X, ArrowUpRight, Check } from 'lucide-react';
 import { TiltCard } from '../ui/TiltCard';
-import CinematicReveal from '../utils/CinematicReveal';
+import TextRevealer from '../utils/TextRevealer';
+
 
 // --- Card Configuration ---
 // Grid: 5x5. Center (3,3) is Logo.
@@ -115,6 +116,25 @@ const items = [
         id: 'cafeteria', label: 'F&B', sub: 'Cafeteria', color: 'bg-[#009933]', text: 'text-white', className: 'md:col-start-5 md:row-start-5', type: 'funnel',
         desc: "Order food and manage cafeteria operations seamlessly.",
         features: ["Menu Ordering", "Cashless Pay", "Inventory"]
+    },
+
+    // --- ROW 6 ---
+    {
+        // WIDE CARD: 2x1
+        id: 'documents', label: 'Documents', sub: 'Files', color: 'bg-[#FF0080]', text: 'text-white', className: 'md:col-start-1 md:col-span-2 md:row-start-6', type: 'type',
+        desc: "Centralized document management and version control.",
+        features: ["Collaborative Edit", "Version History", "Sharing"]
+    },
+    {
+        // WIDE CARD: 2x1
+        id: 'presentations', label: 'Presentations', sub: 'Slides', color: 'bg-[#7928CA]', text: 'text-white', className: 'md:col-start-3 md:col-span-2 md:row-start-6', type: 'shapes',
+        desc: "Create and share engaging presentations with your team.",
+        features: ["Templates", "Live Mode", "Multimedia"]
+    },
+    {
+        id: 'fetch-sheet', label: 'Fetch Sheet', sub: 'Data', color: 'bg-[#0070F3]', text: 'text-white', className: 'md:col-start-5 md:row-start-6', type: 'grid',
+        desc: "Powerful spreadsheets for data analysis and reporting.",
+        features: ["Formulas", "Pivot Tables", "Macros"]
     },
 ];
 
@@ -347,21 +367,45 @@ export default function ZuwosEcosystem() {
 
     return (
         <div className="w-full max-w-6xl mx-auto px-4 my-16 md:my-24 font-sans">
+            <div className="flex justify-center mb-16">
+                <TextRevealer
+                    text="One OS. Infinite Possibilities."
+                    className="text-display-sm md:text-display-md font-display font-bold tracking-tighter text-[#162A4C] text-center justify-center"
+                />
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-5 auto-rows-[120px] md:auto-rows-[160px] gap-2">
-
                 {items.map((item, index) => {
-                    const delay = index * 0.05;
+                    // Determine Side for Animation Direction
+                    let startX = 0;
+                    let startY = 30;
 
+                    if (item.className?.includes('col-start-1') || item.className?.includes('col-start-2')) {
+                        startX = -100; // From Left
+                        startY = 0;
+                    } else if (item.className?.includes('col-start-4') || item.className?.includes('col-start-5')) {
+                        startX = 100; // From Right
+                        startY = 0;
+                    }
+
+                    // Logo Specifics
                     if (item.isLogo) {
                         return (
-                            <CinematicReveal
+                            <motion.div
                                 key="LOGO"
                                 className={`
                                     col-start-1 col-span-2 row-start-3 
                                     ${item.className}
                                     z-10 relative overflow-hidden group
                                 `}
-                                delay={delay}
+                                initial={{ scale: 0.5, opacity: 0 }}
+                                whileInView={{ scale: 1, opacity: 1 }}
+                                viewport={{ once: true, margin: "-10%" }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 200,
+                                    damping: 20,
+                                    duration: 0.8
+                                }}
                             >
                                 <div className="w-full h-full relative flex items-center justify-center p-[2px] rounded-lg overflow-hidden shrink-0">
                                     {/* Rotating Gradient Border */}
@@ -384,11 +428,7 @@ export default function ZuwosEcosystem() {
                                                 "0 0 0 40px rgba(57, 211, 250, 0)"
                                             ]
                                         }}
-                                        transition={{
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "linear"
-                                        }}
+                                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                                     />
 
                                     {/* Main Card Content */}
@@ -398,71 +438,53 @@ export default function ZuwosEcosystem() {
                                     >
                                         <div className="absolute inset-0 bg-gradient-to-br from-[#0061FE] to-[#162A4C]" />
 
-                                        {/* Dynamic moving background accent */}
-                                        <motion.div
-                                            className="absolute w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(57,211,250,0.3)_0%,transparent_50%)]"
-                                            animate={{
-                                                x: ["-50%", "0%", "-50%"],
-                                                y: ["-50%", "0%", "-50%"],
-                                            }}
-                                            transition={{
-                                                duration: 8,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            }}
-                                        />
-
-                                        <div className="absolute w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay" />
-
-                                        <motion.h2
-                                            className="text-2xl md:text-4xl font-display font-black text-white select-none relative z-10 tracking-widest drop-shadow-lg"
-                                            animate={{
-                                                textShadow: [
-                                                    "0px 0px 0px rgba(255,255,255,0)",
-                                                    "0px 0px 10px rgba(255,255,255,0.5)",
-                                                    "0px 0px 0px rgba(255,255,255,0)"
-                                                ]
-                                            }}
-                                            transition={{
-                                                duration: 2,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            }}
-                                        >
-                                            ZUWOS
-                                        </motion.h2>
+                                        {/* Setup Text Masking Effect for 'ZUWOS' */}
+                                        <div className="relative z-10 overflow-hidden">
+                                            <motion.h2
+                                                className="text-2xl md:text-4xl font-display font-black text-white select-none tracking-widest drop-shadow-lg"
+                                                initial={{ y: "100%" }}
+                                                whileInView={{ y: 0 }}
+                                                transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+                                            >
+                                                ZUWOS
+                                            </motion.h2>
+                                        </div>
                                     </motion.div>
                                 </div>
-                            </CinematicReveal>
+                            </motion.div>
                         );
                     }
 
+                    // Standard Cards Animation
+                    // Calculate delay: Logo (0) -> Wait 0.4s -> Then items flow
+                    // Distance from center could dictate delay? 
+                    // Simple logic: Left/Right items delay based on index
+                    const standardDelay = 0.1; // FAST!
+                    const stagger = index * 0.02; // FAST STAGGER!
+
                     return (
-                        <CinematicReveal
+                        <motion.div
                             key={item.id}
                             className={`${item.className} col-span-1 row-span-1`}
-                            delay={delay}
+                            initial={{ x: startX, y: startY, opacity: 0 }}
+                            whileInView={{ x: 0, y: 0, opacity: 1 }}
+                            viewport={{ once: true, margin: "-5%" }}
+                            transition={{
+                                delay: standardDelay + stagger,
+                                duration: 0.6,
+                                ease: "easeOut"
+                            }}
                         >
                             <AnimatedCard
                                 item={item}
                                 onClick={() => setActiveId(item.id)}
                             />
-                        </CinematicReveal>
+                        </motion.div>
                     );
                 })}
             </div>
 
-            {/* Tagline */}
-            <div className="mt-16 text-center">
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-3xl md:text-5xl font-display font-bold tracking-tighter text-[#162A4C]"
-                >
-                    One OS. Infinite Possibilities.
-                </motion.p>
-            </div>
+
 
             <AnimatePresence>
                 {activeId && (
@@ -524,6 +546,6 @@ export default function ZuwosEcosystem() {
                     </>
                 )}
             </AnimatePresence>
-        </div>
+        </div >
     );
 }

@@ -9,7 +9,6 @@ import { ArrowLeft, CheckCircle2 } from 'lucide-react'
 import { useEffect } from 'react'
 import EngagementCycle from '../components/sections/EngagementCycle'
 import AppMergingAnimation from '../components/ui/AppMergingAnimation'
-import GratificationTabs from '../components/sections/GratificationTabs'
 import EmployeeOSShowcase from '../components/sections/EmployeeOSShowcase'
 import AdminOSShowcase from '../components/sections/AdminOSShowcase'
 
@@ -52,9 +51,6 @@ export default function ValueDetailPage() {
                 <div className="w-full space-y-20">
                     <div className="container mx-auto px-6 max-w-7xl">
                         <EngagementCycle />
-                    </div>
-                    <div className="container mx-auto px-6 max-w-7xl">
-                        <GratificationTabs />
                     </div>
                 </div>
             )
@@ -154,7 +150,7 @@ export default function ValueDetailPage() {
                                 <feature.icon className="w-10 h-10" />
                             </div>
 
-                            <h1 className="text-4xl md:text-5xl font-display font-bold text-graphite mb-6">
+                            <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-6">
                                 {feature.title}
                             </h1>
 

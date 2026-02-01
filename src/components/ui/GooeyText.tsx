@@ -133,7 +133,7 @@ export function GooeyText({
                     ref={text1Ref}
                     className={cn(
                         "absolute inline-block select-none text-left text-5xl md:text-7xl font-display font-bold tracking-tighter",
-                        "text-graphite",
+                        "text-primary",
                         textClassName
                     )}
                 />
@@ -141,7 +141,7 @@ export function GooeyText({
                     ref={text2Ref}
                     className={cn(
                         "absolute inline-block select-none text-left text-5xl md:text-7xl font-display font-bold tracking-tighter",
-                        "text-graphite",
+
                         textClassName
                     )}
                 />

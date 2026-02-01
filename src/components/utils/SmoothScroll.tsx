@@ -10,10 +10,10 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     useEffect(() => {
         // Initialize Lenis
         const lenis = new Lenis({
-            duration: 1.8,
-            lerp: 0.08, // Very smooth, luxurious feel
+            duration: 2.2, // Longer duration for heavier feel
+            lerp: 0.05, // Lower lerp = more smoothing/weight
             smoothWheel: true,
-            wheelMultiplier: 1,
+            wheelMultiplier: 1.2, // Compensate for low lerp responsiveness
             touchMultiplier: 2,
             infinite: false,
         })

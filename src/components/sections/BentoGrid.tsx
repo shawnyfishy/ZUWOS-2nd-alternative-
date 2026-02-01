@@ -156,7 +156,7 @@ export default function BentoGrid() {
     const navigate = useNavigate()
 
     return (
-        <section className="py-12 md:py-20 bg-coconut relative" id="solutions">
+        <section className="pb-12 md:pb-20 relative" id="solutions">
             <GridSystem>
                 <div className="col-span-12 mb-12 md:mb-20 flex flex-col items-center">
                     <div className="w-full mb-8">
