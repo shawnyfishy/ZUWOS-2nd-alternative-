@@ -21,7 +21,7 @@ const items = [
         // BIG CARD: 2x2
         id: 'community', label: 'Community', sub: 'Connect', color: 'bg-[#162A4C]', text: 'text-white', className: 'md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-2', type: 'nodes',
         desc: "Build a thriving workplace culture with forums, groups, and events.",
-        features: ["Interest Groups", "Events Calendar", "Town Halls"]
+        features: ["Interest Groups", "Events Calendar"]
     },
     {
         id: 'dashboard', label: 'Performance', sub: 'Dashboard', color: 'bg-[#FFD166]', text: 'text-[#162A4C]', className: 'md:col-start-3 md:row-start-1', type: 'chart',
@@ -535,7 +535,7 @@ export default function ZuwosEcosystem() {
                                             ))}
                                         </div>
 
-                                        <div className="flex items-center gap-2 mt-auto opacity-60 font-mono text-sm uppercase tracking-widest">
+                                        <div className="flex items-center gap-2 mt-auto opacity-60 font-mono text-sm uppercase tracking-widest hidden">
                                             <span>ZUWOS 2.0</span>
                                             <ArrowUpRight size={16} />
                                         </div>

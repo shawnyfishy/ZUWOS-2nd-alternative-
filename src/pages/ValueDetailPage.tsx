@@ -11,6 +11,7 @@ import EngagementCycle from '../components/sections/EngagementCycle'
 import AppMergingAnimation from '../components/ui/AppMergingAnimation'
 import EmployeeOSShowcase from '../components/sections/EmployeeOSShowcase'
 import AdminOSShowcase from '../components/sections/AdminOSShowcase'
+import SovereignCloudAnimation from '../components/vision/sovereign/SovereignCloudAnimation'
 
 export default function ValueDetailPage() {
     const { id } = useParams()
@@ -68,6 +69,19 @@ export default function ValueDetailPage() {
             return (
                 <div className="w-full">
                     <AdminOSShowcase />
+                </div>
+            )
+        }
+
+        if (id === 'sovereign-infrastructure') {
+            return (
+                <div className="container mx-auto px-6 max-w-7xl"> {/* Increased max-width */}
+                    <div className="w-full">
+                        {/* Main Content Area - Full Width */}
+                        <div className="w-full">
+                            <SovereignCloudAnimation />
+                        </div>
+                    </div>
                 </div>
             )
         }
