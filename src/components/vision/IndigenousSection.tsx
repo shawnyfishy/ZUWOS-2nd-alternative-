@@ -43,10 +43,10 @@ const IndigenousSection = () => {
         <section ref={sectionRef} className="w-full min-h-screen grid grid-cols-1 md:grid-cols-2 bg-coconut overflow-hidden">
 
             {/* Left: The Problem */}
-            <div ref={leftRef} className="p-12 md:p-24 flex flex-col justify-center border-r border-gray-200/50 relative">
+            <div ref={leftRef} className="p-6 md:p-24 flex flex-col justify-center border-r border-gray-200/50 relative">
                 <div className="max-w-xl mx-auto w-full">
                     <h2 className="text-display-sm font-display font-bold text-gray-300 mb-12 tracking-tighter leading-tight relative">
-                        <span className="absolute -left-12 top-0 text-9xl text-gray-100 -z-10 select-none">?</span>
+                        <span className="absolute -left-12 top-0 text-9xl text-gray-100 -z-10 select-none hidden md:block">?</span>
                         Big Tech sells <br />
                         <span className="text-gray-900 decoration-wavy decoration-red-400/30 underline-offset-8 line-through decoration-2">software licenses.</span>
                     </h2>
@@ -75,7 +75,7 @@ const IndigenousSection = () => {
             </div>
 
             {/* Right: The Solution */}
-            <div ref={rightRef} className="p-12 md:p-24 bg-white flex flex-col justify-center relative">
+            <div ref={rightRef} className="p-6 md:p-24 bg-white flex flex-col justify-center relative">
                 <div className="max-w-xl mx-auto w-full">
                     <div className="inline-flex items-center gap-3 px-4 py-2 bg-saffron/10 rounded-full text-saffron text-sm font-bold tracking-wider mb-8">
                         <div className="w-2 h-2 rounded-full bg-saffron animate-pulse" /> BUILT IN INDIA

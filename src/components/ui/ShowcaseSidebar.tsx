@@ -16,7 +16,7 @@ interface ShowcaseSidebarProps {
 
 export function ShowcaseSidebar({ items, currentIndex, onSelect, className }: ShowcaseSidebarProps) {
     return (
-        <div className={`hidden lg:flex flex-col items-start justify-start w-full pr-8 pt-2 max-h-[60vh] overflow-y-auto no-scrollbar mask-gradient ${className}`}>
+        <div className={`hidden lg:flex flex-col items-start justify-start w-full pr-8 pt-2 max-h-[60vh] overflow-y-auto minimal-scrollbar mask-gradient ${className}`}>
             <div className="space-y-3 w-full">
                 {items.map((item, idx) => {
                     const isActive = idx === currentIndex
@@ -63,7 +63,7 @@ export function ShowcaseSidebar({ items, currentIndex, onSelect, className }: Sh
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                         className="overflow-hidden pl-9"
                                     >
-                                        <p className="text-xs font-medium text-graphite/60 pt-2 pb-1 leading-relaxed max-w-[280px]">
+                                        <p className="text-base font-medium text-graphite/85 pt-2 pb-1 leading-relaxed max-w-[280px]">
                                             {item.description}
                                         </p>
                                     </motion.div>

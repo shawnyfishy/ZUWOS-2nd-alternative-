@@ -32,10 +32,10 @@ export default function Hero() {
                                 <TextRevealer
                                     text="India’s Integrated"
                                 />
-                                <div className="h-16 md:h-32 w-full relative -mt-2 md:-mt-4">
+                                <div className="h-24 md:h-32 w-full relative -mt-1 md:-mt-4">
                                     <GooeyText
                                         texts={["Workplace Management OS", "Employee Super-App", "Smart Facility Control"]}
-                                        textClassName="text-blue-600 leading-tight text-[clamp(1.5rem,7vw,4.5rem)]"
+                                        textClassName="text-blue-600 leading-tight text-[clamp(2rem,6vw,4.5rem)] pb-2"
                                         morphTime={1.5}
                                         cooldownTime={0.5}
                                     />
@@ -51,7 +51,7 @@ export default function Hero() {
                                 stagger={0.01}
                             />
 
-                            <CinematicReveal direction="up" delay={0.5}>
+                            <CinematicReveal direction="up" delay={0.5} viewportMargin="0px">
                                 <div className="flex flex-wrap gap-6">
                                     <Magnetic strength={0.4}>
                                         <Link to="/request-access">

@@ -11,8 +11,8 @@ const stakeholders = [
         color: 'text-primary',
         tagline: 'One App for Everything',
         features: [
-            { title: 'Everything in One App', desc: 'No app switching. Work + Culture + Admin.' },
-            { title: 'Performance Wallet', desc: 'Real-time effort tracking & transparent incentives.' },
+            { title: 'Everything in One App', desc: 'Work + Culture + Admin - All at one place.' },
+            { title: 'Recognition & Rewards', desc: 'Real-time effort tracking & transparent incentives.' },
             { title: 'Belonging', desc: 'Community feed, recognition, and digital identity.' }
         ]
     },
@@ -47,9 +47,9 @@ const stakeholders = [
         color: 'text-success',
         tagline: 'Real Time Financial Truth',
         features: [
-            { title: 'Live Cost Visibility', desc: 'Track expenses as they happen.' },
-            { title: 'No Reconciliation Delays', desc: 'Automatic syncing between ops and finance.' },
-            { title: 'Ops → Finance Sync', desc: 'Seamless integration with operational data.' }
+            { title: 'Real-Time Cost Visibility', desc: 'Track expenses instantly as they occur.' },
+            { title: 'No Reconciliation Delays', desc: 'Data stays automatically aligned—no manual follow-ups.' },
+            { title: 'Ops–Finance Sync', desc: 'Operational data flows seamlessly into finance systems.' }
         ]
     },
     {
@@ -59,9 +59,9 @@ const stakeholders = [
         color: 'text-atlas',
         tagline: 'Demand to Delivery, Unified',
         features: [
-            { title: 'Centralized Intelligence', desc: 'Vendor performance and pricing history.' },
-            { title: 'Predictive Procurement', desc: 'Forecast demand based on usage.' },
-            { title: 'Inventory Linked', desc: 'Real-time inventory levels trigger orders.' }
+            { title: 'Centralized Intelligence', desc: 'Complete visibility into vendors, pricing, and performance.' },
+            { title: 'Predictive Procurement', desc: 'Anticipate demand before shortages occur.' },
+            { title: 'Inventory-Linked Ordering', desc: 'Stock levels automatically initiate procurement, with Human-in-loop' }
         ]
     }
 ]

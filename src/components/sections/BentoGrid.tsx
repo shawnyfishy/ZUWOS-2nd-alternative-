@@ -20,7 +20,7 @@ import ZuwosEcosystem from './ZuwosEcosystem'
 const silos = [
     {
         id: "employees",
-        title: "Employee OS",
+        title: "Employee",
         subtitle: "One App for Everything",
         icon: Users,
         visual: EmployeesVisual,
@@ -169,7 +169,11 @@ export default function BentoGrid() {
                     </div>
 
                     <TextRevealer
-                        text="One Solution. Multiple Stakeholder."
+                        text="One Solution,"
+                        className="text-display-sm md:text-display-md font-display font-bold tracking-tighter justify-center text-center"
+                    />
+                    <TextRevealer
+                        text="Multiple Stakeholders."
                         className="text-display-sm md:text-display-md font-display font-bold tracking-tighter justify-center text-center"
                     />
                 </div>
@@ -206,7 +210,7 @@ export default function BentoGrid() {
 
                                 <div className="relative z-10">
                                     <h3 className="text-xl md:text-3xl font-display font-bold mb-1 tracking-tight">{item.title}</h3>
-                                    <p className="text-sm md:text-base opacity-80 font-medium">{item.subtitle}</p>
+                                    <p className="text-base md:text-lg opacity-80 font-medium">{item.subtitle}</p>
                                 </div>
                             </TiltCard>
                         </motion.div>

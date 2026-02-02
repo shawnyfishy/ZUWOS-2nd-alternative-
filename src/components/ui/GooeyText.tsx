@@ -127,12 +127,12 @@ export function GooeyText({
             </svg>
 
             <div
-                className="flex items-center justify-start h-full"
+                className="flex items-center justify-start h-full w-full relative"
             >
                 <span
                     ref={text1Ref}
                     className={cn(
-                        "absolute inline-block select-none text-left text-5xl md:text-7xl font-display font-bold tracking-tighter",
+                        "absolute inline-block select-none text-left font-display font-bold tracking-tighter w-full",
                         "text-primary",
                         textClassName
                     )}
@@ -140,7 +140,7 @@ export function GooeyText({
                 <span
                     ref={text2Ref}
                     className={cn(
-                        "absolute inline-block select-none text-left text-5xl md:text-7xl font-display font-bold tracking-tighter",
+                        "absolute inline-block select-none text-left font-display font-bold tracking-tighter w-full",
 
                         textClassName
                     )}

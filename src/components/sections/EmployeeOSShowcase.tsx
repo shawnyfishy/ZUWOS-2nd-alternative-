@@ -5,17 +5,17 @@ import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
 const modules = [
     { name: 'Calendar', description: 'Sync meetings, leaves, and events instantly.', mac: '/assets/employee-os/calendar-mac.png', mobile: '/assets/employee-os/calendar-mobile.png' },
-    { name: 'Chat', description: 'Secure enterprise messaging for teams.', mac: '/assets/employee-os/chat-mac.png', mobile: '/assets/employee-os/chat-mobile.png' },
-    { name: 'Community', description: 'Engage with tribes and interest groups.', mac: '/assets/employee-os/community-mac.png', mobile: '/assets/employee-os/community-mobile.png' },
-    { name: 'Digital Card', description: 'Share contact info with a QR tap.', mac: '/assets/employee-os/digital-card-mac.png', mobile: '/assets/employee-os/digital-card-mobile.png' },
-    { name: 'Documents', description: 'Access policies and slips on the go.', mac: '/assets/employee-os/documents-mac.png', mobile: '/assets/employee-os/documents-mobile.png' },
+    { name: 'Chat', description: 'Team Collaborations on the go', mac: '/assets/employee-os/chat-mac.png', mobile: '/assets/employee-os/chat-mobile.png' },
+    { name: 'Community', description: 'Engage with internal communities and interest groups', mac: '/assets/employee-os/community-mac.png', mobile: '/assets/employee-os/community-mobile.png' },
+    { name: 'Digital Card', description: 'Contact details shared in a single tap.', mac: '/assets/employee-os/digital-card-mac.png', mobile: '/assets/employee-os/digital-card-mobile.png' },
+    { name: 'Documents', description: 'Create, upload, and store files on the go.', mac: '/assets/employee-os/documents-mac.png', mobile: '/assets/employee-os/documents-mobile.png' },
     { name: 'F & B', description: 'Order food directly from the cafeteria.', mac: '/assets/employee-os/fnb-mac.png', mobile: '/assets/employee-os/fnb-mobile.png' },
     { name: 'Helpdesk', description: 'Raise and track IT or Admin tickets.', mac: '/assets/employee-os/helpdesk-mac.png', mobile: '/assets/employee-os/helpdesk-mobile.png' },
     { name: 'HRMS', description: 'Leaves, attendance, and payroll in one tab.', mac: '/assets/employee-os/hrms-mac.png', mobile: '/assets/employee-os/hrms-mobile.png' },
     { name: 'Meetings', description: 'Book rooms and invite attendees seamlessly.', mac: '/assets/employee-os/meeting-room-mac.png', mobile: '/assets/employee-os/meeting-room-mobile.png' },
     { name: 'Parking', description: 'Reserve spots and manage vehicle logs.', mac: '/assets/employee-os/parking-mac.png', mobile: '/assets/employee-os/parking-mobile.png' },
     { name: 'Performance', description: 'Track goals, reviews, and feedback.', mac: '/assets/employee-os/performance-mac.png', mobile: '/assets/employee-os/performance-mobile.png' },
-    { name: 'Projects', description: 'Manage tasks, sprints, and deadlines.', mac: '/assets/employee-os/projects-mac.png', mobile: '/assets/employee-os/projects-mobile.png' },
+    { name: 'Projects and Tasks', description: 'Manage tasks, sprints, and deadlines.', mac: '/assets/employee-os/projects-mac.png', mobile: '/assets/employee-os/projects-mobile.png' },
     { name: 'Seat Mgmt', description: 'Book desks in a hybrid workspace.', mac: '/assets/employee-os/seat-space-mac.png', mobile: '/assets/employee-os/seat-space-mobile.png' },
     { name: 'To-Do', description: 'Personal task manager for daily focus.', mac: '/assets/employee-os/todo-mac.png', mobile: '/assets/employee-os/todo-mobile.png' },
     { name: 'Visitor', description: 'Pre-approve guests and get entry codes.', mac: '/assets/employee-os/visitor-mac.png', mobile: '/assets/employee-os/visitor-mobile.png' },
@@ -38,7 +38,7 @@ export default function EmployeeOSShowcase() {
         if (!isPaused) {
             const interval = setInterval(() => {
                 setCurrentIndex((prev) => (prev + 1) % modules.length);
-            }, 4000);
+            }, 2000);
             return () => clearInterval(interval);
         }
     }, [isPaused]);
@@ -60,7 +60,7 @@ export default function EmployeeOSShowcase() {
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-8 md:mb-0">
                 <h2 className="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
-                    Employee OS
+                    Employee
                 </h2>
                 <span className="text-xl md:text-2xl font-medium text-graphite/60 block">
                     One App for Everything
@@ -139,7 +139,7 @@ export default function EmployeeOSShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">India's most unified</span>
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">India's First Unified</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -157,7 +157,7 @@ export default function EmployeeOSShowcase() {
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Platform for you.</span>
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Management System.</span>
                 </h3>
             </div>
         </section >

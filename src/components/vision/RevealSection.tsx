@@ -55,7 +55,7 @@ const RevealSection = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full min-h-dvh relative bg-graphite text-white flex flex-col items-center justify-center overflow-hidden pt-32 md:pt-72 px-4 md:px-0"
+            className="w-full min-h-dvh relative bg-graphite text-white flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-72 px-4 md:px-0"
         >
             {/* Background Radial Gradient */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-800 to-graphite z-0" />
@@ -63,7 +63,7 @@ const RevealSection = () => {
             <div ref={containerRef} className="relative z-10 max-w-6xl w-full flex flex-col items-center gap-6 text-center px-4">
 
                 <div className="perspective-1000">
-                    <h2 ref={textRef} className="text-4xl md:text-6xl font-display font-bold leading-tight tracking-tight">
+                    <h2 ref={textRef} className="text-3xl md:text-6xl font-display font-bold leading-tight tracking-tight">
                         One Workplace. <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">
                             One Operating System.

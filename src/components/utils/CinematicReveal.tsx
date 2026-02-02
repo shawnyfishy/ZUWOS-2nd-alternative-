@@ -8,6 +8,7 @@ interface CinematicRevealProps {
     duration?: number
     distance?: number
     className?: string
+    viewportMargin?: string
 }
 
 export default function CinematicReveal({
@@ -16,7 +17,8 @@ export default function CinematicReveal({
     delay = 0,
     duration = 0.7,
     distance = 40,
-    className = ""
+    className = "",
+    viewportMargin = "-10%"
 }: CinematicRevealProps) {
     // Robust-V2 Architecture for safety
     // Uses simple transform transitions that don't interfere with layout projection
@@ -39,7 +41,7 @@ export default function CinematicReveal({
                 y: 0,
                 filter: 'blur(0px)'
             }}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={{ once: true, margin: viewportMargin as any }}
             transition={{
                 duration: duration,
                 delay: delay,

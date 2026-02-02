@@ -1,4 +1,5 @@
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { StickyScroll } from '../story/StickyScroll';
@@ -12,64 +13,57 @@ import redemptionImg from '/EmployeeImages/redemption.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const content = [
-    {
-        title: "Projects & Tasks",
-        description: "Stay on top of your game with intuitive project tracking. Assign tasks, set deadlines, and monitor progress in real-time. Experience a workflow that adapts to you, not the other way around.",
-        content: (
-            <div className="h-full w-full flex items-center justify-center bg-zinc-100/50">
-                <img
-                    src={projectImg}
-                    alt="Projects and Tasks"
-                    className="w-full h-full object-contain rounded-3xl"
-                />
-            </div>
-        ),
-    },
-    {
-        title: "Rewards",
-        description: "Gamify your workspace. Earn points for every milestone achieved, task completed, or initiative taken. Recognition isn't just a pat on the back; it's tangible value in your pocket.",
-        content: (
-            <div className="h-full w-full flex items-center justify-center bg-purple-100/50">
-                <img
-                    src={rewardsImg}
-                    alt="Rewards"
-                    className="w-full h-full object-contain rounded-3xl"
-                />
-            </div>
-        ),
-    },
-    {
-        title: "Wallet",
-        description: "Your hard-earned points, securely stored. The Zuwos Cold Wallet gives you complete transparency and control over your workplace currency. Track your earnings and plan your next redemption.",
-        content: (
-            <div className="h-full w-full flex items-center justify-center bg-emerald-100/50">
-                <img
-                    src={walletImg}
-                    alt="Wallet"
-                    className="w-full h-full object-contain rounded-3xl"
-                />
-            </div>
-        ),
-    },
-    {
-        title: "Redemption",
-        description: "Instant gratification, redefined. Redeem your points for real-world rewards, gift cards, or experiences instantly. No waiting periods, no friction—just the rewards you deserve.",
-        content: (
-            <div className="h-full w-full flex items-center justify-center bg-orange-100/50">
-                <img
-                    src={redemptionImg}
-                    alt="Redemption"
-                    className="w-full h-full object-contain rounded-3xl"
-                />
-            </div>
-        ),
-    },
-];
-
 export default function EngagementCycle() {
     const containerRef = useRef<HTMLDivElement>(null);
     const wheelRef = useRef<HTMLDivElement>(null);
+    const [selectedFeature, setSelectedFeature] = useState<typeof content[0] | null>(null);
+
+    const content = [
+        {
+            id: 'projects',
+            title: "Projects & Tasks",
+            description: "Stay on top of your game with intuitive project tracking. Assign tasks, set deadlines, and monitor progress in real-time. Experience a workflow that adapts to you, not the other way around.",
+            image: projectImg,
+        },
+        {
+            id: 'rewards',
+            title: "Rewards",
+            description: "Gamify your workspace. Earn points for every milestone achieved, task completed, or initiative taken. Recognition isn't just a pat on the back; it's tangible value in your pocket.",
+            image: rewardsImg,
+        },
+        {
+            id: 'wallet',
+            title: "Wallet",
+            description: "Your hard-earned points, securely stored. The Zuwos Cold Wallet gives you complete transparency and control over your workplace currency. Track your earnings and plan your next redemption.",
+            image: walletImg,
+        },
+        {
+            id: 'redemption',
+            title: "Redemption",
+            description: "Instant gratification, redefined. Redeem your points for real-world rewards, gift cards, or experiences instantly. No waiting periods, no friction—just the rewards you deserve.",
+            image: redemptionImg,
+        },
+    ];
+
+    // Transform content for StickyScroll
+    const stickyScrollContent = content.map(item => ({
+        title: item.title,
+        description: item.description,
+        content: (
+            <motion.div
+                layoutId={`card-${item.id}`}
+                onClick={() => setSelectedFeature(item)}
+                className="h-full w-full flex items-center justify-center bg-white aspect-video rounded-3xl overflow-hidden border-4 border-white shadow-lg relative group cursor-zoom-in"
+            >
+                <motion.img
+                    layoutId={`image-${item.id}`}
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+            </motion.div>
+        )
+    }));
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -124,7 +118,7 @@ export default function EngagementCycle() {
                         <StaggerText>Real-Time Gratification</StaggerText>
                     </h4>
                     <StickyScroll
-                        content={content}
+                        content={stickyScrollContent}
                         contentClassName="bg-white/50 backdrop-blur-sm border border-black/5 shadow-xl"
                         titleClassName="text-slate-900"
                         descriptionClassName="text-slate-600"
@@ -134,6 +128,40 @@ export default function EngagementCycle() {
 
             {/* Background Ambience - Keeps light theme feeling */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-primary/5 to-transparent -z-0 pointer-events-none" />
+
+            {/* Lightbox / Modal */}
+            <AnimatePresence>
+                {selectedFeature && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/60 backdrop-blur-md cursor-zoom-out"
+                        onClick={() => setSelectedFeature(null)}
+                    >
+                        <motion.div
+                            layoutId={`card-${selectedFeature.id}`}
+                            className="relative w-full max-w-5xl aspect-video bg-zinc-100 rounded-3xl overflow-hidden border-4 border-white shadow-2xl"
+                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking card itself? Actually user probably wants to close. Let's keep it simple.
+                        >
+                            <motion.img
+                                layoutId={`image-${selectedFeature.id}`}
+                                src={selectedFeature.image}
+                                alt={selectedFeature.title}
+                                className="w-full h-full object-contain p-4"
+                            />
+
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setSelectedFeature(null)}
+                                className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-graphite p-2 rounded-full backdrop-blur-md transition-colors border border-black/5"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

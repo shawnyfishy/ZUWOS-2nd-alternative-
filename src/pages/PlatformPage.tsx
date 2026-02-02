@@ -63,29 +63,29 @@ const PlatformPage = () => {
                                 </p>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
                                 <div>
-                                    <h3 className="text-xl font-bold uppercase tracking-widest mb-8 opacity-70">Overiew</h3>
-                                    <p className="text-xl md:text-2xl leading-relaxed opacity-90">
+                                    <h3 className="text-lg md:text-xl font-bold uppercase tracking-widest mb-6 md:mb-8 opacity-70">Overview</h3>
+                                    <p className="text-lg md:text-2xl leading-relaxed opacity-90">
                                         {data.description}
                                     </p>
 
-                                    <div className="mt-12">
+                                    <div className="mt-8 md:mt-12">
                                         <Link to="/request-access">
-                                            <button className={`px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 active:scale-95 ${data.textColor === 'text-white' ? 'bg-white text-black' : 'bg-black text-white'}`}>
+                                            <button className={`w-full md:w-auto px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 active:scale-95 ${data.textColor === 'text-white' ? 'bg-white text-black' : 'bg-black text-white'}`}>
                                                 Book a Demo
                                             </button>
                                         </Link>
                                     </div>
                                 </div>
 
-                                <div className={`p-12 rounded-3xl ${data.textColor === 'text-white' ? 'bg-white/10 border border-white/20' : 'bg-black/5 border border-black/10'}`}>
-                                    <h3 className="text-xl font-bold uppercase tracking-widest mb-8 opacity-70">Key Capabilities</h3>
-                                    <ul className="space-y-6">
+                                <div className={`p-8 md:p-12 rounded-3xl ${data.textColor === 'text-white' ? 'bg-white/10 border border-white/20' : 'bg-black/5 border border-black/10'}`}>
+                                    <h3 className="text-lg md:text-xl font-bold uppercase tracking-widest mb-6 md:mb-8 opacity-70">Key Capabilities</h3>
+                                    <ul className="space-y-4 md:space-y-6">
                                         {data.features.map((feature, i) => (
-                                            <li key={i} className="text-xl flex items-center gap-4">
-                                                <div className={`w-3 h-3 rounded-full ${data.textColor === 'text-white' ? 'bg-white' : 'bg-black'}`} />
-                                                {feature}
+                                            <li key={i} className="text-lg md:text-xl flex items-start gap-4">
+                                                <div className={`w-3 h-3 rounded-full mt-2 shrink-0 ${data.textColor === 'text-white' ? 'bg-white' : 'bg-black'}`} />
+                                                <span>{feature}</span>
                                             </li>
                                         ))}
                                     </ul>

@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { gsap } from 'gsap';
 import { X, ArrowUpRight, Check } from 'lucide-react';
 import { TiltCard } from '../ui/TiltCard';
@@ -26,7 +26,7 @@ const items = [
     {
         id: 'dashboard', label: 'Performance', sub: 'Dashboard', color: 'bg-[#FFD166]', text: 'text-[#162A4C]', className: 'md:col-start-3 md:row-start-1', type: 'chart',
         desc: "Real-time insights into individual and team productivity metrics.",
-        features: ["KPI Tracking", "Goal Alignment", "360 Reviews"]
+        features: ["KPI Tracking", "Goal Alignment", "360° Reviews"]
     },
     {
         // WIDE CARD: 2x1
@@ -41,14 +41,14 @@ const items = [
     },
     {
         // Dark Grey to avoid looking like empty space
-        id: 'collab', label: 'Collaboration', sub: 'Sync', color: 'bg-[#333333]', text: 'text-white', className: 'md:col-start-4 md:row-start-2', type: 'waves',
-        desc: "Work together on documents, whiteboards, and ideas in real-time.",
+        id: 'collab', label: 'Collaboration', sub: 'Sync', color: 'bg-[#0097A7]', text: 'text-white', className: 'md:col-start-4 md:row-start-2', type: 'waves',
+        desc: "Real-time collaboration on documents, presentations and sheets.",
         features: ["Co-authoring", "Version History", "Live Comments"]
     },
     {
         id: 'calendar', label: 'Calendar', sub: 'Schedule', color: 'bg-[#0061FE]', text: 'text-white', className: 'md:col-start-5 md:row-start-2', type: 'grid',
         desc: "Unified scheduling for meetings, events, and resource planning.",
-        features: ["Smart Sync", "Room Availability", "Time Zones"]
+        features: ["Smart Sync", "Time Blocking"]
     },
 
     // --- ROW 3 & 4  ---
@@ -59,7 +59,7 @@ const items = [
         features: ["Access Control", "Versioning", "Smart Search"]
     },
     {
-        id: 'visitor', label: 'Visitor', sub: 'Management', color: 'bg-[#212121]', text: 'text-white', className: 'md:col-start-2 md:row-start-3', type: 'people',
+        id: 'visitor', label: 'Visitor', sub: 'Management', color: 'bg-[#AD1457]', text: 'text-white', className: 'md:col-start-2 md:row-start-3', type: 'people',
         desc: "Seamless digital reception and security for your office guests.",
         features: ["Pre-registration", "Digital Badges", "Host Alerts"]
     },
@@ -68,7 +68,7 @@ const items = [
     {
         id: 'meeting', label: 'Meeting Room', sub: 'Booking', color: 'bg-[#B4DC19]', text: 'text-[#162A4C]', className: 'md:col-start-4 md:row-start-3', type: 'curve',
         desc: "Book meeting spaces effortlessly with real-time display integration.",
-        features: ["Availability View", "Amenity Filter", "Instant Book"]
+        features: ["Book Rooms", "Schedule Facilities", "Availability View"]
     },
     {
         // TALL CARD: 1x2 (Row 3-4)
@@ -79,12 +79,12 @@ const items = [
 
     // Row 4 specific
     {
-        id: 'wallet', label: 'Wallet', sub: 'Finance', color: 'bg-[#D4C5F9]', text: 'text-[#162A4C]', className: 'md:col-start-2 md:row-start-4', type: 'lock',
-        desc: "Manage employee benefits, expenses, and credits digitally.",
-        features: ["Digital Cards", "Benefits", "Reimbursements"]
+        id: 'wallet', label: 'Wallet', sub: 'Rewards', color: 'bg-[#D4C5F9]', text: 'text-[#162A4C]', className: 'md:col-start-2 md:row-start-4', type: 'lock',
+        desc: "Real-time task tracking & transparent incentives.",
+        features: ["Performance-linked", "Automated"]
     },
     {
-        id: 'todo', label: 'TO DO', sub: 'Tasks', color: 'bg-[#1E1E1E]', text: 'text-white', className: 'md:col-start-3 md:row-start-4', type: 'type',
+        id: 'todo', label: 'TO DO', sub: 'Productivity', color: 'bg-[#5E35B1]', text: 'text-white', className: 'md:col-start-3 md:row-start-4', type: 'type',
         desc: "Personal task management system to keep you on track.",
         features: ["Reminders", "Prioritization", "Checklists"]
     },
@@ -103,9 +103,9 @@ const items = [
     },
     {
         // Purple to avoid looking like empty space
-        id: 'parking', label: 'Parking', sub: 'Slots', color: 'bg-[#5B3A9B]', text: 'text-white', className: 'md:col-start-3 md:row-start-5', type: 'grid',
+        id: 'parking', label: 'Parking', sub: 'Vehicle Management System', color: 'bg-[#5B3A9B]', text: 'text-white', className: 'md:col-start-3 md:row-start-5', type: 'grid',
         desc: "Smart parking slot allocation and management for employees.",
-        features: ["Slot Booking", "Vehicle Mgmt", "Real-time View"]
+        features: ["Slot Booking", "Real-time View"]
     },
     {
         id: 'task', label: 'Task', sub: 'Tracking', color: 'bg-[#FF9900]', text: 'text-white', className: 'md:col-start-4 md:row-start-5', type: 'kanban',
@@ -115,7 +115,7 @@ const items = [
     {
         id: 'cafeteria', label: 'F&B', sub: 'Cafeteria', color: 'bg-[#009933]', text: 'text-white', className: 'md:col-start-5 md:row-start-5', type: 'funnel',
         desc: "Order food and manage cafeteria operations seamlessly.",
-        features: ["Menu Ordering", "Cashless Pay", "Inventory"]
+        features: ["Hassle-free Ordering", "Cashless Pay", "Inventory Control"]
     },
 
     // --- ROW 6 ---
@@ -123,18 +123,18 @@ const items = [
         // WIDE CARD: 2x1
         id: 'documents', label: 'Documents', sub: 'Files', color: 'bg-[#FF0080]', text: 'text-white', className: 'md:col-start-1 md:col-span-2 md:row-start-6', type: 'type',
         desc: "Centralized document management and version control.",
-        features: ["Collaborative Edit", "Version History", "Sharing"]
+        features: ["Real-time Collaboration", "Version History", "Sharing"]
     },
     {
         // WIDE CARD: 2x1
         id: 'presentations', label: 'Presentations', sub: 'Slides', color: 'bg-[#7928CA]', text: 'text-white', className: 'md:col-start-3 md:col-span-2 md:row-start-6', type: 'shapes',
         desc: "Create and share engaging presentations with your team.",
-        features: ["Templates", "Live Mode", "Multimedia"]
+        features: ["Templates", "Live Mode", "Multimedia", "Real-time Collaboration"]
     },
     {
-        id: 'fetch-sheet', label: 'Fetch Sheet', sub: 'Data', color: 'bg-[#0070F3]', text: 'text-white', className: 'md:col-start-5 md:row-start-6', type: 'grid',
+        id: 'fetch-sheet', label: 'Sheets', sub: 'Data', color: 'bg-[#0070F3]', text: 'text-white', className: 'md:col-start-5 md:row-start-6', type: 'grid',
         desc: "Powerful spreadsheets for data analysis and reporting.",
-        features: ["Formulas", "Pivot Tables", "Macros"]
+        features: ["Formulas", "Pivot Tables", "Macros", "Real-time Collaboration"]
     },
 ];
 
@@ -362,6 +362,197 @@ const AnimatedCard = ({ item, onClick }: { item: any, onClick: () => void }) => 
     );
 };
 
+const ZuwosLogoCard = ({ item }: { item: any }) => {
+    // State for Flip Interaction
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    // 3D Depth Logic (Mouse Tilt)
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
+    const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
+
+    function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+        if (isFlipped) return; // Optional: Disable tilt when flipped
+        const rect = event.currentTarget.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseXVal = event.clientX - rect.left;
+        const mouseYVal = event.clientY - rect.top;
+        const xPct = mouseXVal / width - 0.5;
+        const yPct = mouseYVal / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
+    }
+
+    function handleMouseLeave() {
+        x.set(0);
+        y.set(0);
+    }
+
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["15deg", "-15deg"]);
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+    // Parallax depth for text (only active on front face normally)
+    const textZ = useTransform(mouseY, [-0.5, 0.5], ["40px", "60px"]);
+
+    const handleCardClick = () => {
+        setIsFlipped(!isFlipped);
+    };
+
+    return (
+        <motion.div
+            key="LOGO"
+            className={`
+                col-start-1 col-span-2 row-start-3 
+                ${item.className}
+                z-10 relative overflow-visible group perspective-1000 cursor-pointer
+            `}
+            style={{ perspective: 1000 }}
+            initial={{ scale: 0.5, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 20,
+                duration: 0.8
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleCardClick}
+        >
+            {/* Tilt Container (Handles Mouse Movement) */}
+            <motion.div
+                className="w-full h-full relative transform-style-3d transition-all duration-300"
+                style={{
+                    rotateX: isFlipped ? 0 : rotateX, // Reset tilt when flipped to avoid weird angles
+                    rotateY: isFlipped ? 0 : rotateY,
+                    transformStyle: "preserve-3d",
+                    zIndex: isFlipped ? 50 : 10 // Pop forward z-index
+                }}
+                animate={{
+                    // scale: isFlipped ? 1.1 : 1, // Removed Pop out scale to prevent overlap
+                }}
+            >
+                {/* Flip Container (Handles Click Rotation) */}
+                <motion.div
+                    className="w-full h-full relative transform-style-3d shadow-2xl rounded-lg"
+                    animate={{
+                        rotateY: isFlipped ? 180 : 0
+                    }}
+                    transition={{
+                        duration: 0.8,
+                        ease: [0.68, -0.55, 0.265, 1.55] // Custom bezier for a bit of "spring/bounce"
+                    }}
+                    style={{ transformStyle: "preserve-3d" }}
+                >
+                    {/* ================= FRONT FACE (Logo) ================= */}
+                    <div
+                        className="absolute inset-0 backface-hidden rounded-lg overflow-hidden flex items-center justify-center p-[2px]"
+                        style={{ backfaceVisibility: 'hidden' }}
+                    >
+                        {/* Front Content Wrapper */}
+                        <div className="w-full h-full relative rounded-[6px] overflow-hidden bg-black flex items-center justify-center">
+
+                            {/* 1. Pulse Background (Back Layer) */}
+                            <motion.div
+                                className="absolute inset-0 bg-[#0061FE]"
+                                style={{ transform: "translateZ(-20px)" }}
+                                animate={{
+                                    opacity: [0.3, 0.6, 0.3],
+                                    scale: [0.95, 1.05, 0.95]
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
+
+                            {/* Rotating Gradient Border (Middle) */}
+                            <motion.div
+                                className="absolute inset-[-50%]"
+                                style={{
+                                    background: "conic-gradient(from 0deg, transparent 0deg, #39D3FA 90deg, transparent 180deg, #0061FE 270deg, transparent 360deg)",
+                                    transform: "translateZ(0px)"
+                                }}
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                            />
+
+                            {/* Inner Black Card */}
+                            <div className="absolute inset-[2px] bg-black rounded-[5px] z-10" />
+
+                            {/* Main Card Content (Front) */}
+                            <motion.div
+                                className="relative z-20 w-full h-full flex items-center justify-center rounded-[6px] overflow-hidden transform-style-3d"
+                                style={{ transformStyle: "preserve-3d" }}
+                            >
+                                {/* Subtle Moving Gradient Orb */}
+                                <motion.div
+                                    className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle,_#0061FE15_0%,_transparent_70%)] blur-2xl z-0"
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                                />
+
+                                {/* Tech Grid Pattern */}
+                                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-60 z-0" />
+
+                                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#111] z-0" />
+
+                                {/* Text Masking Effect for 'ZUWOS' */}
+                                <div className="relative z-30 overflow-visible transform-style-3d">
+                                    <motion.h2
+                                        className="text-2xl md:text-4xl font-display font-black text-white select-none tracking-widest drop-shadow-xl"
+                                        style={{
+                                            transform: "translateZ(30px)", // Base Z
+                                            z: textZ // Dynamic Parallax Z
+                                        }}
+                                    >
+                                        ZUWOS
+                                    </motion.h2>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+
+                    {/* ================= BACK FACE (Text) ================= */}
+                    <div
+                        className="absolute inset-0 backface-hidden rounded-lg overflow-hidden flex items-center justify-center p-[2px] bg-[#0061FE]" // Blue border/bg for back
+                        style={{
+                            backfaceVisibility: 'hidden',
+                            transform: 'rotateY(180deg)'
+                        }}
+                    >
+                        <div className="w-full h-full bg-[#0a0a0a] rounded-[6px] flex flex-col items-center justify-center relative overflow-hidden">
+                            {/* Back Background Effects */}
+                            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30" />
+                            <motion.div
+                                className="absolute -bottom-1/2 -right-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle,_#39D3FA10_0%,_transparent_70%)] blur-3xl"
+                                animate={{ rotate: -360 }}
+                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            />
+
+                            <div className="text-center z-10 px-4">
+                                <h3 className="text-2xl md:text-3xl font-display font-bold text-white tracking-tight mb-1">
+                                    OneOS.
+                                </h3>
+                                <p className="text-lg md:text-xl font-medium text-white/80 tracking-wide">
+                                    InfinitePossibilities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </motion.div>
+            </motion.div>
+        </motion.div>
+    );
+};
+
+
 export default function ZuwosEcosystem() {
     const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -389,70 +580,7 @@ export default function ZuwosEcosystem() {
 
                     // Logo Specifics
                     if (item.isLogo) {
-                        return (
-                            <motion.div
-                                key="LOGO"
-                                className={`
-                                    col-start-1 col-span-2 row-start-3 
-                                    ${item.className}
-                                    z-10 relative overflow-hidden group
-                                `}
-                                initial={{ scale: 0.5, opacity: 0 }}
-                                whileInView={{ scale: 1, opacity: 1 }}
-                                viewport={{ once: true, margin: "-10%" }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 200,
-                                    damping: 20,
-                                    duration: 0.8
-                                }}
-                            >
-                                <div className="w-full h-full relative flex items-center justify-center p-[2px] rounded-lg overflow-hidden shrink-0">
-                                    {/* Rotating Gradient Border */}
-                                    <motion.div
-                                        className="absolute inset-[-50%]"
-                                        style={{
-                                            background: "conic-gradient(from 0deg, transparent 0deg, #39D3FA 90deg, transparent 180deg, #0061FE 270deg, transparent 360deg)"
-                                        }}
-                                        animate={{ rotate: 360 }}
-                                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                                    />
-
-                                    {/* Ripple/Pulse Effect behind */}
-                                    <motion.div
-                                        className="absolute inset-0 bg-[#0061FE] rounded-lg z-0"
-                                        animate={{
-                                            boxShadow: [
-                                                "0 0 0 0px rgba(57, 211, 250, 0)",
-                                                "0 0 0 20px rgba(57, 211, 250, 0.2)",
-                                                "0 0 0 40px rgba(57, 211, 250, 0)"
-                                            ]
-                                        }}
-                                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                                    />
-
-                                    {/* Main Card Content */}
-                                    <motion.div
-                                        className="relative z-10 w-full h-full bg-[#0061FE] flex items-center justify-center rounded-[6px] overflow-hidden"
-                                        whileHover={{ scale: 0.98 }}
-                                    >
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[#0061FE] to-[#162A4C]" />
-
-                                        {/* Setup Text Masking Effect for 'ZUWOS' */}
-                                        <div className="relative z-10 overflow-hidden">
-                                            <motion.h2
-                                                className="text-2xl md:text-4xl font-display font-black text-white select-none tracking-widest drop-shadow-lg"
-                                                initial={{ y: "100%" }}
-                                                whileInView={{ y: 0 }}
-                                                transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-                                            >
-                                                ZUWOS
-                                            </motion.h2>
-                                        </div>
-                                    </motion.div>
-                                </div>
-                            </motion.div>
-                        );
+                        return <ZuwosLogoCard key="LOGO" item={item} />;
                     }
 
                     // Standard Cards Animation
@@ -513,7 +641,7 @@ export default function ZuwosEcosystem() {
                                         <div className="flex justify-between items-start relative z-10">
                                             <div>
                                                 <h3 className="text-5xl font-display font-black tracking-tight mb-2">{item.label}</h3>
-                                                <p className="text-xl opacity-80 font-medium">{item.sub} Platform</p>
+                                                <p className="text-xl opacity-80 font-medium">{item.sub}{item.id === 'parking' ? '' : ' Platform'}</p>
                                             </div>
                                             <button onClick={() => setActiveId(null)} className="p-2 hover:bg-black/10 rounded-full transition-colors"><X size={32} /></button>
                                         </div>

@@ -27,7 +27,7 @@ export default function FinanceShowcase() {
         if (!isPaused) {
             const interval = setInterval(() => {
                 setCurrentIndex((prev) => (prev + 1) % modules.length);
-            }, 4000);
+            }, 2000);
             return () => clearInterval(interval);
         }
     }, [isPaused]);
@@ -47,7 +47,7 @@ export default function FinanceShowcase() {
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-8 md:mb-0">
                 <h2 className="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
-                    Finance and Accounts OS
+                    Finance and Accounts
                 </h2>
                 <span className="text-xl md:text-2xl font-medium text-graphite/60 block">
                     Real-time Truth & Compliance.
@@ -70,7 +70,7 @@ export default function FinanceShowcase() {
 
                 {/* Layer 2: Main Content (Centered) */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-5xl flex justify-center relative px-8 pointer-events-none">
-                    <div className="w-full max-w-4xl transform scale-90 lg:scale-100 transition-all duration-500 hover:scale-105 pointer-events-auto">
+                    <div className="w-full max-w-3xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
                         <MacBookFrame>
                             <div className="relative w-full h-full bg-white">
                                 <AnimatePresence mode="popLayout">
