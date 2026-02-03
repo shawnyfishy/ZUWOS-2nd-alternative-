@@ -90,7 +90,7 @@ export default function AdminOSShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">India's Most Unified</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">One stop solution for</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">

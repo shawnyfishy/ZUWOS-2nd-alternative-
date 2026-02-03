@@ -4,13 +4,17 @@ import { MacBookFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
 const modules = [
-    { name: 'Events', description: 'Track sourcing events and auctions.', img: '/assets/procurement/events.png' },
+    { name: 'MOR', description: 'Management of Request tracking.', img: '/assets/procurement/mor.png' },
     { name: 'Material Issue Slip', description: 'Document internal stock issuance.', img: '/assets/procurement/material-issue-slip.png' },
     { name: 'Material Order Approval', description: 'Streamlined multi-level approvals.', img: '/assets/procurement/material-order-approval.png' },
-    { name: 'Material Transfer Request', description: 'Move inventory between sites.', img: '/assets/procurement/material-transfer-request.png' },
-    { name: 'MOR', description: 'Management of Request tracking.', img: '/assets/procurement/mor-management.png' },
-    { name: 'Purchase Order', description: 'Auto-generate POs from requisitions.', img: '/assets/procurement/purchase-order.png' },
     { name: 'Service Intent', description: 'Service procurement workflow.', img: '/assets/procurement/service-intent.png' },
+    { name: 'MTO initiation', description: 'Move inventory between sites.', img: '/assets/procurement/mto-initiation.png' },
+    { name: 'MOR Management', description: 'Comprehensive request lifecycle management.', img: '/assets/procurement/mor-management.png' },
+    { name: 'Unassigned MOR', description: 'Manage and delegate pending requests.', img: '/assets/procurement/unassigned-mor.png' },
+    { name: 'Events', description: 'Track sourcing events and auctions.', img: '/assets/procurement/events.png' },
+    { name: 'Purchase Order', description: 'Auto-generate POs from requisitions.', img: '/assets/procurement/purchase-order.png' },
+    { name: 'ROPO', description: 'Release Order Purchase Order management.', img: '/assets/procurement/ropo.png' },
+    { name: 'PO import', description: 'Centralized list for bulk PO imports.', img: '/assets/procurement/po-import.png' },
 ];
 
 export default function ProcurementShowcase() {
@@ -89,7 +93,7 @@ export default function ProcurementShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">India's Most Unified</span>
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">One Stop Solution For</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -106,8 +110,6 @@ export default function ProcurementShowcase() {
                             </motion.span>
                         </AnimatePresence>
                     </span>
-
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Management System</span>
                 </h3>
             </div>
         </section>
