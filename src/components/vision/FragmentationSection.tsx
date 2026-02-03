@@ -74,17 +74,17 @@ const FragmentationSection = () => {
             className="w-full min-h-dvh relative bg-coconut flex flex-col items-center justify-center p-6 overflow-hidden md:p-8"
         >
             <div className="max-w-6xl w-full text-center z-10">
-                <h2 ref={headlineRef} className="text-4xl md:text-6xl font-display font-bold text-graphite mb-16">
+                <h2 ref={headlineRef} className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-graphite mb-10 md:mb-16">
                     Too many stakeholders. <br />
                     <span className="text-terracotta">Too many systems.</span>
                 </h2>
 
                 {/* Chaos Grid */}
-                <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-5 gap-8 place-items-center">
+                <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 place-items-center">
                     {silos.map((silo, idx) => (
                         <div
                             key={idx}
-                            className={`relative w-32 h-32 md:w-40 md:h-40 rounded-2xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-md transition-shadow ${idx % 2 === 0 ? 'mt-8' : '-mt-4'}`}
+                            className={`relative w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-2xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center bg-white shadow-sm hover:shadow-md transition-shadow ${idx % 2 === 0 ? 'mt-6 md:mt-8' : '-mt-2 md:-mt-4'}`}
                         >
                             {/* Disconnect indicator */}
                             <div className="absolute -top-3 -right-3 bg-red-50 text-red-500 rounded-full p-1 border border-red-100">
@@ -92,9 +92,9 @@ const FragmentationSection = () => {
                             </div>
 
                             <div className={`p-3 rounded-xl mb-2 ${silo.color} mb-3`}>
-                                <silo.icon size={32} />
+                                <silo.icon size={28} className="md:w-8 md:h-8" />
                             </div>
-                            <span className="font-medium text-sm text-gray-600">{silo.title}</span>
+                            <span className="font-medium text-xs md:text-sm text-gray-600">{silo.title}</span>
                         </div>
                     ))}
                 </div>

@@ -55,14 +55,14 @@ export default function EmployeeOSShowcase() {
     }, [currentIndex]);
 
     return (
-        <section ref={containerRef} className="w-full min-h-screen py-20 bg-coconut flex flex-col justify-between items-center relative">
+        <section ref={containerRef} className="w-full min-h-screen py-10 md:py-20 bg-coconut flex flex-col justify-between items-center relative overflow-hidden">
 
             {/* 1. Header (Top) */}
-            <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-8 md:mb-0">
-                <h2 className="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
+            <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-4 md:mb-0">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
                     Employee
                 </h2>
-                <span className="text-xl md:text-2xl font-medium text-graphite/60 block">
+                <span className="text-lg md:text-xl lg:text-2xl font-medium text-graphite/60 block">
                     One App for Everything
                 </span>
             </div>
@@ -90,11 +90,11 @@ export default function EmployeeOSShowcase() {
                     {/* Inner Wrapper for interaction if needed */}
                     <motion.div
                         style={{ y }}
-                        className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-8 transform scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto"
+                        className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-8 transform scale-90 md:scale-100 transition-all duration-500 hover:scale-[0.92] md:hover:scale-[1.02] pointer-events-auto"
                     >
 
                         {/* MacBook - More Smaller (max-w-2xl now) */}
-                        <div className="w-full max-w-2xl">
+                        <div className="w-full max-w-lg md:max-w-xl lg:max-w-2xl">
                             <MacBookFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">
@@ -114,7 +114,7 @@ export default function EmployeeOSShowcase() {
                         </div>
 
                         {/* iPhone Separated & Even Smaller */}
-                        <div className="w-[140px] md:w-[170px] shrink-0">
+                        <div className="w-[100px] md:w-[130px] lg:w-[170px] shrink-0">
                             <IPhoneFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">
@@ -139,7 +139,7 @@ export default function EmployeeOSShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">India's First Unified</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">India's First Unified</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -150,14 +150,14 @@ export default function EmployeeOSShowcase() {
                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                                 exit={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="text-xl md:text-3xl text-primary font-black whitespace-nowrap"
+                                className="text-lg md:text-2xl lg:text-3xl text-primary font-black whitespace-nowrap"
                             >
                                 {currentModule.name}
                             </motion.span>
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Management System.</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Management System.</span>
                 </h3>
             </div>
         </section >
