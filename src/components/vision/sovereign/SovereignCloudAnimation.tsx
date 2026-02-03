@@ -1,11 +1,19 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Server, Cloud, Shield, Lock, Database, CheckCircle, Network } from 'lucide-react'
 
 export default function SovereignCloudAnimation() {
     const [activeNode, setActiveNode] = useState<string | null>(null)
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768)
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
 
     return (
         <div className="w-full bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-graphite/5 overflow-hidden relative">
@@ -32,7 +40,7 @@ export default function SovereignCloudAnimation() {
             </div>
 
             {/* Main Interactive Diagram */}
-            <div className="relative z-10 min-h-[600px] w-full max-w-5xl mx-auto flex items-center justify-center mb-12 select-none">
+            <div className="relative z-10 min-h-[750px] md:min-h-[600px] w-full max-w-5xl mx-auto flex items-center justify-center mb-12 select-none">
 
                 {/* Connection Lines Layer */}
                 <svg className="absolute inset-0 w-full h-full overflow-visible pointer-events-none">
@@ -85,7 +93,7 @@ export default function SovereignCloudAnimation() {
 
                     {/* Mobile Connections (Vertical) */}
                     <motion.line
-                        x1="50%" y1="20%" x2="50%" y2="50%"
+                        x1="50%" y1="10%" x2="50%" y2="50%"
                         stroke="#cbd5e1"
                         strokeWidth="2"
                         className="md:hidden"
@@ -94,7 +102,7 @@ export default function SovereignCloudAnimation() {
                         transition={{ duration: 1 }}
                     />
                     <motion.line
-                        x1="50%" y1="80%" x2="50%" y2="50%"
+                        x1="50%" y1="90%" x2="50%" y2="50%"
                         stroke="#cbd5e1"
                         strokeWidth="2"
                         className="md:hidden"
@@ -125,13 +133,13 @@ export default function SovereignCloudAnimation() {
                             transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
                         />
 
-                        <div className="w-32 h-32 md:w-48 md:h-48 bg-white/50 backdrop-blur-xl rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-white/50 relative z-10 group overflow-hidden">
+                        <div className="w-24 h-24 md:w-48 md:h-48 bg-white/50 backdrop-blur-xl rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-white/50 relative z-10 group overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <Shield className="w-12 h-12 md:w-20 md:h-20 text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+                            <Shield className="w-10 h-10 md:w-20 md:h-20 text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
                         </div>
                     </motion.div>
 
-                    <div className="mt-8 text-center">
+                    <div className="mt-4 md:mt-8 text-center">
                         <h3 className="font-display font-bold text-graphite text-lg md:text-xl tracking-wide">ZUWOS Secured Core</h3>
                         <div className="flex items-center justify-center gap-2 mt-2">
                             <span className="px-3 py-1 bg-success/10 text-success text-xs font-semibold rounded-full border border-success/20 flex items-center">
@@ -146,11 +154,11 @@ export default function SovereignCloudAnimation() {
 
                 {/* Left Node: On-Premise */}
                 <motion.div
-                    className="absolute left-1/2 top-[10%] md:top-1/2 md:left-[20%] z-30 cursor-pointer"
-                    initial={{ x: "-50%", y: "-50%" }}
+                    className="absolute left-1/2 top-[5%] md:top-1/2 md:left-[20%] z-30 cursor-pointer"
+                    initial={{ x: "-50%", y: isMobile ? 0 : "-50%" }}
                     animate={{
                         x: "-50%",
-                        y: "-50%",
+                        y: isMobile ? 0 : "-50%",
                         scale: activeNode === 'on-premise' ? 1.1 : 1,
                         opacity: activeNode === 'private-cloud' ? 0.3 : 1
                     }}
@@ -174,11 +182,11 @@ export default function SovereignCloudAnimation() {
 
                 {/* Right Node: Private Cloud */}
                 <motion.div
-                    className="absolute left-1/2 bottom-[10%] md:bottom-auto md:top-1/2 md:left-[80%] md:right-auto z-30 cursor-pointer"
-                    initial={{ x: "-50%", y: "-50%" }}
+                    className="absolute left-1/2 bottom-[5%] md:bottom-auto md:top-1/2 md:left-[80%] md:right-auto z-30 cursor-pointer"
+                    initial={{ x: "-50%", y: isMobile ? 0 : "-50%" }}
                     animate={{
                         x: "-50%",
-                        y: "-50%",
+                        y: isMobile ? 0 : "-50%",
                         scale: activeNode === 'private-cloud' ? 1.1 : 1,
                         opacity: activeNode === 'on-premise' ? 0.3 : 1
                     }}
@@ -228,7 +236,7 @@ export default function SovereignCloudAnimation() {
                 <AnimatePresence>
                     {activeNode && (
                         <motion.div
-                            className="absolute bottom-4 md:bottom-10 left-0 right-0 mx-auto w-[90%] md:w-auto md:max-w-xl bg-white/90 backdrop-blur-xl border border-primary/20 p-1 rounded-2xl shadow-2xl z-50 overflow-hidden"
+                            className="absolute bottom-4 md:bottom-10 left-0 right-0 mx-auto w-[90%] md:w-auto md:max-w-xl bg-white/90 backdrop-blur-xl border border-primary/20 p-1 rounded-2xl shadow-2xl z-[100] overflow-hidden"
                             initial={{ opacity: 0, y: 20, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}

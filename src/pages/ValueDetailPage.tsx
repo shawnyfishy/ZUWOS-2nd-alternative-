@@ -82,6 +82,49 @@ export default function ValueDetailPage() {
                             <SovereignCloudAnimation />
                         </div>
                     </div>
+
+                    {/* NEW: Enriching Content */}
+                    <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Benefit Cards */}
+                        <div className="bg-white p-8 rounded-3xl border border-graphite/5 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                            </div>
+                            <h3 className="text-xl font-bold text-graphite mb-3">Data Residency</h3>
+                            <p className="text-graphite/60 leading-relaxed">
+                                Your data stays within Indian borders. Fully compliant with local regulations including strict adherence to the DPDP Act 2023.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-3xl border border-graphite/5 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="w-14 h-14 bg-success/10 rounded-2xl flex items-center justify-center mb-6 text-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-settings-2"><path d="M20 7h-9" /><path d="M14 17H5" /><circle cx="17" cy="17" r="3" /><circle cx="7" cy="7" r="3" /></svg>
+                            </div>
+                            <h3 className="text-xl font-bold text-graphite mb-3">Total Control</h3>
+                            <p className="text-graphite/60 leading-relaxed">
+                                Deploy on-premise or in your private cloud. You hold the encryption keys, ensuring no third-party access to your sensitive information.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-3xl border border-graphite/5 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 text-blue-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-unlock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 9.9-1" /></svg>
+                            </div>
+                            <h3 className="text-xl font-bold text-graphite mb-3">Zero Lock-in</h3>
+                            <p className="text-graphite/60 leading-relaxed">
+                                Built on open standards. Export your complete dataset in standard formats anytime without penalties or technical barriers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-20 border-t border-graphite/10 pt-16 mb-20">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">Security First Architecture</h2>
+                            <p className="text-xl text-graphite/70 leading-relaxed">
+                                ZUWOS is engineered with a "Zero Stress" security model. We separate the application layer from the data layer, giving you the flexibility to update the software while keeping the database isolated in your secure environment.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             )
         }

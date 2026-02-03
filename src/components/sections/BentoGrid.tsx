@@ -24,8 +24,8 @@ const silos = [
         subtitle: "One App for Everything",
         icon: Users,
         visual: EmployeesVisual,
-        bg: "bg-primary", // RESTORED: Blue Background
-        text: "text-white", // RESTORED: White text
+        bg: "bg-primary",
+        text: "text-white",
         colSpan: "col-span-12 md:col-span-6",
         aspect: "aspect-[2/1]",
         content: (
