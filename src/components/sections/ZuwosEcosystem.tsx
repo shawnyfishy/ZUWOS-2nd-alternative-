@@ -104,7 +104,7 @@ const items = [
     {
         // Purple to avoid looking like empty space
         id: 'parking', label: 'Parking', sub: 'Vehicle Management System', color: 'bg-[#5B3A9B]', text: 'text-white', className: 'md:col-start-3 md:row-start-5', type: 'grid',
-        desc: "Smart parking slot allocation and management for employees.",
+        desc: "Smart parking slot allocation and management for vehicles.",
         features: ["Slot Booking", "Real-time View"]
     },
     {

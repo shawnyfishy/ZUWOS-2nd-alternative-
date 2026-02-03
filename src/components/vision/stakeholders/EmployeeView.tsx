@@ -2,7 +2,7 @@ import { Award, Calendar } from 'lucide-react';
 
 const EmployeeView = () => {
     return (
-        <div className="w-full min-h-screen flex-shrink-0 bg-blue-600 flex flex-col md:flex-row relative overflow-hidden text-white">
+        <div className="w-[100vw] h-screen flex-shrink-0 bg-blue-600 flex flex-col md:flex-row relative overflow-hidden text-white">
             {/* Left Panel: Role & Features */}
             <div className="w-full md:w-[30%] h-auto md:h-full p-8 md:p-12 flex flex-col justify-center bg-blue-600 border-b md:border-b-0 md:border-r border-white/20 z-10 pt-20 md:pt-0">
                 <div className="mb-8">

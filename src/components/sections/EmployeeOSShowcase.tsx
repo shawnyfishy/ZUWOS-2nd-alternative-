@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MacBookFrame, IPhoneFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
@@ -24,11 +24,6 @@ const modules = [
 
 export default function EmployeeOSShowcase() {
     const containerRef = useRef<HTMLElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]); // Parallax effect
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
@@ -89,7 +84,6 @@ export default function EmployeeOSShowcase() {
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-[90rem] flex justify-center relative px-4 lg:pl-80 pointer-events-none">
                     {/* Inner Wrapper for interaction if needed */}
                     <motion.div
-                        style={{ y }}
                         className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-8 transform scale-90 md:scale-100 transition-all duration-500 hover:scale-[0.92] md:hover:scale-[1.02] pointer-events-auto"
                     >
 
@@ -139,7 +133,7 @@ export default function EmployeeOSShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Centralised</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">India's Most Unified</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -157,7 +151,7 @@ export default function EmployeeOSShowcase() {
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Management</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Management System</span>
                 </h3>
             </div>
         </section >

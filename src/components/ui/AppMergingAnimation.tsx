@@ -189,7 +189,7 @@ const AppMergingAnimation: React.FC = () => {
                 <h2 className="text-6xl md:text-8xl font-display font-black tracking-tighter text-graphite uppercase">
                     ZUWOS
                 </h2>
-                <div className="h-2 w-24 md:h-3 md:w-32 bg-primary mt-6 rounded-full opacity-80" />
+                {/* REMOVED BLUE LINE */}
             </div>
         </div>
     );

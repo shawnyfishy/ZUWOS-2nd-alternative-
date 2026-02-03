@@ -8,22 +8,29 @@ interface FrameProps {
 export const MacBookFrame: React.FC<FrameProps> = ({ children, className = '' }) => {
     return (
         <div className={`relative mx-auto ${className}`} style={{ maxWidth: '900px', aspectRatio: '16/10' }}>
-            {/* Modern MacBook Frame - Thinner Bezels, Boxier */}
-            <div className="relative h-full w-full bg-gray-950 rounded-t-2xl border-t-[5px] border-x-[5px] border-b-[2px] border-gray-800 shadow-2xl overflow-hidden ring-1 ring-white/10">
-                {/* Camera Notch Area - Smaller */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-3 bg-black rounded-b-md z-20 flex items-center justify-center pointer-events-none border-b border-x border-gray-900/50">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#0b0b0b] ring-1 ring-white/5"></div>
+            {/* Modern MacBook Pro 16 Style - Silver Body, Black Bezel */}
+
+            {/* 1. The Screen Lid (Silver Aluminum Backing + Black Bezel) */}
+            <div className="relative h-full w-full bg-black rounded-[18px] border-[6px] border-black shadow-2xl overflow-hidden ring-1 ring-white/20">
+                {/* Outer Silver Rim (Subtle) */}
+                <div className="absolute inset-[-2px] rounded-[20px] border-[2px] border-[#d4d4d8] pointer-events-none z-30 opacity-80"></div>
+
+                {/* Camera Notch Area - Integrated into black bezel */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-36 h-4 bg-black rounded-b-lg z-20 flex items-center justify-center pointer-events-none">
+                    {/* Camera Lens */}
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#1a1a1a] ring-1 ring-white/10 blur-[0.5px]"></div>
                 </div>
 
-                {/* Screen Content */}
-                <div className="absolute inset-0 bg-black overflow-hidden flex items-center justify-center rounded-t-xl">
+                {/* Screen Content - Corner Radius matching bezel */}
+                <div className="absolute inset-0 bg-black overflow-hidden flex items-center justify-center rounded-[12px]">
                     {children}
                 </div>
             </div>
-            {/* Bottom Keyboard Deck Edge - Prominent */}
-            <div className="relative h-4 w-[102%] -ml-[1%] bg-[#1a1a1a] rounded-b-lg shadow-xl border-t border-black/50 flex justify-center">
-                {/* Thumb Scoop Detail */}
-                <div className="w-[15%] h-[50%] bg-[#0f0f0f] rounded-b-md border-x border-b border-white/5 shadow-inner"></div>
+
+            {/* 2. Bottom Base (Silver Aluminum - Bigger & Darker) */}
+            <div className="relative h-4 w-[104%] -ml-[2%] bg-gradient-to-b from-[#d4d4d8] to-[#a1a1aa] rounded-b-xl shadow-2xl border-t border-[#71717a] flex justify-center items-start pt-1">
+                {/* Thumb Scoop Detail - Deeper */}
+                <div className="w-[15%] h-[40%] bg-[#a1a1aa] rounded-b-lg border-x border-b border-[#52525b]/50 shadow-inner"></div>
             </div>
         </div>
     );
