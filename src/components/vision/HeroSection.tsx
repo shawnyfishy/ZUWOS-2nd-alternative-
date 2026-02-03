@@ -55,7 +55,7 @@ const HeroSection = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white pt-16 pb-12 md:pt-24 md:pb-20"
+            className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden bg-white pt-32 pb-12 md:pt-40 md:pb-20"
         >
             {/* Background Pattern Overlay (Subtle) */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
