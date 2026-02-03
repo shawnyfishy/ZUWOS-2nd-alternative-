@@ -66,11 +66,11 @@ const HeroSection = () => {
                 {/* Visual: Logo */}
                 <div ref={shapesRef} className="mb-2 md:mb-6 flex flex-col items-center">
                     {/* Placeholder for Logo - Using Typography as fallback since no SVG provided */}
-                    <span className="font-display font-bold text-5xl md:text-7xl xl:text-8xl tracking-tighter text-graphite">ZUWOS</span>
+                    <span className="font-display font-bold text-5xl md:text-7xl 2xl:text-8xl tracking-tighter text-graphite">ZUWOS</span>
                 </div>
 
                 <div className="max-w-5xl mx-auto">
-                    <h1 ref={headlineRef} className="text-4xl md:text-6xl xl:text-7xl font-display font-bold tracking-tighter text-graphite leading-[1.1] mb-6 md:mb-8">
+                    <h1 ref={headlineRef} className="text-4xl md:text-6xl 2xl:text-7xl font-display font-bold tracking-tighter text-graphite leading-[1.1] mb-6 md:mb-8">
                         <SplitText charClass="char inline-block" className="overflow-hidden">
                             India&apos;s Integrated
                         </SplitText>

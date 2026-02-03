@@ -38,11 +38,11 @@ export default function AdminOSShowcase() {
     }, [currentIndex]);
 
     return (
-        <section className="w-full min-h-screen py-10 md:py-20 bg-coconut flex flex-col justify-between items-center relative overflow-hidden">
+        <section className="w-full min-h-screen py-8 md:py-12 2xl:py-20 bg-coconut flex flex-col justify-between items-center relative overflow-hidden">
 
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-4 md:mb-0">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
+                <h2 className="text-4xl md:text-6xl 2xl:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
                     Admin
                 </h2>
                 <span className="text-lg md:text-xl lg:text-2xl font-medium text-graphite/60 block">
@@ -66,7 +66,7 @@ export default function AdminOSShowcase() {
 
                 {/* Layer 2: Main Content (Centered) */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-5xl flex justify-center relative px-8 pointer-events-none">
-                    <div className="w-full max-w-3xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
+                    <div className="w-full max-w-2xl 2xl:max-w-3xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
                         <MacBookFrame>
                             <div className="relative w-full h-full bg-white">
                                 <AnimatePresence mode="popLayout">
@@ -90,7 +90,7 @@ export default function AdminOSShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Centralized</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Centralised</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -108,7 +108,7 @@ export default function AdminOSShowcase() {
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">management.</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Management</span>
                 </h3>
             </div>
         </section>

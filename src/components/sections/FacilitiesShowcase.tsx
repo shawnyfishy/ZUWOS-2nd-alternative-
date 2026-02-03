@@ -31,24 +31,24 @@ const modules = [
     { category: 'Finance', name: 'Accounting', description: 'Track facility-related expenses.', mac: '/assets/facilities/accounting-mac.png', mobile: '/assets/facilities/amc-mobile.png' },
 
     // 5. Utility
-    { category: 'Utility', name: 'Energy', description: 'Monitor energy consumption.', mac: '/assets/facilities/energy-mac.png', mobile: '/assets/facilities/energy-mobile.png' },
-    { category: 'Utility', name: 'Water', description: 'Track water usage and quality.', mac: '/assets/facilities/water-mac.png', mobile: '/assets/facilities/water-mobile.png' },
-    { category: 'Utility', name: 'Meter Reading', description: 'Automated utility meter tracking.', mac: '/assets/facilities/meter-mac.png', mobile: '/assets/facilities/meter-mobile.png' },
+    { category: 'Utility', name: 'Energy Management', description: 'Monitor energy consumption.', mac: '/assets/facilities/energy-mac.png', mobile: '/assets/facilities/energy-mobile.png' },
+    { category: 'Utility', name: 'Water Management', description: 'Track water usage and quality.', mac: '/assets/facilities/water-mac.png', mobile: '/assets/facilities/water-mobile.png' },
+    { category: 'Utility', name: 'Utility Meter Reading Management', description: 'Automated utility meter tracking.', mac: '/assets/facilities/meter-mac.png', mobile: '/assets/facilities/meter-mobile.png' },
 
     // 6. Security
-    { category: 'Security', name: 'Visitor', description: 'Streamline guest entry management.', mac: '/assets/facilities/visitor-mac.png', mobile: '/assets/facilities/visitor-mobile.png' },
-    { category: 'Security', name: 'Gatepass', description: 'Manage material movement gate passes.', mac: '/assets/facilities/gatepass-mac.png', mobile: '/assets/facilities/gatepass-mobile.png' },
-    { category: 'Security', name: 'Staff Entry', description: 'Manage staff access and attendance.', mac: '/assets/facilities/staff-entry-mac.png', mobile: '/assets/facilities/staff-entry-mobile.png' },
+    { category: 'Security', name: 'Visitor Management', description: 'Streamline guest entry management.', mac: '/assets/facilities/visitor-mac.png', mobile: '/assets/facilities/visitor-mobile.png' },
+    { category: 'Security', name: 'Gatepass Management', description: 'Manage material movement gate passes.', mac: '/assets/facilities/gatepass-mac.png', mobile: '/assets/facilities/gatepass-mobile.png' },
+    { category: 'Security', name: 'Staff Entry Management', description: 'Manage staff access and attendance.', mac: '/assets/facilities/staff-entry-mac.png', mobile: '/assets/facilities/staff-entry-mobile.png' },
     { category: 'Security', name: 'Patrolling', description: 'Monitor security guard routes.', mac: '/assets/facilities/patrolling-mac.png', mobile: '/assets/facilities/patrolling-mobile.png' },
 
     // 7. Value Added Services
-    { category: 'Value Added', name: 'F&B', description: 'Food and beverage management.', mac: '/assets/facilities/fnb-mac.png', mobile: '/assets/facilities/fnb-mobile.png' },
-    { category: 'Value Added', name: 'Parking', description: 'Manage parking spaces and allocation.', mac: '/assets/facilities/parking-mac.png', mobile: '/assets/facilities/parking-mobile.png' },
-    { category: 'Value Added', name: 'OSR', description: 'Occupancy Service Request management.', mac: '/assets/facilities/space-mac.png', mobile: '/assets/facilities/space-mobile.png' },
-    { category: 'Value Added', name: 'Space', description: 'Analyze floor plans and utilization.', mac: '/assets/facilities/space-mac.png', mobile: '/assets/facilities/space-mobile.png' },
-    { category: 'Value Added', name: 'Booking', description: 'Reserve meeting rooms and desks.', mac: '/assets/facilities/booking-mac.png', mobile: '/assets/facilities/booking-mobile.png' },
-    { category: 'Value Added', name: 'Mailroom', description: 'Track incoming and outgoing mail.', mac: '/assets/facilities/mailroom-mac.png', mobile: '/assets/facilities/mailroom-mobile.png' },
-    { category: 'Value Added', name: 'Lease Mgmt', description: 'Track property lease agreements.', mac: '/assets/facilities/lease-mac.png', mobile: '/assets/facilities/amc-mobile.png' },
+    { category: 'Value Added Services', name: 'F&B Management', description: 'Food and beverage management.', mac: '/assets/facilities/fnb-mac.png', mobile: '/assets/facilities/fnb-mobile.png' },
+    { category: 'Value Added Services', name: 'Parking Management', description: 'Manage parking spaces and allocation.', mac: '/assets/facilities/parking-mac.png', mobile: '/assets/facilities/parking-mobile.png' },
+    { category: 'Value Added Services', name: 'OSR Management', description: 'Occupancy Service Request management.', mac: '/assets/facilities/space-mac.png', mobile: '/assets/facilities/space-mobile.png' },
+    { category: 'Value Added Services', name: 'Space Management', description: 'Analyze floor plans and utilization.', mac: '/assets/facilities/space-mac.png', mobile: '/assets/facilities/space-mobile.png' },
+    { category: 'Value Added Services', name: 'Booking Management', description: 'Reserve meeting rooms and desks.', mac: '/assets/facilities/booking-mac.png', mobile: '/assets/facilities/booking-mobile.png' },
+    { category: 'Value Added Services', name: 'Mailroom Management', description: 'Track incoming and outgoing mail.', mac: '/assets/facilities/mailroom-mac.png', mobile: '/assets/facilities/mailroom-mobile.png' },
+    { category: 'Value Added Services', name: 'Lease Management', description: 'Track property lease agreements.', mac: '/assets/facilities/lease-mac.png', mobile: '/assets/facilities/amc-mobile.png' },
 ];
 
 export default function FacilitiesShowcase() {
@@ -77,7 +77,7 @@ export default function FacilitiesShowcase() {
     }, [currentIndex]);
 
     return (
-        <section className="w-full min-h-screen py-20 bg-coconut flex flex-col justify-between items-center relative">
+        <section className="w-full min-h-screen py-8 md:py-12 2xl:py-20 bg-coconut flex flex-col justify-between items-center relative">
 
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-8 md:mb-0">
@@ -110,7 +110,7 @@ export default function FacilitiesShowcase() {
                     <div className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-8 transform scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto">
 
                         {/* MacBook - More Smaller */}
-                        <div className="w-full max-w-2xl">
+                        <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-2xl">
                             <MacBookFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">

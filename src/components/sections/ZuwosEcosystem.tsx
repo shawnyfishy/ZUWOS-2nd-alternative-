@@ -134,7 +134,7 @@ const items = [
     {
         id: 'fetch-sheet', label: 'Sheets', sub: 'Data', color: 'bg-[#0070F3]', text: 'text-white', className: 'md:col-start-5 md:row-start-6', type: 'grid',
         desc: "Powerful spreadsheets for data analysis and reporting.",
-        features: ["Formulas", "Pivot Tables", "Macros", "Real-time Collaboration"]
+        features: ["Formulas and Macros", "Pivot Tables", "Data Visualisation", "Real-time Collaboration"]
     },
 ];
 

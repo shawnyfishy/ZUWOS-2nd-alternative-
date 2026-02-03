@@ -55,11 +55,11 @@ export default function EmployeeOSShowcase() {
     }, [currentIndex]);
 
     return (
-        <section ref={containerRef} className="w-full min-h-screen py-10 md:py-20 bg-coconut flex flex-col justify-between items-center relative overflow-hidden">
+        <section ref={containerRef} className="w-full min-h-screen py-8 md:py-12 2xl:py-20 bg-coconut flex flex-col justify-between items-center relative overflow-hidden">
 
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-4 md:mb-0">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
+                <h2 className="text-4xl md:text-6xl 2xl:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
                     Employee
                 </h2>
                 <span className="text-lg md:text-xl lg:text-2xl font-medium text-graphite/60 block">
@@ -94,7 +94,7 @@ export default function EmployeeOSShowcase() {
                     >
 
                         {/* MacBook - More Smaller (max-w-2xl now) */}
-                        <div className="w-full max-w-lg md:max-w-xl lg:max-w-2xl">
+                        <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-2xl">
                             <MacBookFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">
@@ -139,7 +139,7 @@ export default function EmployeeOSShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">India's First Unified</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Centralised</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -157,7 +157,7 @@ export default function EmployeeOSShowcase() {
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Management System.</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Management</span>
                 </h3>
             </div>
         </section >

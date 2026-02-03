@@ -20,7 +20,7 @@ import ZuwosEcosystem from './ZuwosEcosystem'
 const silos = [
     {
         id: "employees",
-        title: "Employee",
+        title: "Employees",
         subtitle: "One App for Everything",
         icon: Users,
         visual: EmployeesVisual,
@@ -130,7 +130,7 @@ const silos = [
     },
     {
         id: "admins",
-        title: "Admins",
+        title: "Admin",
         subtitle: "System Control",
         icon: ShieldCheck,
         visual: AdminsVisual,
