@@ -55,7 +55,7 @@ export default function EmployeeOSShowcase() {
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-4 md:mb-0">
                 <h2 className="text-4xl md:text-6xl 2xl:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
-                    Employee
+                    Employees
                 </h2>
                 <span className="text-lg md:text-xl lg:text-2xl font-medium text-graphite/60 block">
                     One App for Everything
