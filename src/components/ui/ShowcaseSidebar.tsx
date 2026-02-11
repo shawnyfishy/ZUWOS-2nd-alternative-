@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
@@ -15,6 +16,18 @@ interface ShowcaseSidebarProps {
 }
 
 export function ShowcaseSidebar({ items, currentIndex, onSelect, className }: ShowcaseSidebarProps) {
+    const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+
+    // Auto-scroll to active item
+    useEffect(() => {
+        if (itemRefs.current[currentIndex]) {
+            itemRefs.current[currentIndex]?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+            })
+        }
+    }, [currentIndex])
+
     return (
         <div className={`hidden lg:flex flex-col items-start justify-start w-full pr-8 pt-2 max-h-[60vh] overflow-y-auto minimal-scrollbar mask-gradient ${className}`}>
             <div className="space-y-3 w-full">
@@ -23,6 +36,7 @@ export function ShowcaseSidebar({ items, currentIndex, onSelect, className }: Sh
                     return (
                         <div
                             key={idx}
+                            ref={(el) => { itemRefs.current[idx] = el }}
                             onClick={() => onSelect(idx)}
                             className="group cursor-pointer w-full"
                         >
