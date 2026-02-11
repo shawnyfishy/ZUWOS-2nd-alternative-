@@ -3,18 +3,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MacBookFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
+import eventsImg from './NEWPROCUREMENTHDZUWOS/Copy of Events procurement web.png';
+import materialIssueSlipImg from './NEWPROCUREMENTHDZUWOS/Copy of Material Issue Slip web.png';
+import materialOrderApprovalImg from './NEWPROCUREMENTHDZUWOS/Copy of Material Order Approval web.png';
+import morImg from './NEWPROCUREMENTHDZUWOS/Copy of MOR web.png';
+import mtoInitiationImg from './NEWPROCUREMENTHDZUWOS/Copy of MTO initiation web.png';
+import poImportImg from './NEWPROCUREMENTHDZUWOS/Copy of PO (Import) web.png';
+import purchaseOrderImg from './NEWPROCUREMENTHDZUWOS/Copy of Purchase Order web.png';
+import ropoImg from './NEWPROCUREMENTHDZUWOS/Copy of ROPO Web.png';
+import serviceIndentImg from './NEWPROCUREMENTHDZUWOS/Copy of Service Indent WEb.png';
+import unassignedMorImg from './NEWPROCUREMENTHDZUWOS/Copy of Unassigned MOR web.png';
+import morManagementImg from './NEWPROCUREMENTHDZUWOS/MOR Management.png';
+
 const modules = [
-    { name: 'MOR', description: 'Management of Request tracking.', img: '/assets/procurement/mor.png' },
-    { name: 'Material Issue Slip', description: 'Document internal stock issuance.', img: '/assets/procurement/material-issue-slip.png' },
-    { name: 'Material Order Approval', description: 'Streamlined multi-level approvals.', img: '/assets/procurement/material-order-approval.png' },
-    { name: 'Service Intent', description: 'Service procurement workflow.', img: '/assets/procurement/service-intent.png' },
-    { name: 'MTO initiation', description: 'Move inventory between sites.', img: '/assets/procurement/mto-initiation.png' },
-    { name: 'MOR Management', description: 'Comprehensive request lifecycle management.', img: '/assets/procurement/mor-management.png' },
-    { name: 'Unassigned MOR', description: 'Manage and delegate pending requests.', img: '/assets/procurement/unassigned-mor.png' },
-    { name: 'Events', description: 'Track sourcing events and auctions.', img: '/assets/procurement/events.png' },
-    { name: 'Purchase Order', description: 'Auto-generate POs from requisitions.', img: '/assets/procurement/purchase-order.png' },
-    { name: 'ROPO', description: 'Release Order Purchase Order management.', img: '/assets/procurement/ropo.png' },
-    { name: 'PO import', description: 'Centralized list for bulk PO imports.', img: '/assets/procurement/po-import.png' },
+    { name: 'MOR', description: 'Management of Request tracking.', img: morImg },
+    { name: 'Material Issue Slip', description: 'Document internal stock issuance.', img: materialIssueSlipImg },
+    { name: 'Material Order Approval', description: 'Streamlined multi-level approvals.', img: materialOrderApprovalImg },
+    { name: 'Service Intent', description: 'Service procurement workflow.', img: serviceIndentImg },
+    { name: 'MTO initiation', description: 'Move inventory between sites.', img: mtoInitiationImg },
+    { name: 'MOR Management', description: 'Comprehensive request lifecycle management.', img: morManagementImg },
+    { name: 'Unassigned MOR', description: 'Manage and delegate pending requests.', img: unassignedMorImg },
+    { name: 'Events', description: 'Track sourcing events and auctions.', img: eventsImg },
+    { name: 'Purchase Order', description: 'Auto-generate POs from requisitions.', img: purchaseOrderImg },
+    { name: 'ROPO', description: 'Release Order Purchase Order management.', img: ropoImg },
+    { name: 'PO import', description: 'Centralized list for bulk PO imports.', img: poImportImg },
 ];
 
 export default function ProcurementShowcase() {
@@ -69,7 +81,7 @@ export default function ProcurementShowcase() {
 
                 {/* Layer 2: Main Content (Centered) */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-5xl flex justify-center relative px-8 pointer-events-none">
-                    <div className="w-full max-w-2xl 2xl:max-w-3xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
+                    <div className="w-full max-w-2xl 2xl:max-w-4xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
                         <MacBookFrame>
                             <div className="relative w-full h-full bg-white">
                                 <AnimatePresence mode="popLayout">
@@ -77,7 +89,7 @@ export default function ProcurementShowcase() {
                                         key={`mac-${currentIndex}`}
                                         src={currentModule.img}
                                         alt={currentModule.name}
-                                        className="absolute inset-0 w-full h-full object-contain"
+                                        className="absolute inset-0 w-full h-full object-cover object-top image-pixel-perfect"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}

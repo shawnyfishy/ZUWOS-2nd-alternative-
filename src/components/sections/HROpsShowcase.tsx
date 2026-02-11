@@ -4,9 +4,9 @@ import { MacBookFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
 const modules = [
-    { name: 'Role', description: 'Define clear hierarchies and permissions.', mac: '/assets/hr-ops/role-mac.png' },
-    { name: 'Lock Function', description: 'Secure sensitive data with role-based restrictions.', mac: '/assets/hr-ops/lock-mac.png' },
-    { name: 'Department', description: 'Structure your organization by business units.', mac: '/assets/hr-ops/department-mac.png' },
+    { name: 'Role', description: 'Define clear hierarchies and permissions.', mac: '/hrops-new/role.png' },
+    { name: 'Lock Function', description: 'Secure sensitive data with role-based restrictions.', mac: '/hrops-new/lock.png' },
+    { name: 'Department', description: 'Structure your organization by business units.', mac: '/hrops-new/department.png' },
 ];
 
 export default function HROpsShowcase() {
@@ -61,7 +61,7 @@ export default function HROpsShowcase() {
 
                 {/* Layer 2: Main Content (Centered) */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-5xl flex justify-center relative px-8 pointer-events-none">
-                    <div className="w-full max-w-3xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
+                    <div className="w-full max-w-3xl 2xl:max-w-4xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
                         <MacBookFrame>
                             <div className="relative w-full h-full bg-white">
                                 <AnimatePresence mode="popLayout">
@@ -69,7 +69,7 @@ export default function HROpsShowcase() {
                                         key={`mac-${currentIndex}`}
                                         src={currentModule.mac}
                                         alt={currentModule.name}
-                                        className="absolute inset-0 w-full h-full object-contain"
+                                        className="absolute inset-0 w-full h-full object-cover object-top image-pixel-perfect"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}

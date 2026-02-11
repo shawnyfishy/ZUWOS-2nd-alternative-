@@ -3,19 +3,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MacBookFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
+import accountingImg from './NEWADMINHDZUWOS/Copy of Accounting Finance web.png';
+import balanceSheetImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Balance Sheet web.png';
+import budgetImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Budget.png';
+import chartOfAccountantImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Charts of Accounts web.png';
+import gstPayableImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of GST Payable web.png';
+import manualJournalImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Manual Journals Web.png';
+import openingBalanceImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Opening Balance web.png';
+import procurementImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Procurement Finance web.png';
+import profitAndLossImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Profit & Loss Web.png';
+import taxSummaryImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Tax Summary Web.png';
+import transactionImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Transaction web.png';
+import vendorImg from './NEWFINANCEANDACCOUNTSHDZUWOS/Copy of Vendor Management (Finance web).png';
+
 const modules = [
-    { name: 'Accounting', description: 'Real-time ledger and compliance.', mac: '/assets/finance/accounting-mac.png' },
-    { name: 'Balance Sheet', description: 'Instant financial health visualization.', mac: '/assets/finance/balance-sheet-mac.png' },
-    { name: 'Budget', description: 'Track planned vs actual spend.', mac: '/assets/finance/budget-mac.png' },
-    { name: 'Chart of Accountant', description: 'Customizable account hierarchy.', mac: '/assets/finance/chart-of-accountant-mac.png' },
-    { name: 'GST Payable', description: 'Automated tax calculation and filing.', mac: '/assets/finance/gst-payable-mac.png' },
-    { name: 'Manual Journal', description: 'Accurate adjustments and corrections.', mac: '/assets/finance/manual-journal-mac.png' },
-    { name: 'Opening Balance', description: 'Seamless fiscal year transition.', mac: '/assets/finance/opening-balance-mac.png' },
-    { name: 'Procurement', description: 'Integrated purchase workflow.', mac: '/assets/finance/procurement-mac.png' },
-    { name: 'Profit and Loss', description: 'Live automated P&L statements.', mac: '/assets/finance/profit-and-loss-mac.png' },
-    { name: 'Tax Summary', description: 'Comprehensive tax liability view.', mac: '/assets/finance/tax-summary-mac.png' },
-    { name: 'Transaction', description: 'Detailed audit trail of every rupee.', mac: '/assets/finance/transaction-mac.png' },
-    { name: 'Vendor', description: 'Manage payables and relationships.', mac: '/assets/finance/vendor-mac.png' },
+    { name: 'Accounting', description: 'Real-time ledger and compliance.', mac: accountingImg },
+    { name: 'Balance Sheet', description: 'Instant financial health visualization.', mac: balanceSheetImg },
+    { name: 'Budget', description: 'Track planned vs actual spend.', mac: budgetImg },
+    { name: 'Chart of Accountant', description: 'Customizable account hierarchy.', mac: chartOfAccountantImg },
+    { name: 'GST Payable', description: 'Automated tax calculation and filing.', mac: gstPayableImg },
+    { name: 'Manual Journal', description: 'Accurate adjustments and corrections.', mac: manualJournalImg },
+    { name: 'Opening Balance', description: 'Seamless fiscal year transition.', mac: openingBalanceImg },
+    { name: 'Procurement', description: 'Integrated purchase workflow.', mac: procurementImg },
+    { name: 'Profit and Loss', description: 'Live automated P&L statements.', mac: profitAndLossImg },
+    { name: 'Tax Summary', description: 'Comprehensive tax liability view.', mac: taxSummaryImg },
+    { name: 'Transaction', description: 'Detailed audit trail of every rupee.', mac: transactionImg },
+    { name: 'Vendor', description: 'Manage payables and relationships.', mac: vendorImg },
 ];
 
 export default function FinanceShowcase() {
@@ -70,7 +83,7 @@ export default function FinanceShowcase() {
 
                 {/* Layer 2: Main Content (Centered) */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-5xl flex justify-center relative px-8 pointer-events-none">
-                    <div className="w-full max-w-3xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
+                    <div className="w-full max-w-3xl 2xl:max-w-4xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
                         <MacBookFrame>
                             <div className="relative w-full h-full bg-white">
                                 <AnimatePresence mode="popLayout">
@@ -78,7 +91,7 @@ export default function FinanceShowcase() {
                                         key={`mac-${currentIndex}`}
                                         src={currentModule.mac}
                                         alt={currentModule.name}
-                                        className="absolute inset-0 w-full h-full object-contain"
+                                        className="absolute inset-0 w-full h-full object-cover object-top image-pixel-perfect"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}

@@ -7,6 +7,10 @@
 :root {
   --primary-rgb: 37, 99, 235;
   /* Blue 600 */
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
 }
 
 @layer base {
@@ -20,17 +24,21 @@
     overflow-x: hidden;
     width: 100%;
     position: relative;
+    padding-top: var(--sat);
+    padding-bottom: var(--sab);
+    padding-left: var(--sal);
+    padding-right: var(--sar);
   }
 
   /* Engineered Fluid Typography for Perfection across 320px - 1440px+ */
   h1 {
-    font-size: clamp(2rem, 8vw, 5.5rem);
-    @apply leading-[1] tracking-tighter;
+    font-size: clamp(2.5rem, 9vw, 6rem);
+    @apply leading-[0.95] tracking-tighter;
   }
 
   h2 {
-    font-size: clamp(1.5rem, 6vw, 4rem);
-    @apply leading-[1.1] tracking-tight;
+    font-size: clamp(1.75rem, 7vw, 4.5rem);
+    @apply leading-[1] tracking-tight;
   }
 
   h3 {
@@ -99,5 +107,11 @@
 
   .minimal-scrollbar::-webkit-scrollbar-thumb:hover {
     @apply bg-primary/50;
+  }
+
+  .image-pixel-perfect {
+    image-rendering: auto;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }

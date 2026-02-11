@@ -1,10 +1,15 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigationType, NavigationType } from 'react-router-dom'
 
 export default function ScrollToTop() {
     const { pathname, hash } = useLocation()
+    const navType = useNavigationType()
 
     useEffect(() => {
+        // If the navigation is a "POP" (back/forward button), do NOT scroll to top.
+        // This preserves the user's previous scroll position.
+        if (navType === NavigationType.Pop) return
+
         // Use a small timeout to ensure the DOM has updated and path change is processed
         const timeoutId = setTimeout(() => {
             if (hash) {
@@ -22,7 +27,7 @@ export default function ScrollToTop() {
         }, 10)
 
         return () => clearTimeout(timeoutId)
-    }, [pathname, hash])
+    }, [pathname, hash, navType])
 
     return null
 }

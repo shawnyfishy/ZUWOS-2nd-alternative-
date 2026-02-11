@@ -3,15 +3,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MacBookFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
+import communityImg from './NEWADMINHDZUWOS/Copy of Community  web.png';
+import departmentImg from './NEWADMINHDZUWOS/Copy of Department Web.png';
+import fnbImg from './NEWADMINHDZUWOS/Copy of F & B web.png';
+import financeImg from './NEWADMINHDZUWOS/Copy of Accounting Finance web.png';
+import projectImg from './NEWADMINHDZUWOS/Copy of Project & Task Management  web.jpeg';
+import securityImg from './NEWADMINHDZUWOS/Security.png';
+import spaceImg from './NEWADMINHDZUWOS/Copy of Space management web.png';
+import ticketImg from './NEWADMINHDZUWOS/Copy of ticket helpdesk web.png';
+
 const modules = [
-    { name: 'Community', description: 'Engage with internal communities and interest groups', image: '/assets/admin-slides/community.png' },
-    { name: 'Department', description: 'Configure organizational structure.', image: '/assets/admin-slides/department.png' },
-    { name: 'F & B', description: 'Oversee cafeteria menus and orders.', image: '/assets/admin-slides/fnb.png' },
-    { name: 'Finance', description: 'Monitor budgets and expenses.', image: '/assets/admin-slides/finance.png' },
-    { name: 'Project & Task', description: 'Track company-wide initiatives.', image: '/assets/admin-slides/project.png' },
-    { name: 'Security', description: 'Access logs and incident reports.', image: '/assets/admin-slides/security.png' },
-    { name: 'Space', description: 'Floor plans and seat allocation.', image: '/assets/admin-slides/space.png' },
-    { name: 'Ticket', description: 'Centralized helpdesk resolution.', image: '/assets/admin-slides/tickets.png' },
+    { name: 'Community', description: 'Engage with internal communities and interest groups', image: communityImg },
+    { name: 'Department', description: 'Configure organizational structure.', image: departmentImg },
+    { name: 'F & B', description: 'Oversee cafeteria menus and orders.', image: fnbImg },
+    { name: 'Finance', description: 'Monitor budgets and expenses.', image: financeImg },
+    { name: 'Project & Task', description: 'Track company-wide initiatives.', image: projectImg },
+    { name: 'Security', description: 'Access logs and incident reports.', image: securityImg },
+    { name: 'Space', description: 'Floor plans and seat allocation.', image: spaceImg },
+    { name: 'Ticket', description: 'Centralized helpdesk resolution.', image: ticketImg },
 ];
 
 export default function AdminOSShowcase() {
@@ -66,7 +75,7 @@ export default function AdminOSShowcase() {
 
                 {/* Layer 2: Main Content (Centered) */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-5xl flex justify-center relative px-8 pointer-events-none">
-                    <div className="w-full max-w-2xl 2xl:max-w-3xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
+                    <div className="w-full max-w-2xl 2xl:max-w-4xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
                         <MacBookFrame>
                             <div className="relative w-full h-full bg-white">
                                 <AnimatePresence mode="popLayout">
@@ -74,7 +83,7 @@ export default function AdminOSShowcase() {
                                         key={`admin-${currentIndex}`}
                                         src={currentModule.image}
                                         alt={currentModule.name}
-                                        className="absolute inset-0 w-full h-full object-contain"
+                                        className="absolute inset-0 w-full h-full object-cover object-top image-pixel-perfect"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}

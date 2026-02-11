@@ -43,9 +43,9 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="col-span-12 lg:col-span-7">
+                        <div className="col-span-12 lg:col-span-7 -mt-12">
                             <TextRevealer
-                                text="ZUWOS is the Indigenous Workplace OS defined by precision, transparency, and unity. One platform for the new age workforce."
+                                text="ZUWOS is an Indigenous Workplace Operating System, built for the new-age workforce, that seamlessly manages workflows with data sovereignty and unifies every stakeholder on one platform"
                                 className="text-2xl md:text-3xl font-medium leading-relaxed tracking-tight mb-12 text-graphite/80"
                                 delay={0.3}
                                 stagger={0.01}
@@ -58,7 +58,7 @@ export default function Hero() {
                                             <Button
                                                 size="lg"
                                                 variant="primary"
-                                                className="rounded-none px-12"
+                                                className="rounded-full px-12"
                                                 data-cursor="Get Started"
                                             >
                                                 Get Started

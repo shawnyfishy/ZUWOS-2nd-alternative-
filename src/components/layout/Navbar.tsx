@@ -40,7 +40,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
 
     return (
         <motion.header
-            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? `${bgColor} backdrop-blur-md` : 'bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 pt-[var(--sat)] ${isScrolled ? `${bgColor} backdrop-blur-md` : 'bg-transparent'
                 }`}
             initial={{ y: -100 }}
             animate={{ y: 0 }}

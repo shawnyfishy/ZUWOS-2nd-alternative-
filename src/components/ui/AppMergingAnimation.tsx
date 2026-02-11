@@ -62,7 +62,7 @@ const AppMergingAnimation: React.FC = () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top 75%",
+                    start: "top 60%",
                     end: "bottom center",
                     toggleActions: "play none none reverse",
                 },
@@ -161,7 +161,7 @@ const AppMergingAnimation: React.FC = () => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-[600px] flex items-center justify-center overflow-hidden bg-transparent perspective-1000"
+            className="relative w-full h-[600px] flex items-center justify-center overflow-hidden bg-transparent perspective-1000 pb-32"
         >
             {/* NO Singularity Dot anymore */}
 

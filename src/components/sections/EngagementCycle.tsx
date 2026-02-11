@@ -6,10 +6,10 @@ import { StickyScroll } from '../story/StickyScroll';
 import StaggerText from '../ui/StaggerText';
 
 // Images
-import projectImg from '/ADMINPICS/project and task management admin, mac.png';
-import rewardsImg from '/EmployeeImages/rewards.png';
-import walletImg from '/EmployeeImages/wallet.png';
-import redemptionImg from '/EmployeeImages/redemption.png';
+import projectImg from '/gratification-new/project-tasks.png';
+import rewardsImg from '/gratification-new/rewards.png';
+import walletImg from '/gratification-new/wallet.png';
+import redemptionImg from '/gratification-new/redemption.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,13 +53,13 @@ export default function EngagementCycle() {
             <motion.div
                 layoutId={`card-${item.id}`}
                 onClick={() => setSelectedFeature(item)}
-                className="h-full w-full flex items-center justify-center bg-white aspect-video rounded-3xl overflow-hidden border-4 border-white shadow-lg relative group cursor-zoom-in"
+                className="h-full w-full flex items-center justify-center bg-transparent aspect-video rounded-xl overflow-hidden relative group cursor-zoom-in shadow-sm border border-black/5"
             >
                 <motion.img
                     layoutId={`image-${item.id}`}
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
             </motion.div>
         )
@@ -119,7 +119,7 @@ export default function EngagementCycle() {
                     </h4>
                     <StickyScroll
                         content={stickyScrollContent}
-                        contentClassName="bg-white/50 backdrop-blur-sm border border-black/5 shadow-xl"
+                        contentClassName="bg-transparent"
                         titleClassName="text-slate-900"
                         descriptionClassName="text-slate-600"
                     />
@@ -148,7 +148,7 @@ export default function EngagementCycle() {
                                 layoutId={`image-${selectedFeature.id}`}
                                 src={selectedFeature.image}
                                 alt={selectedFeature.title}
-                                className="w-full h-full object-contain p-4"
+                                className="w-full h-full object-cover p-0"
                             />
 
                             {/* Close Button */}

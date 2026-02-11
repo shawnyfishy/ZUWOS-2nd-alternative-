@@ -180,7 +180,7 @@ export default function BentoGrid() {
             </GridSystem>
 
             {/* The Grid */}
-            <GridSystem className="gap-4 max-w-6xl mx-auto lg:px-20">
+            <GridSystem className="gap-6 max-w-5xl mx-auto lg:px-20">
                 {silos.map((item, idx) => (
                     <CinematicReveal
                         key={item.id}

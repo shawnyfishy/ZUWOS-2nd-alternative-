@@ -4,22 +4,22 @@ import { MacBookFrame, IPhoneFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
 const modules = [
-    { name: 'Calendar', description: 'Sync meetings, leaves, and events instantly.', mac: '/assets/employee-os/calendar-mac.png', mobile: '/assets/employee-os/calendar-mobile.png' },
-    { name: 'Chat', description: 'Team Collaborations on the go', mac: '/assets/employee-os/chat-mac.png', mobile: '/assets/employee-os/chat-mobile.png' },
-    { name: 'Community', description: 'Engage with internal communities and interest groups', mac: '/assets/employee-os/community-mac.png', mobile: '/assets/employee-os/community-mobile.png' },
-    { name: 'Digital Card', description: 'Contact details shared in a single tap.', mac: '/assets/employee-os/digital-card-mac.png', mobile: '/assets/employee-os/digital-card-mobile.png' },
-    { name: 'Documents', description: 'Create, upload, and store files on the go.', mac: '/assets/employee-os/documents-mac.png', mobile: '/assets/employee-os/documents-mobile.png' },
-    { name: 'F & B', description: 'Order food directly from the cafeteria.', mac: '/assets/employee-os/fnb-mac.png', mobile: '/assets/employee-os/fnb-mobile.png' },
+    { name: 'Calendar', description: 'Sync meetings, leaves, and events instantly.', mac: '/employees-new/calendar.png', mobile: '/assets/employee-os/calendar-mobile.png' },
+    { name: 'Chat', description: 'Team Collaborations on the go', mac: '/employees-new/chat.png', mobile: '/assets/employee-os/chat-mobile.png' },
+    { name: 'Community', description: 'Engage with internal communities and interest groups', mac: '/employees-new/community.png', mobile: '/assets/employee-os/community-mobile.png' },
+    { name: 'Digital Card', description: 'Contact details shared in a single tap.', mac: '/employees-new/digital-card.png', mobile: '/assets/employee-os/digital-card-mobile.png' },
+    { name: 'Documents', description: 'Create, upload, and store files on the go.', mac: '/employees-new/documents.png', mobile: '/assets/employee-os/documents-mobile.png' },
+    { name: 'F & B', description: 'Order food directly from the cafeteria.', mac: '/employees-new/fnb.png', mobile: '/assets/employee-os/fnb-mobile.png' },
     { name: 'Helpdesk', description: 'Raise and track IT or Admin tickets.', mac: '/assets/employee-os/helpdesk-mac.png', mobile: '/assets/employee-os/helpdesk-mobile.png' },
-    { name: 'HRMS', description: 'Leaves, attendance, and payroll in one tab.', mac: '/assets/employee-os/hrms-mac.png', mobile: '/assets/employee-os/hrms-mobile.png' },
-    { name: 'Meetings', description: 'Book rooms and invite attendees seamlessly.', mac: '/assets/employee-os/meeting-room-mac.png', mobile: '/assets/employee-os/meeting-room-mobile.png' },
-    { name: 'Parking', description: 'Reserve spots and manage vehicle logs.', mac: '/assets/employee-os/parking-mac.png', mobile: '/assets/employee-os/parking-mobile.png' },
-    { name: 'Performance', description: 'Track goals, reviews, and feedback.', mac: '/assets/employee-os/performance-mac.png', mobile: '/assets/employee-os/performance-mobile.png' },
-    { name: 'Projects and Tasks', description: 'Manage tasks, sprints, and deadlines.', mac: '/assets/employee-os/projects-mac.png', mobile: '/assets/employee-os/projects-mobile.png' },
-    { name: 'Seat Mgmt', description: 'Book desks in a hybrid workspace.', mac: '/assets/employee-os/seat-space-mac.png', mobile: '/assets/employee-os/seat-space-mobile.png' },
-    { name: 'To-Do', description: 'Personal task manager for daily focus.', mac: '/assets/employee-os/todo-mac.png', mobile: '/assets/employee-os/todo-mobile.png' },
-    { name: 'Visitor', description: 'Pre-approve guests and get entry codes.', mac: '/assets/employee-os/visitor-mac.png', mobile: '/assets/employee-os/visitor-mobile.png' },
-    { name: 'Wallet', description: 'Manage reimbursements and credits.', mac: '/assets/employee-os/wallet-mac.png', mobile: '/assets/employee-os/wallet-mobile.png' },
+    { name: 'HRMS', description: 'Leaves, attendance, and payroll in one tab.', mac: '/employees-new/hrms.png', mobile: '/assets/employee-os/hrms-mobile.png' },
+    { name: 'Meetings', description: 'Book rooms and invite attendees seamlessly.', mac: '/employees-new/meetings.png', mobile: '/assets/employee-os/meeting-room-mobile.png' },
+    { name: 'Parking', description: 'Reserve spots and manage vehicle logs.', mac: '/employees-new/parking.png', mobile: '/assets/employee-os/parking-mobile.png' },
+    { name: 'Performance', description: 'Track goals, reviews, and feedback.', mac: '/employees-new/performance.jpeg', mobile: '/assets/employee-os/performance-mobile.png' },
+    { name: 'Projects and Tasks', description: 'Manage tasks, sprints, and deadlines.', mac: '/employees-new/projects.jpeg', mobile: '/assets/employee-os/projects-mobile.png' },
+    { name: 'Seat Mgmt', description: 'Book desks in a hybrid workspace.', mac: '/employees-new/seat-space.png', mobile: '/assets/employee-os/seat-space-mobile.png' },
+    { name: 'To-Do', description: 'Personal task manager for daily focus.', mac: '/employees-new/todo.png', mobile: '/assets/employee-os/todo-mobile.png' },
+    { name: 'Visitor', description: 'Pre-approve guests and get entry codes.', mac: '/employees-new/visitor.jpeg', mobile: '/assets/employee-os/visitor-mobile.png' },
+    { name: 'Wallet', description: 'Manage reimbursements and credits.', mac: '/employees-new/wallet.png', mobile: '/assets/employee-os/wallet-mobile.png' },
 ];
 
 export default function EmployeeOSShowcase() {
@@ -88,7 +88,7 @@ export default function EmployeeOSShowcase() {
                     >
 
                         {/* MacBook - More Smaller (max-w-2xl now) */}
-                        <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-2xl">
+                        <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-4xl">
                             <MacBookFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">
@@ -96,7 +96,7 @@ export default function EmployeeOSShowcase() {
                                             key={`mac-${currentIndex}`}
                                             src={currentModule.mac}
                                             alt={`${currentModule.name} Desktop`}
-                                            className="absolute inset-0 w-full h-full object-contain"
+                                            className="absolute inset-0 w-full h-full object-cover object-top image-pixel-perfect"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
@@ -116,7 +116,7 @@ export default function EmployeeOSShowcase() {
                                             key={`mobile-${currentIndex}`}
                                             src={currentModule.mobile}
                                             alt={`${currentModule.name} Mobile`}
-                                            className="absolute inset-0 w-full h-full object-cover"
+                                            className="absolute inset-0 w-full h-full object-cover image-pixel-perfect"
                                             initial={{ x: 50, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
                                             exit={{ x: -50, opacity: 0 }}

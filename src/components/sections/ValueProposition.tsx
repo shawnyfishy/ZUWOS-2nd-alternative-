@@ -16,9 +16,15 @@ export default function ValueProposition() {
                         className="font-display font-bold text-4xl md:text-display-sm text-graphite mb-6 justify-center"
                     />
                     <TextRevealer
-                        text="We are not just another SaaS. We are a fundamental shift in how work happens."
+                        text="We are not just another SaaS."
                         className="text-xl md:text-2xl text-graphite/60 max-w-2xl mx-auto tracking-tight justify-center"
                         delay={0.2}
+                        stagger={0.01}
+                    />
+                    <TextRevealer
+                        text="We are a fundamental shift in how work happens."
+                        className="text-xl md:text-2xl text-graphite/60 max-w-2xl mx-auto tracking-tight justify-center"
+                        delay={0.4}
                         stagger={0.01}
                     />
                 </div>

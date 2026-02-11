@@ -3,7 +3,7 @@ import PageTransition from '../components/layout/PageTransition'
 import { features } from '../data/valueProps'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
-import StakeholderTabs from '../components/sections/StakeholderTabs'
+import StakeholderSection from '../components/vision/StakeholderSection'
 import { Button } from '../components/ui/Button'
 import { ArrowLeft, CheckCircle2 } from 'lucide-react'
 import { useEffect } from 'react'
@@ -37,12 +37,10 @@ export default function ValueDetailPage() {
         if (id === 'integrated-ecosystem') {
             return (
                 <div className="w-full relative mt-[-2rem]">
-                    <AppMergingAnimation />
-                    <div className="mt-20">
-                        <div className="container mx-auto px-6 max-w-7xl">
-                            <StakeholderTabs />
-                        </div>
+                    <div className="py-32">
+                        <AppMergingAnimation />
                     </div>
+                    <StakeholderSection />
                 </div>
             )
         }

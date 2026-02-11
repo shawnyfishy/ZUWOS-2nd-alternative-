@@ -3,52 +3,85 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MacBookFrame, IPhoneFrame } from '../ui/DeviceFrames';
 import { ShowcaseSidebar } from '../ui/ShowcaseSidebar';
 
+import accountingImg from './NEWADMINHDZUWOS/Copy of Accounting Finance web.png';
+import amcImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of AMC for Assets & Services web.png';
+import assetsImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Assets (Lifecyle Management) web.png';
+import auditImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Audit (Operational, Asset, Vendor) web.png';
+import bookingImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Booking management web.png';
+import energyImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Energy Web.png';
+import fnbImg from './NEWADMINHDZUWOS/Copy of F & B web.png';
+import fitoutImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Fitout Management web.png';
+import gatepassImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Gatepass web.png';
+import hotoImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of HOTO web.png';
+import incidentImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Incident Management web.png';
+import inventoryImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Inventory management web.png';
+import leaseImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Lease Management web.png';
+import msafeImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of M safe web.png';
+import mailroomImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Mailroom management web.png';
+import materialImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Material Management Web..png';
+import osrImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of OSR Management web.png';
+import parkingImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Parking Management web.png';
+import patrollingImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Patrolling web.png';
+import permitImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Permit to work web.png';
+import procurementImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of procurement web..png';
+import scheduleImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Schedule & task Management web.png';
+import snaggingImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Snag Web Portal.png';
+import spaceImg from './NEWADMINHDZUWOS/Copy of Space management web.png';
+import staffEntryImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Staff Entry Management web.png';
+import surveyImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Survey Management Web.png';
+import ticketImg from './NEWADMINHDZUWOS/Copy of ticket helpdesk web.png';
+import utilityImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Utility Meter Reading web.png';
+import vendorImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Vendor Management Web.png';
+import visitorImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Visitor Management web.png';
+import wasteImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Waste Management web.png';
+import waterImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of water asset list web..png';
+
 const modules = [
     // 1. Transitioning
-    { category: 'Transitioning', name: 'Hotoweb', description: 'Handover and Takeover documentation.', mac: '/assets/hotoweb-new.jpeg', mobile: '/assets/facilities/hotoweb-mobile.png' },
-    { category: 'Transitioning', name: 'Snagging', description: 'Track defects and resolution status.', mac: '/assets/facilities/snag-mac.png', mobile: '/assets/facilities/snag-mobile.png' },
-    { category: 'Transitioning', name: 'Fitout Management', description: 'Manage construction and renovations.', mac: '/assets/facilities/fitout-mac.png', mobile: '/assets/facilities/fitout-mobile.png' },
+    { category: 'Transitioning', name: 'Hotoweb', description: 'Handover and Takeover documentation.', mac: hotoImg, mobile: '/assets/facilities/hotoweb-mobile.png' },
+    { category: 'Transitioning', name: 'Snagging', description: 'Track defects and resolution status.', mac: snaggingImg, mobile: '/assets/facilities/snag-mobile.png' },
+    { category: 'Transitioning', name: 'Fitout Management', description: 'Manage construction and renovations.', mac: fitoutImg, mobile: '/assets/facilities/fitout-mobile.png' },
 
     // 2. Maintenance
-    { category: 'Maintenance', name: 'Tickets/ Helpdesk', description: 'Helpdesk for facility issues.', mac: '/assets/facilities/tickets-mac.png', mobile: '/assets/facilities/tickets-mobile.png' },
-    { category: 'Maintenance', name: 'Assets (Lifecyle)', description: 'Lifecycle management of physical assets.', mac: '/assets/facilities/assets-mac.png', mobile: '/assets/facilities/assets-mobile.png' },
-    { category: 'Maintenance', name: 'Schedule & Task', description: 'Manage schedules and recurring tasks.', mac: '/assets/facilities/schedule-mac.png', mobile: '/assets/facilities/schedule-mobile.png' },
-    { category: 'Maintenance', name: 'Inventory', description: 'Track stock for consumables.', mac: '/assets/facilities/inventory-mac.png', mobile: '/assets/facilities/inventory-mobile.png' },
-    { category: 'Maintenance', name: 'AMC Services', description: 'Track Annual Maintenance Contracts.', mac: '/assets/facilities/amc-mac.png', mobile: '/assets/facilities/amc-mobile.png' },
-    { category: 'Maintenance', name: 'Audit', description: 'Operational, Asset, and Vendor audits.', mac: '/assets/facilities/audits-mac.png', mobile: '/assets/facilities/audits-mobile.png' },
-    { category: 'Maintenance', name: 'Waste Mgmt', description: 'Track waste disposal and recycling.', mac: '/assets/facilities/waste-mac.png', mobile: '/assets/facilities/inventory-mobile.png' },
-    { category: 'Maintenance', name: 'Survey', description: 'Conduct facility surveys and feedback.', mac: '/assets/facilities/survey-mac.png', mobile: '/assets/facilities/survey-mobile.png' },
+    { category: 'Maintenance', name: 'Tickets/ Helpdesk', description: 'Helpdesk for facility issues.', mac: ticketImg, mobile: '/assets/facilities/tickets-mobile.png' },
+    { category: 'Maintenance', name: 'Assets (Lifecyle)', description: 'Lifecycle management of physical assets.', mac: assetsImg, mobile: '/assets/facilities/assets-mobile.png' },
+    { category: 'Maintenance', name: 'Schedule & Task', description: 'Manage schedules and recurring tasks.', mac: scheduleImg, mobile: '/assets/facilities/schedule-mobile.png' },
+    { category: 'Maintenance', name: 'Inventory', description: 'Track stock for consumables.', mac: inventoryImg, mobile: '/assets/facilities/inventory-mobile.png' },
+    { category: 'Maintenance', name: 'AMC Services', description: 'Track Annual Maintenance Contracts.', mac: amcImg, mobile: '/assets/facilities/amc-mobile.png' },
+    { category: 'Maintenance', name: 'Audit', description: 'Operational, Asset, and Vendor audits.', mac: auditImg, mobile: '/assets/facilities/audits-mobile.png' },
+    { category: 'Maintenance', name: 'Waste Mgmt', description: 'Track waste disposal and recycling.', mac: wasteImg, mobile: '/assets/facilities/inventory-mobile.png' },
+    { category: 'Maintenance', name: 'Survey', description: 'Conduct facility surveys and feedback.', mac: surveyImg, mobile: '/assets/facilities/survey-mobile.png' },
 
     // 3. Safety
-    { category: 'Safety', name: 'Permit to Work', description: 'Manage work permits and safety checks.', mac: '/assets/facilities/safety-mac.png', mobile: '/assets/facilities/safety-mobile.png' },
-    { category: 'Safety', name: 'Incident Mgmt', description: 'Log and track safety incidents.', mac: '/assets/facilities/incident-mac.png', mobile: '/assets/facilities/incident-mobile.png' },
-    { category: 'Safety', name: 'M-safe', description: 'Safety training and compliance.', mac: '/assets/facilities/msafe-mac.png', mobile: '/assets/facilities/msafe-mobile.png' },
+    { category: 'Safety', name: 'Permit to Work', description: 'Manage work permits and safety checks.', mac: permitImg, mobile: '/assets/facilities/safety-mobile.png' },
+    { category: 'Safety', name: 'Incident Mgmt', description: 'Log and track safety incidents.', mac: incidentImg, mobile: '/assets/facilities/incident-mobile.png' },
+    { category: 'Safety', name: 'M-safe', description: 'Safety training and compliance.', mac: msafeImg, mobile: '/assets/facilities/msafe-mobile.png' },
 
     // 4. Finance
-    { category: 'Finance', name: 'Vendor Mgmt', description: 'Manage vendor profiles and contracts.', mac: '/assets/facilities/vendor-mac.png', mobile: '/assets/facilities/amc-mobile.png' },
-    { category: 'Finance', name: 'Procurement', description: 'Streamline purchasing processes.', mac: '/assets/facilities/procurement-mac.png', mobile: '/assets/facilities/inventory-mobile.png' },
-    { category: 'Finance', name: 'Material Mgmt', description: 'Track material usage and stock.', mac: '/assets/facilities/material-mac.png', mobile: '/assets/facilities/inventory-mobile.png' },
-    { category: 'Finance', name: 'Accounting', description: 'Track facility-related expenses.', mac: '/assets/facilities/accounting-mac.png', mobile: '/assets/facilities/amc-mobile.png' },
+    { category: 'Finance', name: 'Vendor Mgmt', description: 'Manage vendor profiles and contracts.', mac: vendorImg, mobile: '/assets/facilities/amc-mobile.png' },
+    { category: 'Finance', name: 'Procurement', description: 'Streamline purchasing processes.', mac: procurementImg, mobile: '/assets/facilities/inventory-mobile.png' },
+    { category: 'Finance', name: 'Material Mgmt', description: 'Track material usage and stock.', mac: materialImg, mobile: '/assets/facilities/inventory-mobile.png' },
+    { category: 'Finance', name: 'Accounting', description: 'Track facility-related expenses.', mac: accountingImg, mobile: '/assets/facilities/amc-mobile.png' },
 
     // 5. Utility
-    { category: 'Utility', name: 'Energy Management', description: 'Monitor energy consumption.', mac: '/assets/facilities/energy-mac.png', mobile: '/assets/facilities/energy-mobile.png' },
-    { category: 'Utility', name: 'Water Management', description: 'Track water usage and quality.', mac: '/assets/facilities/water-mac.png', mobile: '/assets/facilities/water-mobile.png' },
-    { category: 'Utility', name: 'Utility Meter Reading Management', description: 'Automated utility meter tracking.', mac: '/assets/facilities/meter-mac.png', mobile: '/assets/facilities/meter-mobile.png' },
+    { category: 'Utility', name: 'Energy Management', description: 'Monitor energy consumption.', mac: energyImg, mobile: '/assets/facilities/energy-mobile.png' },
+    { category: 'Utility', name: 'Water Management', description: 'Track water usage and quality.', mac: waterImg, mobile: '/assets/facilities/water-mobile.png' },
+    { category: 'Utility', name: 'Utility Meter Reading Management', description: 'Automated utility meter tracking.', mac: utilityImg, mobile: '/assets/facilities/meter-mobile.png' },
 
     // 6. Security
-    { category: 'Security', name: 'Visitor Management', description: 'Streamline guest entry management.', mac: '/assets/facilities/visitor-mac.png', mobile: '/assets/facilities/visitor-mobile.png' },
-    { category: 'Security', name: 'Gatepass Management', description: 'Manage material movement gate passes.', mac: '/assets/facilities/gatepass-mac.png', mobile: '/assets/facilities/gatepass-mobile.png' },
-    { category: 'Security', name: 'Staff Entry Management', description: 'Manage staff access and attendance.', mac: '/assets/facilities/staff-entry-mac.png', mobile: '/assets/facilities/staff-entry-mobile.png' },
-    { category: 'Security', name: 'Patrolling', description: 'Monitor security guard routes.', mac: '/assets/facilities/patrolling-mac.png', mobile: '/assets/facilities/patrolling-mobile.png' },
+    { category: 'Security', name: 'Visitor Management', description: 'Streamline guest entry management.', mac: visitorImg, mobile: '/assets/facilities/visitor-mobile.png' },
+    { category: 'Security', name: 'Gatepass Management', description: 'Manage material movement gate passes.', mac: gatepassImg, mobile: '/assets/facilities/gatepass-mobile.png' },
+    { category: 'Security', name: 'Staff Entry Management', description: 'Manage staff access and attendance.', mac: staffEntryImg, mobile: '/assets/facilities/staff-entry-mobile.png' },
+    { category: 'Security', name: 'Patrolling', description: 'Monitor security guard routes.', mac: patrollingImg, mobile: '/assets/facilities/patrolling-mobile.png' },
 
     // 7. Value Added Services
-    { category: 'Value Added Services', name: 'F&B Management', description: 'Food and beverage management.', mac: '/assets/facilities/fnb-mac.png', mobile: '/assets/facilities/fnb-mobile.png' },
-    { category: 'Value Added Services', name: 'Parking Management', description: 'Manage parking spaces and allocation.', mac: '/assets/facilities/parking-mac.png', mobile: '/assets/facilities/parking-mobile.png' },
-    { category: 'Value Added Services', name: 'OSR Management', description: 'Occupancy Service Request management.', mac: '/assets/facilities/space-mac.png', mobile: '/assets/facilities/space-mobile.png' },
-    { category: 'Value Added Services', name: 'Space Management', description: 'Analyze floor plans and utilization.', mac: '/assets/facilities/space-mac.png', mobile: '/assets/facilities/space-mobile.png' },
-    { category: 'Value Added Services', name: 'Booking Management', description: 'Reserve meeting rooms and desks.', mac: '/assets/facilities/booking-mac.png', mobile: '/assets/facilities/booking-mobile.png' },
-    { category: 'Value Added Services', name: 'Mailroom Management', description: 'Track incoming and outgoing mail.', mac: '/assets/facilities/mailroom-mac.png', mobile: '/assets/facilities/mailroom-mobile.png' },
-    { category: 'Value Added Services', name: 'Lease Management', description: 'Track property lease agreements.', mac: '/assets/facilities/lease-mac.png', mobile: '/assets/facilities/amc-mobile.png' },
+    { category: 'Value Added Services', name: 'F&B Management', description: 'Food and beverage management.', mac: fnbImg, mobile: '/assets/facilities/fnb-mobile.png' },
+    { category: 'Value Added Services', name: 'Parking Management', description: 'Manage parking spaces and allocation.', mac: parkingImg, mobile: '/assets/facilities/parking-mobile.png' },
+    { category: 'Value Added Services', name: 'OSR Management', description: 'Occupancy Service Request management.', mac: osrImg, mobile: '/assets/facilities/space-mobile.png' },
+    { category: 'Value Added Services', name: 'Space Management', description: 'Analyze floor plans and utilization.', mac: spaceImg, mobile: '/assets/facilities/space-mobile.png' },
+    { category: 'Value Added Services', name: 'Booking Management', description: 'Reserve meeting rooms and desks.', mac: bookingImg, mobile: '/assets/facilities/booking-mobile.png' },
+    { category: 'Value Added Services', name: 'Mailroom Management', description: 'Track incoming and outgoing mail.', mac: mailroomImg, mobile: '/assets/facilities/mailroom-mobile.png' },
+    { category: 'Value Added Services', name: 'Lease Management', description: 'Track property lease agreements.', mac: leaseImg, mobile: '/assets/facilities/amc-mobile.png' },
 ];
 
 export default function FacilitiesShowcase() {
@@ -110,7 +143,7 @@ export default function FacilitiesShowcase() {
                     <div className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-8 transform scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto">
 
                         {/* MacBook - More Smaller */}
-                        <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-2xl">
+                        <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-4xl">
                             <MacBookFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">
@@ -118,7 +151,7 @@ export default function FacilitiesShowcase() {
                                             key={`mac-${currentIndex}`}
                                             src={currentModule.mac}
                                             alt={`${currentModule.name} Dashboard`}
-                                            className="absolute inset-0 w-full h-full object-contain"
+                                            className="absolute inset-0 w-full h-full object-cover object-top image-pixel-perfect"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
