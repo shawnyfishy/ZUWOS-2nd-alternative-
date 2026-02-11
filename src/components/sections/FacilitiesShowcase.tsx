@@ -25,7 +25,7 @@ import patrollingImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/C
 import permitImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Permit to work web.png';
 import procurementImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of procurement web..png';
 import scheduleImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Schedule & task Management web.png';
-import snaggingImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Snag Web Portal.png';
+import snaggingImg from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/snagging NEWWWWWWW.png'; // Updated import path
 import spaceImg from './NEWADMINHDZUWOS/Copy of Space management web.png';
 import staffEntryImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Staff Entry Management web.png';
 import surveyImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Survey Management Web.png';
@@ -62,6 +62,8 @@ import ticketMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Ticket_Help
 import visitorMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Visitor management   ios.jpg';
 import waterMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Water Management ios.jpg';
 import msafeMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/m safe ios.png';
+
+// ... existing imports ...
 
 const modules = [
     // 1. Transitioning
@@ -187,9 +189,7 @@ export default function FacilitiesShowcase() {
                                     </AnimatePresence>
 
                                     {/* Logo Patch for Hotoweb to hide Godrej Logo */}
-                                    {currentModule.name === 'Hotoweb' && (
-                                        <div className="absolute top-[2%] left-[1.5%] w-[15%] h-[9%] bg-[#FFF] z-20" />
-                                    )}
+
                                 </div>
                             </MacBookFrame>
                         </div>

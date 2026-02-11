@@ -27,7 +27,7 @@ const FinalCTA = () => {
             </div>
 
             <footer className="absolute bottom-8 text-gray-600 text-sm">
-                &copy; 2024 ZUWOS. Built in India for the World.
+                &copy; 2026 ZUWOS. Built in India for the World.
             </footer>
         </section>
     );
