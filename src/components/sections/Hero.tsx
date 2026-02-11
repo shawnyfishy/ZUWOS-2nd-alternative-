@@ -24,7 +24,7 @@ export default function Hero() {
             <div className="sticky top-0 h-screen overflow-hidden">
                 <motion.div
                     style={{ opacity, scale, filter: `blur(${blur})` }}
-                    className="w-full h-full pt-32 pb-12 md:pt-40 md:pb-12 flex flex-col justify-center"
+                    className="w-full h-full pt-20 lg:pt-32 pb-12 md:pt-40 md:pb-12 flex flex-col justify-center"
                 >
                     <GridSystem>
                         <div className="col-span-12 lg:col-span-10">

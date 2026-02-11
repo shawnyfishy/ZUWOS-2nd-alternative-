@@ -16,6 +16,28 @@ import { useNavigate } from 'react-router-dom';
 // - 2 Tall (1x2)
 // - 13 Small (1x1) - including Logo
 
+// --- Hook for Media Query ---
+function useMediaQuery(query: string) {
+    const [matches, setMatches] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return window.matchMedia(query).matches;
+        }
+        return false;
+    });
+
+    useEffect(() => {
+        const media = window.matchMedia(query);
+        if (media.matches !== matches) {
+            setMatches(media.matches);
+        }
+        const listener = () => setMatches(media.matches);
+        media.addEventListener("change", listener);
+        return () => media.removeEventListener("change", listener);
+    }, [query, matches]);
+
+    return matches;
+}
+
 const items = [
     // --- ROW 1 ---
     // (1,1)
@@ -90,7 +112,7 @@ const items = [
     // (2,5)
     {
         id: 'sheets', label: 'Spreadsheets', sub: '', color: 'bg-[#C6FF00]', text: 'text-[#1C3144]', className: 'col-start-5 row-start-2', type: 'grid',
-        desc: "Powerful Spreadsheets for data analysis and reporting as u do with excel",
+        desc: "Powerful Spreadsheets for data analysis and reporting as you do with excel",
         features: ["License free operations with ZUWOS", "Sovereign AI integration", "Easy collaboration & real-time synchronization"]
     },
     // (2,6)
@@ -542,6 +564,7 @@ const ZuwosLogoCard = ({ item }: { item: any }) => {
 export default function ZuwosEcosystem() {
     const navigate = useNavigate();
     const [activeId, setActiveId] = useState<string | null>(null);
+    const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     return (
         <div className="w-full max-w-[1400px] mx-auto px-4 my-12 md:my-16 font-sans">
@@ -552,32 +575,57 @@ export default function ZuwosEcosystem() {
                 />
             </div>
             {/* ENTIRE GRID COORDINATED REVEAL */}
-            <motion.div
-                className="grid grid-cols-7 auto-rows-[100px] gap-2"
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-                {items.map((item) => {
-                    // Logo Specifics
-                    if (item.isLogo) {
-                        return <ZuwosLogoCard key="LOGO" item={item} />;
-                    }
+            {isDesktop ? (
+                /* DESKTOP LAYOUT */
+                <motion.div
+                    className="grid grid-cols-7 auto-rows-[100px] gap-2"
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    {items.map((item) => {
+                        // Logo Specifics
+                        if (item.isLogo) {
+                            return <ZuwosLogoCard key="LOGO" item={item} />;
+                        }
 
-                    return (
-                        <div
+                        return (
+                            <div
+                                key={item.id}
+                                className={`${item.className} col-span-1 row-span-1`}
+                            >
+                                <AnimatedCard
+                                    item={item}
+                                    onClick={() => item.label && setActiveId(item.id)}
+                                />
+                            </div>
+                        );
+                    })}
+                </motion.div>
+            ) : (
+                /* MOBILE LAYOUT (Stacked) */
+                <div className="flex flex-col gap-4 pb-20">
+                    {items.filter(item => !item.isLogo).map((item) => (
+                        <motion.div
                             key={item.id}
-                            className={`${item.className} col-span-1 row-span-1`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="w-full h-[180px]"
                         >
                             <AnimatedCard
                                 item={item}
                                 onClick={() => item.label && setActiveId(item.id)}
                             />
-                        </div>
-                    );
-                })}
-            </motion.div>
+                        </motion.div>
+                    ))}
+                    {/* Mobile Logo */}
+                    <div className="w-full h-[180px] flex items-center justify-center">
+                        <ZuwosLogoCard item={{ className: 'w-full h-full' }} />
+                    </div>
+                </div>
+            )}
 
 
 

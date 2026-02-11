@@ -76,22 +76,24 @@ export const StickyScroll = ({
                     </div>
                 </div>
 
-                <div className="hidden md:block sticky top-[20vh] h-[60vh] w-[65%] flex items-center justify-center">
-                    <motion.div
-                        key={activeCard}
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 1.1, y: -20 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className={cn(
-                            "w-full h-full overflow-hidden relative",
-                            contentClassName
-                        )}
-                    >
-                        <div className="relative z-10 w-full h-full flex items-center justify-center p-0">
-                            {content[activeCard].content ?? null}
-                        </div>
-                    </motion.div>
+                <div className="hidden md:block sticky top-[20vh] h-[60vh] w-[65%] rounded-md overflow-hidden bg-transparent">
+                    {content.map((item, index) => (
+                        <motion.div
+                            key={item.title + index}
+                            initial={{ opacity: 0 }}
+                            animate={{
+                                opacity: activeCard === index ? 1 : 0,
+                                zIndex: activeCard === index ? 10 : 0,
+                            }}
+                            transition={{ duration: 0.5 }}
+                            className={cn(
+                                "absolute inset-0 h-full w-full flex items-center justify-center",
+                                contentClassName
+                            )}
+                        >
+                            {item.content ?? null}
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </div>

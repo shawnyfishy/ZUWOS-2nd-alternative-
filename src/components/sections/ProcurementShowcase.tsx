@@ -58,10 +58,10 @@ export default function ProcurementShowcase() {
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-8 md:mb-0">
                 <h2 className="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
-                    Procurement
+                    Zuwos's smart workplace
                 </h2>
-                <span className="text-xl md:text-2xl font-medium text-graphite/60 block">
-                    Sourcing Intelligence
+                <span className="text-xl md:text-2xl font-medium text-graphite/80 block uppercase">
+                    built for PROCUREMENT
                 </span>
             </div>
 
@@ -105,7 +105,7 @@ export default function ProcurementShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">One Stop Solution For</span>
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Optimize critical</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -122,6 +122,8 @@ export default function ProcurementShowcase() {
                             </motion.span>
                         </AnimatePresence>
                     </span>
+
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">workflows</span>
                 </h3>
             </div>
         </section>

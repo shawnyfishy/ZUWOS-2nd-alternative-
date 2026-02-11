@@ -57,7 +57,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
                     >
                         <Link
                             to="/"
-                            className={`font-display font-bold text-3xl tracking-tighter ${textColor} block`}
+                            className={`font-display font-bold text-[2.6rem] tracking-tighter ${textColor} block`}
                             data-cursor="Home"
                         >
                             ZUWOS

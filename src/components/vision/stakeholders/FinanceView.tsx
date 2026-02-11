@@ -2,12 +2,12 @@ import { TrendingUp, PieChart, Receipt, IndianRupee } from 'lucide-react';
 
 const FinanceView = () => {
     return (
-        <div className="w-[100vw] h-screen flex-shrink-0 bg-pink-200 flex relative overflow-hidden text-graphite">
+        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-pink-200 flex flex-col lg:flex-row relative overflow-hidden text-graphite">
             {/* Left Panel: Role & Features */}
-            <div className="w-[30%] h-full p-12 flex flex-col justify-center bg-pink-200 border-r border-black/10 z-10">
+            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-pink-200 border-b lg:border-b-0 lg:border-r border-black/10 z-10">
                 <div className="mb-8">
-                    <h2 className="text-4xl font-display font-bold text-black mt-2">Finance</h2>
-                    <p className="text-xl text-black/70 mt-4">Real-Time Financial Truth.</p>
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-black mt-2">Finance</h2>
+                    <p className="text-lg md:text-xl text-black/70 mt-4">Real-Time Financial Truth.</p>
                 </div>
 
                 <ul className="space-y-4">
@@ -27,7 +27,7 @@ const FinanceView = () => {
             </div>
 
             {/* Right Panel: Content / Mockups */}
-            <div className="w-[70%] h-full flex flex-col items-center justify-center p-20 relative">
+            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-20 relative min-h-[500px]">
                 <div className="w-full max-w-4xl grid grid-cols-2 gap-6">
 
                     {/* Card 1: Main Metric */}

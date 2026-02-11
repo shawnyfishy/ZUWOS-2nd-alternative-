@@ -2,12 +2,12 @@ import { AlertTriangle, CheckSquare } from 'lucide-react';
 
 const FacilitiesView = () => {
     return (
-        <div className="w-[100vw] h-screen flex-shrink-0 bg-gray-900 flex relative overflow-hidden text-white">
+        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-gray-900 flex flex-col lg:flex-row relative overflow-hidden text-white">
             {/* Left Panel: Role & Features */}
-            <div className="w-[30%] h-full p-12 flex flex-col justify-center bg-gray-900 border-r border-white/20 z-10">
+            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-gray-900 border-b lg:border-b-0 lg:border-r border-white/20 z-10">
                 <div className="mb-8">
-                    <h2 className="text-4xl font-display font-bold text-white mt-2">Facility Managers</h2>
-                    <p className="text-xl text-gray-400 mt-4">Total Operational Control.</p>
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-white mt-2">Facility Managers</h2>
+                    <p className="text-lg md:text-xl text-gray-400 mt-4">Total Operational Control.</p>
                 </div>
 
                 <ul className="space-y-4">
@@ -27,7 +27,7 @@ const FacilitiesView = () => {
             </div>
 
             {/* Right Panel: Content / Mockups */}
-            <div className="w-[70%] h-full flex flex-col items-center justify-center p-20 relative perspective-1000">
+            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-20 relative perspective-1000 min-h-[500px]">
 
                 {/* Isometric Map Card */}
                 <div className="relative w-[600px] h-[400px] bg-white rounded-3xl shadow-2xl border-4 border-white transform rotate-x-12 rotate-y-12 rotate-z-2 transition-transform hover:rotate-0 duration-700 bg-[url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center overflow-hidden">

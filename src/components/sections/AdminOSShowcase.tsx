@@ -7,7 +7,7 @@ import communityImg from './NEWADMINHDZUWOS/Copy of Community  web.png';
 import departmentImg from './NEWADMINHDZUWOS/Copy of Department Web.png';
 import fnbImg from './NEWADMINHDZUWOS/Copy of F & B web.png';
 import financeImg from './NEWADMINHDZUWOS/Copy of Accounting Finance web.png';
-import projectImg from './NEWADMINHDZUWOS/Copy of Project & Task Management  web.jpeg';
+import projectImg from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/KANBANNN3.jpeg';
 import securityImg from './NEWADMINHDZUWOS/Security.png';
 import spaceImg from './NEWADMINHDZUWOS/Copy of Space management web.png';
 import ticketImg from './NEWADMINHDZUWOS/Copy of ticket helpdesk web.png';
@@ -52,10 +52,10 @@ export default function AdminOSShowcase() {
             {/* 1. Header (Top) */}
             <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-4 md:mb-0">
                 <h2 className="text-4xl md:text-6xl 2xl:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
-                    Admin
+                    Zuwos's smart workplace
                 </h2>
-                <span className="text-lg md:text-xl lg:text-2xl font-medium text-graphite/60 block">
-                    Total System Command
+                <span className="text-lg md:text-xl lg:text-2xl font-medium text-graphite/80 block uppercase">
+                    built for ADMIN
                 </span>
             </div>
 
@@ -99,7 +99,7 @@ export default function AdminOSShowcase() {
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">One stop solution for</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Manage</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -117,7 +117,7 @@ export default function AdminOSShowcase() {
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Management System</span>
+                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">effortlessly</span>
                 </h3>
             </div>
         </section>

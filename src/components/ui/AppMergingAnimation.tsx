@@ -59,99 +59,108 @@ const AppMergingAnimation: React.FC = () => {
         if (!containerRef.current || !logoRef.current) return;
 
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 60%",
-                    end: "bottom center",
-                    toggleActions: "play none none reverse",
-                },
-                defaults: { ease: "power2.inOut" }
-            });
+            const mm = gsap.matchMedia();
 
-            // --- PLACEMENT ALGORITHM: Random with Collision Detection ---
-            const width = window.innerWidth * 0.9;
-            const height = 500;
+            mm.add({
+                isDesktop: "(min-width: 1024px)",
+                isMobile: "(max-width: 1023px)",
+            }, (context) => {
+                const { isDesktop } = context.conditions as any;
 
-            const positions: { x: number, y: number }[] = [];
-            const minDistance = 100; // Minimum distance between centers to prevent overlap
-
-            for (let i = 0; i < apps.length; i++) {
-                let check = false;
-                let x = 0, y = 0;
-                let attempts = 0;
-
-                while (!check && attempts < 100) {
-                    // Generate random pos
-                    x = (Math.random() - 0.5) * (width - 100);
-                    y = (Math.random() - 0.5) * (height - 100);
-
-                    // Check collision
-                    check = true;
-                    for (const pos of positions) {
-                        const dist = Math.hypot(pos.x - x, pos.y - y);
-                        if (dist < minDistance) {
-                            check = false;
-                            break;
-                        }
-                    }
-                    attempts++;
-                }
-                positions.push({ x, y }); // Push valid (or fallback) position
-            }
-
-            // --- ANIMATION SETUP ---
-            // 1. Initial State: Hidden
-            elementsRef.current.forEach((el, i) => {
-                if (!el) return;
-                gsap.set(el, {
-                    x: positions[i].x,
-                    y: positions[i].y,
-                    opacity: 0,
-                    scale: 0,
-                    rotation: (Math.random() - 0.5) * 20, // Gentle random rotation
-                    force3D: true,
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 60%",
+                        end: "bottom center",
+                        toggleActions: "play none none reverse",
+                    },
+                    defaults: { ease: "power2.inOut" }
                 });
-            });
 
-            // LOGO initial state: HIDDEN (Per user request: "Do not show Zuwos logo in the beginning")
-            gsap.set(logoRef.current, { opacity: 0, scale: 0 });
+                // --- PLACEMENT ALGORITHM ---
+                const width = containerRef.current!.offsetWidth;
+                const height = isDesktop ? 600 : 400; // Match container height
 
-            // --- SEQUENCE ---
+                const positions: { x: number, y: number }[] = [];
+                const minDistance = isDesktop ? 100 : 60;
 
-            // 1. Reveal Apps (Floating Upwards)
-            tl.to(elementsRef.current, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.8, // Slightly slower for elegance
-                stagger: {
-                    from: "random",
-                    amount: 0.4
-                },
-                ease: "power3.out", // Smoother ease
-            })
+                for (let i = 0; i < apps.length; i++) {
+                    let check = false;
+                    let x = 0, y = 0;
+                    let attempts = 0;
 
-                // 2. The Merge: Apps sucked into the center
-                .to(elementsRef.current, {
-                    x: 0,
-                    y: 0,
-                    scale: 0,
-                    opacity: 0,
-                    duration: 0.6, // Faster suck-in for punchiness
-                    ease: "expo.in", // Dramatic suction
-                    stagger: {
-                        from: "center",
-                        amount: 0.05 // Tighter stagger for cohesive merge
+                    while (!check && attempts < 100) {
+                        if (isDesktop) {
+                            // True Random Scatter for Desktop
+                            x = (Math.random() - 0.5) * (width - 100);
+                            y = (Math.random() - 0.5) * (height - 100);
+                        } else {
+                            // Constrained Scatter for Mobile (Vertical Bias)
+                            // Keep X within narrow bounds to prevent horizontal overflow
+                            x = (Math.random() - 0.5) * (Math.min(width, 300) - 60);
+                            y = (Math.random() - 0.5) * (height - 60);
+                        }
+
+                        // Check collision
+                        check = true;
+                        for (const pos of positions) {
+                            const dist = Math.hypot(pos.x - x, pos.y - y);
+                            if (dist < minDistance) {
+                                check = false;
+                                break;
+                            }
+                        }
+                        attempts++;
                     }
-                }, "+=0.2") // Slight pause before merge
+                    positions.push({ x, y });
+                }
 
-                // 3. Logo Pop & Bounce (In-and-Out Scale Bounce)
-                .to(logoRef.current, {
+                // --- ANIMATION SETUP ---
+                elementsRef.current.forEach((el, i) => {
+                    if (!el) return;
+                    gsap.set(el, {
+                        x: positions[i].x,
+                        y: positions[i].y,
+                        opacity: 0,
+                        scale: 0,
+                        rotation: (Math.random() - 0.5) * 20,
+                        force3D: true,
+                    });
+                });
+
+                // LOGO initial state
+                gsap.set(logoRef.current, { opacity: 0, scale: 0 });
+
+                // --- SEQUENCE ---
+                tl.to(elementsRef.current, {
                     opacity: 1,
-                    scale: 1,
-                    duration: 1.5, // Total time for pop + elastic settle
-                    ease: "elastic.out(1, 0.3)", // The "Pop and Bounce" (High elasticity for wobble)
-                }, "-=0.1"); // Start IMMEDIATELY as apps vanish
+                    scale: isDesktop ? 1 : 0.8, // Smaller on mobile
+                    duration: 0.8,
+                    stagger: {
+                        from: "random",
+                        amount: 0.4
+                    },
+                    ease: "power3.out",
+                })
+                    .to(elementsRef.current, {
+                        x: 0,
+                        y: 0,
+                        scale: 0,
+                        opacity: 0,
+                        duration: 1.3,
+                        ease: "expo.in",
+                        stagger: {
+                            from: "center",
+                            amount: 0.05
+                        }
+                    }, "+=0.2")
+                    .to(logoRef.current, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 1.5,
+                        ease: "elastic.out(1, 0.3)",
+                    }, "-=0.1");
+            });
 
         }, containerRef);
 
@@ -161,7 +170,7 @@ const AppMergingAnimation: React.FC = () => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-[600px] flex items-center justify-center overflow-hidden bg-transparent perspective-1000 pb-32"
+            className="relative w-full h-[400px] lg:h-[600px] flex items-center justify-center overflow-hidden bg-transparent perspective-1000 pb-32"
         >
             {/* NO Singularity Dot anymore */}
 

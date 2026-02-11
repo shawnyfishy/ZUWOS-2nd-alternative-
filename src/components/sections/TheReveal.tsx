@@ -75,7 +75,7 @@ export default function TheReveal() {
                 >
                     <TextRevealer
                         text="Built in India. Engineered for the future of distributed&nbsp;work."
-                        className="text-2xl md:text-3xl text-graphite/40 max-w-3xl mx-auto font-medium justify-center"
+                        className="text-2xl md:text-3xl text-graphite/60 max-w-3xl mx-auto font-medium justify-center"
                         delay={0.6}
                         stagger={0.01}
                     />

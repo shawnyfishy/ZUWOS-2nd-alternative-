@@ -18,18 +18,22 @@ const StakeholderSection = () => {
             const totalWidth = container.scrollWidth;
             const viewportWidth = window.innerWidth;
 
-            // GSAP Horizontal Scroll
-            gsap.to(container, {
-                x: () => -(totalWidth - viewportWidth),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    pin: true,
-                    scrub: 1,
-                    // Tune end value: More scroll space per screen improves "stickiness" feeling
-                    end: () => "+=" + (totalWidth),
-                    invalidateOnRefresh: true,
-                }
+            const mm = gsap.matchMedia();
+
+            // Desktop Horizontal Scroll
+            mm.add("(min-width: 1024px)", () => {
+                gsap.to(container, {
+                    x: () => -(totalWidth - viewportWidth),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        pin: true,
+                        scrub: 1,
+                        // Tune end value: More scroll space per screen improves "stickiness" feeling
+                        end: () => "+=" + (totalWidth),
+                        invalidateOnRefresh: true,
+                    }
+                });
             });
 
         }, sectionRef);
@@ -40,7 +44,7 @@ const StakeholderSection = () => {
     return (
         <section ref={sectionRef} className="relative w-full overflow-hidden">
             {/* Horizontal Container */}
-            <div ref={containerRef} className="flex flex-row w-fit h-screen">
+            <div ref={containerRef} className="flex flex-col lg:flex-row w-full lg:w-fit h-auto lg:h-screen">
                 <EmployeeView />
                 <HRView />
                 <FacilitiesView />

@@ -36,26 +36,53 @@ import visitorImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy
 import wasteImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of Waste Management web.png';
 import waterImg from './NEWFINANCEANDACCOUNTSHDZUWOS/NEWFACILITIESHDZUWOS/Copy of water asset list web..png';
 
+import amcMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/AMC ios.jpg';
+import assetMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Asset ios.jpg';
+import auditMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Audit ios.jpg';
+import energyMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Energy Management ios.jpg';
+import fnbMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/F&B ios.jpg';
+import fitoutMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Fitout ios.png';
+import gatepassMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Gatepass ios.jpg';
+import hotoMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/HOTO ios.png';
+import incidentMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Incident Management ios.jpg';
+import inventoryMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Inventory ios.jpg';
+import mailroomMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Mailroom ios.jpg';
+import bookingMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Meetings ios.jpg';
+import meterMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Meter reading ios.jpg';
+import osrMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/OSR ios.jpg';
+import parkingMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Parking Management ios.jpg';
+import patrollingMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Patrolling ios.jpg';
+import ptwMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/PTW ios.jpg';
+import scheduleMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Schedule & Task ios.jpg';
+import snagMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Snag ios.png';
+import spaceMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Space Management ios.jpg';
+import staffEntryMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Staff Entry Management ios.jpg';
+import surveyMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Survey ios.jpg';
+import ticketMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Ticket_Helpdesk ios.jpg';
+import visitorMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Visitor management   ios.jpg';
+import waterMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/Water Management ios.jpg';
+import msafeMobile from '../ui/MOBILEEMPLOYEESHD/MOBILEFACILITIESHD/m safe ios.png';
+
 const modules = [
     // 1. Transitioning
-    { category: 'Transitioning', name: 'Hotoweb', description: 'Handover and Takeover documentation.', mac: hotoImg, mobile: '/assets/facilities/hotoweb-mobile.png' },
-    { category: 'Transitioning', name: 'Snagging', description: 'Track defects and resolution status.', mac: snaggingImg, mobile: '/assets/facilities/snag-mobile.png' },
-    { category: 'Transitioning', name: 'Fitout Management', description: 'Manage construction and renovations.', mac: fitoutImg, mobile: '/assets/facilities/fitout-mobile.png' },
+    { category: 'Transitioning', name: 'Hotoweb', description: 'Handover and Takeover documentation.', mac: hotoImg, mobile: hotoMobile },
+    { category: 'Transitioning', name: 'Snagging', description: 'Track defects and resolution status.', mac: snaggingImg, mobile: snagMobile },
+    { category: 'Transitioning', name: 'Fitout Management', description: 'Manage construction and renovations.', mac: fitoutImg, mobile: fitoutMobile },
 
     // 2. Maintenance
-    { category: 'Maintenance', name: 'Tickets/ Helpdesk', description: 'Helpdesk for facility issues.', mac: ticketImg, mobile: '/assets/facilities/tickets-mobile.png' },
-    { category: 'Maintenance', name: 'Assets (Lifecyle)', description: 'Lifecycle management of physical assets.', mac: assetsImg, mobile: '/assets/facilities/assets-mobile.png' },
-    { category: 'Maintenance', name: 'Schedule & Task', description: 'Manage schedules and recurring tasks.', mac: scheduleImg, mobile: '/assets/facilities/schedule-mobile.png' },
-    { category: 'Maintenance', name: 'Inventory', description: 'Track stock for consumables.', mac: inventoryImg, mobile: '/assets/facilities/inventory-mobile.png' },
-    { category: 'Maintenance', name: 'AMC Services', description: 'Track Annual Maintenance Contracts.', mac: amcImg, mobile: '/assets/facilities/amc-mobile.png' },
-    { category: 'Maintenance', name: 'Audit', description: 'Operational, Asset, and Vendor audits.', mac: auditImg, mobile: '/assets/facilities/audits-mobile.png' },
+    { category: 'Maintenance', name: 'Tickets/ Helpdesk', description: 'Helpdesk for facility issues.', mac: ticketImg, mobile: ticketMobile },
+    { category: 'Maintenance', name: 'Assets (Lifecyle)', description: 'Lifecycle management of physical assets.', mac: assetsImg, mobile: assetMobile },
+    { category: 'Maintenance', name: 'Schedule & Task', description: 'Manage schedules and recurring tasks.', mac: scheduleImg, mobile: scheduleMobile },
+    { category: 'Maintenance', name: 'Inventory', description: 'Track stock for consumables.', mac: inventoryImg, mobile: inventoryMobile },
+    { category: 'Maintenance', name: 'AMC Services', description: 'Track Annual Maintenance Contracts.', mac: amcImg, mobile: amcMobile },
+    { category: 'Maintenance', name: 'Audit', description: 'Operational, Asset, and Vendor audits.', mac: auditImg, mobile: auditMobile },
     { category: 'Maintenance', name: 'Waste Mgmt', description: 'Track waste disposal and recycling.', mac: wasteImg, mobile: '/assets/facilities/inventory-mobile.png' },
-    { category: 'Maintenance', name: 'Survey', description: 'Conduct facility surveys and feedback.', mac: surveyImg, mobile: '/assets/facilities/survey-mobile.png' },
+    { category: 'Maintenance', name: 'Survey', description: 'Conduct facility surveys and feedback.', mac: surveyImg, mobile: surveyMobile },
 
     // 3. Safety
-    { category: 'Safety', name: 'Permit to Work', description: 'Manage work permits and safety checks.', mac: permitImg, mobile: '/assets/facilities/safety-mobile.png' },
-    { category: 'Safety', name: 'Incident Mgmt', description: 'Log and track safety incidents.', mac: incidentImg, mobile: '/assets/facilities/incident-mobile.png' },
-    { category: 'Safety', name: 'M-safe', description: 'Safety training and compliance.', mac: msafeImg, mobile: '/assets/facilities/msafe-mobile.png' },
+    { category: 'Safety', name: 'Permit to Work', description: 'Manage work permits and safety checks.', mac: permitImg, mobile: ptwMobile },
+    { category: 'Safety', name: 'Incident Mgmt', description: 'Log and track safety incidents.', mac: incidentImg, mobile: incidentMobile },
+    { category: 'Safety', name: 'M-safe', description: 'Safety training and compliance.', mac: msafeImg, mobile: msafeMobile },
 
     // 4. Finance
     { category: 'Finance', name: 'Vendor Mgmt', description: 'Manage vendor profiles and contracts.', mac: vendorImg, mobile: '/assets/facilities/amc-mobile.png' },
@@ -64,23 +91,23 @@ const modules = [
     { category: 'Finance', name: 'Accounting', description: 'Track facility-related expenses.', mac: accountingImg, mobile: '/assets/facilities/amc-mobile.png' },
 
     // 5. Utility
-    { category: 'Utility', name: 'Energy Management', description: 'Monitor energy consumption.', mac: energyImg, mobile: '/assets/facilities/energy-mobile.png' },
-    { category: 'Utility', name: 'Water Management', description: 'Track water usage and quality.', mac: waterImg, mobile: '/assets/facilities/water-mobile.png' },
-    { category: 'Utility', name: 'Utility Meter Reading Management', description: 'Automated utility meter tracking.', mac: utilityImg, mobile: '/assets/facilities/meter-mobile.png' },
+    { category: 'Utility', name: 'Energy Management', description: 'Monitor energy consumption.', mac: energyImg, mobile: energyMobile },
+    { category: 'Utility', name: 'Water Management', description: 'Track water usage and quality.', mac: waterImg, mobile: waterMobile },
+    { category: 'Utility', name: 'Utility Meter Reading Management', description: 'Automated utility meter tracking.', mac: utilityImg, mobile: meterMobile },
 
     // 6. Security
-    { category: 'Security', name: 'Visitor Management', description: 'Streamline guest entry management.', mac: visitorImg, mobile: '/assets/facilities/visitor-mobile.png' },
-    { category: 'Security', name: 'Gatepass Management', description: 'Manage material movement gate passes.', mac: gatepassImg, mobile: '/assets/facilities/gatepass-mobile.png' },
-    { category: 'Security', name: 'Staff Entry Management', description: 'Manage staff access and attendance.', mac: staffEntryImg, mobile: '/assets/facilities/staff-entry-mobile.png' },
-    { category: 'Security', name: 'Patrolling', description: 'Monitor security guard routes.', mac: patrollingImg, mobile: '/assets/facilities/patrolling-mobile.png' },
+    { category: 'Security', name: 'Visitor Management', description: 'Streamline guest entry management.', mac: visitorImg, mobile: visitorMobile },
+    { category: 'Security', name: 'Gatepass Management', description: 'Manage material movement gate passes.', mac: gatepassImg, mobile: gatepassMobile },
+    { category: 'Security', name: 'Staff Entry Management', description: 'Manage staff access and attendance.', mac: staffEntryImg, mobile: staffEntryMobile },
+    { category: 'Security', name: 'Patrolling', description: 'Monitor security guard routes.', mac: patrollingImg, mobile: patrollingMobile },
 
     // 7. Value Added Services
-    { category: 'Value Added Services', name: 'F&B Management', description: 'Food and beverage management.', mac: fnbImg, mobile: '/assets/facilities/fnb-mobile.png' },
-    { category: 'Value Added Services', name: 'Parking Management', description: 'Manage parking spaces and allocation.', mac: parkingImg, mobile: '/assets/facilities/parking-mobile.png' },
-    { category: 'Value Added Services', name: 'OSR Management', description: 'Occupancy Service Request management.', mac: osrImg, mobile: '/assets/facilities/space-mobile.png' },
-    { category: 'Value Added Services', name: 'Space Management', description: 'Analyze floor plans and utilization.', mac: spaceImg, mobile: '/assets/facilities/space-mobile.png' },
-    { category: 'Value Added Services', name: 'Booking Management', description: 'Reserve meeting rooms and desks.', mac: bookingImg, mobile: '/assets/facilities/booking-mobile.png' },
-    { category: 'Value Added Services', name: 'Mailroom Management', description: 'Track incoming and outgoing mail.', mac: mailroomImg, mobile: '/assets/facilities/mailroom-mobile.png' },
+    { category: 'Value Added Services', name: 'F&B Management', description: 'Food and beverage management.', mac: fnbImg, mobile: fnbMobile },
+    { category: 'Value Added Services', name: 'Parking Management', description: 'Manage parking spaces and allocation.', mac: parkingImg, mobile: parkingMobile },
+    { category: 'Value Added Services', name: 'OSR Management', description: 'Occupancy Service Request management.', mac: osrImg, mobile: osrMobile },
+    { category: 'Value Added Services', name: 'Space Management', description: 'Analyze floor plans and utilization.', mac: spaceImg, mobile: spaceMobile },
+    { category: 'Value Added Services', name: 'Booking Management', description: 'Reserve meeting rooms and desks.', mac: bookingImg, mobile: bookingMobile },
+    { category: 'Value Added Services', name: 'Mailroom Management', description: 'Track incoming and outgoing mail.', mac: mailroomImg, mobile: mailroomMobile },
     { category: 'Value Added Services', name: 'Lease Management', description: 'Track property lease agreements.', mac: leaseImg, mobile: '/assets/facilities/amc-mobile.png' },
 ];
 
@@ -113,12 +140,12 @@ export default function FacilitiesShowcase() {
         <section className="w-full min-h-screen py-8 md:py-12 2xl:py-20 bg-coconut flex flex-col justify-between items-center relative">
 
             {/* 1. Header (Top) */}
-            <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-8 md:mb-0">
+            <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-12 md:mb-16">
                 <h2 className="text-5xl md:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
-                    Facilities
+                    Zuwos's smart workplace
                 </h2>
-                <span className="text-xl md:text-2xl font-medium text-graphite/60 block">
-                    Total Operational Control.
+                <span className="text-xl md:text-2xl font-medium text-graphite/80 block uppercase">
+                    built for FACILITIES
                 </span>
             </div>
 
@@ -140,7 +167,7 @@ export default function FacilitiesShowcase() {
                 {/* Layer 2: Main Content (Centered) */}
                 {/* Added lg:pl-80 to shift center right and avoid sidebar overlap */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-[90rem] flex justify-center relative px-4 lg:pl-80 pointer-events-none">
-                    <div className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-8 transform scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto">
+                    <div className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-20 transform scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto">
 
                         {/* MacBook - More Smaller */}
                         <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-4xl">
@@ -176,7 +203,7 @@ export default function FacilitiesShowcase() {
                                             key={`mobile-${currentIndex}`}
                                             src={currentModule.mobile}
                                             alt={`${currentModule.name} App`}
-                                            className="absolute inset-0 w-full h-full object-cover"
+                                            className="absolute inset-0 w-full h-full object-cover object-top"
                                             initial={{ x: 50, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
                                             exit={{ x: -50, opacity: 0 }}
@@ -191,9 +218,9 @@ export default function FacilitiesShowcase() {
             </div>
 
             {/* 3. Footer (Bottom) */}
-            <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
+            <div className="shrink-0 w-full flex justify-center pt-16 pb-4 md:pb-8 z-20 px-6 relative z-20">
                 <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">One stop solution for</span>
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Enables</span>
 
                     {/* Morphing Category */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -211,7 +238,7 @@ export default function FacilitiesShowcase() {
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">offering</span>
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">to manage</span>
 
                     {/* Morphing Module Name */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
@@ -228,6 +255,8 @@ export default function FacilitiesShowcase() {
                             </motion.span>
                         </AnimatePresence>
                     </span>
+
+                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">seamlessly</span>
                 </h3>
             </div>
         </section>

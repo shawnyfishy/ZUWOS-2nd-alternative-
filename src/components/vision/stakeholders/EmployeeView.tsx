@@ -2,9 +2,9 @@ import { Award, Calendar } from 'lucide-react';
 
 const EmployeeView = () => {
     return (
-        <div className="w-[100vw] h-screen flex-shrink-0 bg-blue-600 flex flex-col md:flex-row relative overflow-hidden text-white">
+        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-blue-600 flex flex-col lg:flex-row relative overflow-hidden text-white">
             {/* Left Panel: Role & Features */}
-            <div className="w-full md:w-[30%] h-auto md:h-full p-8 md:p-12 flex flex-col justify-center bg-blue-600 border-b md:border-b-0 md:border-r border-white/20 z-10 pt-20 md:pt-0">
+            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-blue-600 border-b lg:border-b-0 lg:border-r border-white/20 z-10 pt-20 md:pt-0">
                 <div className="mb-8">
                     <h2 className="text-3xl md:text-4xl font-display font-bold text-white mt-2">Employees</h2>
                     <p className="text-lg md:text-xl text-blue-100 mt-4">One App for Everything.</p>
@@ -27,7 +27,7 @@ const EmployeeView = () => {
             </div>
 
             {/* Right Panel: Content / Mockups */}
-            <div className="w-full md:w-[70%] h-full flex flex-col md:flex-row items-center justify-center p-8 md:p-20 relative overflow-visible mt-8 md:mt-0">
+            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col md:flex-row items-center justify-center p-8 md:p-20 relative overflow-visible mt-8 md:mt-0">
                 {/* Decorative BG */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-200/20 rounded-full blur-3xl" />
 
