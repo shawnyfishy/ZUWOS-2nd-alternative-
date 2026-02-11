@@ -646,12 +646,7 @@ export default function ZuwosEcosystem() {
 
             <div className="flex justify-center mt-12 md:mt-16">
                 <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' }) || (window.location.href = '/ecosystem-explore')}
-                    /* 
-                       Wait, I should use useNavigate if I want it to be an SPA transition.
-                       I don't have useNavigate imported in this file yet.
-                       I need to add the import first.
-                    */
+                    onClick={() => navigate('/ecosystem-explore')}
                     className="
                         group relative overflow-hidden rounded-full
                         px-8 py-3 bg-[#1C3144] text-white font-medium text-lg
