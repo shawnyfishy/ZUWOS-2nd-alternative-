@@ -267,25 +267,25 @@ const CardContent = ({ type }: { type: string }) => {
     switch (type) {
         case 'nodes':
             return (
-                <svg className="w-full h-full absolute bottom-0 right-0 p-3" viewBox="0 0 100 100">
-                    <circle className="node-1" cx="20" cy="50" r="3" fill="currentColor" opacity="0.5" />
-                    <circle className="node-2" cx="80" cy="20" r="3" fill="currentColor" opacity="0.5" />
-                    <circle className="node-3" cx="80" cy="80" r="3" fill="currentColor" opacity="0.5" />
-                    <path className="line-1" d="M20 50 L80 20" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.3" pathLength="1" strokeDasharray="1" strokeDashoffset="1" />
-                    <path className="line-2" d="M20 50 L80 80" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.3" pathLength="1" strokeDasharray="1" strokeDashoffset="1" />
+                <svg className="w-full h-full absolute bottom-0 right-0 p-3 opacity-60" viewBox="0 0 100 100" style={{ maskImage: 'linear-gradient(to top left, black 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top left, black 60%, transparent 100%)' }}>
+                    <circle className="node-1" cx="20" cy="50" r="3" fill="currentColor" opacity="0.8" />
+                    <circle className="node-2" cx="80" cy="20" r="3" fill="currentColor" opacity="0.8" />
+                    <circle className="node-3" cx="80" cy="80" r="3" fill="currentColor" opacity="0.8" />
+                    <path className="line-1" d="M20 50 L80 20" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5" pathLength="1" strokeDasharray="1" strokeDashoffset="1" />
+                    <path className="line-2" d="M20 50 L80 80" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5" pathLength="1" strokeDasharray="1" strokeDashoffset="1" />
                 </svg>
             );
         case 'quotes':
             return (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="quote-left text-5xl font-serif absolute top-2 left-2 opacity-50">“</div>
-                    <div className="quote-right text-5xl font-serif absolute bottom-2 right-2 opacity-50">”</div>
+                <div className="absolute bottom-3 right-3 flex items-center justify-center opacity-40">
+                    <div className="quote-left text-5xl font-serif absolute -top-4 -left-4">“</div>
+                    <div className="quote-right text-5xl font-serif absolute top-0 left-0">”</div>
                 </div>
             );
         case 'type':
             return (
-                <div className="absolute inset-0 flex items-end justify-end p-3">
-                    <div className="flex flex-col gap-1.5 items-end opacity-50">
+                <div className="absolute inset-0 flex items-end justify-end p-4 opacity-70">
+                    <div className="flex flex-col gap-1.5 items-end">
                         <div className="type-line w-12 h-1.5 bg-current rounded-full" />
                         <div className="type-line w-8 h-1.5 bg-current rounded-full" />
                         <div className="type-line w-16 h-1.5 bg-current rounded-full" />
@@ -294,7 +294,7 @@ const CardContent = ({ type }: { type: string }) => {
             );
         case 'lock':
             return (
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute bottom-4 right-4 flex items-center justify-center opacity-40">
                     <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <rect className="lock-body" x="3" y="11" width="18" height="11" rx="2" ry="2" />
                         <path className="lock-shackle" d="M7 11V7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7V11" />
@@ -303,58 +303,58 @@ const CardContent = ({ type }: { type: string }) => {
             );
         case 'curve':
             return (
-                <svg className="w-full h-full absolute inset-0 p-3" viewBox="0 0 100 100">
+                <svg className="w-full h-full absolute inset-0 p-3 opacity-60" viewBox="0 0 100 100" style={{ maskImage: 'linear-gradient(to top left, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top left, black 70%, transparent 100%)' }}>
                     <path className="bezier-curve" d="M10 90 Q 50 10 90 90" stroke="currentColor" strokeWidth="2" fill="none" />
                 </svg>
             );
         case 'grid':
             return (
-                <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-1 p-3">
+                <div className="absolute bottom-3 right-3 grid grid-cols-3 grid-rows-3 gap-1 p-1 opacity-50 transform scale-90 origin-bottom-right">
                     {[...Array(9)].map((_, i) => (
-                        <div key={i} className={`grid-cell-${i} bg-current opacity-30 rounded-[1px]`} />
+                        <div key={i} className={`grid-cell-${i} w-2 h-2 bg-current rounded-[1px]`} />
                     ))}
                 </div>
             );
         case 'waves':
             return (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="wave-ring absolute w-14 h-14 border-2 border-current rounded-full opacity-0" />
+                <div className="absolute bottom-5 right-5 flex items-center justify-center opacity-40">
+                    <div className="wave-ring absolute w-12 h-12 border-2 border-current rounded-full opacity-0" />
                     <div className="wave-ring absolute w-8 h-8 border-2 border-current rounded-full opacity-0" />
                 </div>
             )
         case 'kanban':
             return (
-                <div className="absolute inset-0 flex gap-1.5 p-3 items-end justify-center">
-                    <div className="kanban-col w-3 h-8 bg-current opacity-30 rounded-sm" />
-                    <div className="kanban-col w-3 h-12 bg-current opacity-50 rounded-sm" />
-                    <div className="kanban-col w-3 h-6 bg-current opacity-30 rounded-sm" />
+                <div className="absolute inset-0 flex gap-1.5 p-3 items-end justify-end opacity-60">
+                    <div className="kanban-col w-3 h-8 bg-current opacity-40 rounded-sm" />
+                    <div className="kanban-col w-3 h-12 bg-current opacity-60 rounded-sm" />
+                    <div className="kanban-col w-3 h-5 bg-current opacity-40 rounded-sm" />
                 </div>
             )
         case 'chart':
             return (
-                <svg className="w-full h-full absolute inset-0 p-3" viewBox="0 0 100 100">
+                <svg className="w-full h-full absolute inset-0 p-3 opacity-60" viewBox="0 0 100 100" style={{ maskImage: 'linear-gradient(to top left, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top left, black 70%, transparent 100%)' }}>
                     <path className="chart-line" d="M10 90 L30 60 L50 70 L70 30 L90 50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" pathLength="1" strokeDasharray="1" strokeDashoffset="1" />
                 </svg>
             )
         case 'cloud':
             return (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="cloud-icon w-10 h-10 opacity-50" viewBox="0 0 24 24" fill="currentColor">
+                <div className="absolute bottom-4 right-4 flex items-center justify-center opacity-50">
+                    <svg className="cloud-icon w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C11.6667 2 11.3333 2.01667 11 2.05C10.7 7.55 6.2 12 0.75 12C0.25 12 0 12.25 0 12.75V17C0 20.3 2.7 23 6 23H18C21.3 23 24 20.3 24 17V14C24 10.7 21.3 8 18 8H17C17 4.7 14.3 2 12 2Z" />
                     </svg>
                 </div>
             )
         case 'people':
             return (
-                <div className="absolute inset-0 flex items-end justify-center gap-1 p-3">
-                    <div className="person-1 w-3 h-5 bg-current opacity-50 rounded-t-full" />
-                    <div className="person-2 w-3 h-7 bg-current opacity-70 rounded-t-full" />
-                    <div className="person-3 w-3 h-4 bg-current opacity-50 rounded-t-full" />
+                <div className="absolute inset-0 flex items-end justify-end gap-1 p-3 opacity-60">
+                    <div className="person-1 w-3 h-5 bg-current opacity-60 rounded-t-full" />
+                    <div className="person-2 w-3 h-8 bg-current opacity-80 rounded-t-full" />
+                    <div className="person-3 w-3 h-4 bg-current opacity-60 rounded-t-full" />
                 </div>
             )
         case 'mail':
             return (
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute bottom-4 right-4 flex items-center justify-center opacity-50">
                     <div className="mail-env w-8 h-5 border-2 border-current rounded-sm relative overflow-hidden">
                         <div className="mail-flap absolute top-0 left-0 w-full h-full border-b-2 border-current origin-top transform rotate-0" />
                     </div>
@@ -362,7 +362,7 @@ const CardContent = ({ type }: { type: string }) => {
             )
         case 'funnel':
             return (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 opacity-50">
+                <div className="absolute bottom-4 right-4 flex flex-col items-center justify-center gap-1 opacity-50">
                     <div className="funnel-level w-8 h-1.5 bg-current rounded-full" />
                     <div className="funnel-level w-6 h-1.5 bg-current rounded-full" />
                     <div className="funnel-level w-3 h-1.5 bg-current rounded-full" />
@@ -370,7 +370,7 @@ const CardContent = ({ type }: { type: string }) => {
             )
         case 'shapes':
             return (
-                <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-50">
+                <div className="absolute bottom-4 right-4 flex items-center justify-center gap-2 opacity-50">
                     <div className="shape-1 w-4 h-4 border-2 border-current rounded-sm" />
                     <div className="shape-2 w-4 h-4 border-2 border-current rounded-full" />
                 </div>
@@ -387,16 +387,16 @@ const AnimatedCard = ({ item, onClick }: { item: any, onClick: () => void }) => 
         const card = cardRef.current;
         if (!card) return;
 
-        const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.out", duration: 0.5 } });
+        const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out", duration: 0.8 } });
 
         // Specific Content Animations - SCALED DOWN FOR COMPACT GRID
         if (item.type === 'nodes') {
-            tl.to(card.querySelectorAll('.line-1, .line-2'), { strokeDashoffset: 0, duration: 0.8 }, 0)
+            tl.to(card.querySelectorAll('.line-1, .line-2'), { strokeDashoffset: 0, duration: 1.2 }, 0)
                 .to(card.querySelectorAll('.node-1, .node-2, .node-3'), { scale: 1.5, opacity: 1, stagger: 0.1 }, 0);
         }
         if (item.type === 'quotes') {
-            tl.to(card.querySelectorAll('.quote-left'), { x: 3, y: 3 }, 0)
-                .to(card.querySelectorAll('.quote-right'), { x: -3, y: -3 }, 0);
+            tl.to(card.querySelectorAll('.quote-left'), { x: 2, y: 2 }, 0)
+                .to(card.querySelectorAll('.quote-right'), { x: -2, y: -2 }, 0);
         }
         if (item.type === 'type') {
             tl.to(card.querySelectorAll('.type-line'), { width: "100%", stagger: 0.1 }, 0);
@@ -405,25 +405,25 @@ const AnimatedCard = ({ item, onClick }: { item: any, onClick: () => void }) => 
             tl.to(card.querySelectorAll('.lock-shackle'), { y: -2 }, 0);
         }
         if (item.type === 'curve') {
-            tl.fromTo(card.querySelectorAll('.bezier-curve'), { attr: { d: "M10 90 Q 10 90 90 90" } }, { attr: { d: "M10 90 Q 50 10 90 90" }, duration: 0.8, ease: "back.out(1.7)" }, 0);
+            tl.fromTo(card.querySelectorAll('.bezier-curve'), { attr: { d: "M10 90 Q 10 90 90 90" } }, { attr: { d: "M10 90 Q 50 10 90 90" }, duration: 1, ease: "back.out(1.2)" }, 0);
         }
         if (item.type === 'grid') {
             tl.to(card.querySelectorAll('[class^="grid-cell-"]'), { scale: 0.5, opacity: 0.8, stagger: { amount: 0.3, grid: [3, 3], from: "center" } }, 0);
         }
         if (item.type === 'waves') {
-            tl.fromTo(card.querySelectorAll('.wave-ring'), { scale: 0, opacity: 1 }, { scale: 1.5, opacity: 0, duration: 1, stagger: 0.3, repeat: -1 }, 0);
+            tl.fromTo(card.querySelectorAll('.wave-ring'), { scale: 0, opacity: 1 }, { scale: 1.5, opacity: 0, duration: 1.5, stagger: 0.4, repeat: -1 }, 0);
         }
         if (item.type === 'kanban') {
             tl.to(card.querySelectorAll('.kanban-col'), { height: '100%', stagger: 0.1 }, 0);
         }
         if (item.type === 'chart') {
-            tl.to(card.querySelectorAll('.chart-line'), { strokeDashoffset: 0, duration: 1 }, 0);
+            tl.to(card.querySelectorAll('.chart-line'), { strokeDashoffset: 0, duration: 1.2 }, 0);
         }
         if (item.type === 'cloud') {
-            tl.to(card.querySelectorAll('.cloud-icon'), { scale: 1.1, y: -3 }, 0);
+            tl.to(card.querySelectorAll('.cloud-icon'), { scale: 1.1, y: -2 }, 0);
         }
         if (item.type === 'people') {
-            tl.to(card.querySelectorAll('[class^="person-"]'), { height: 24, stagger: 0.1 }, 0);
+            tl.to(card.querySelectorAll('[class^="person-"]'), { height: 16, stagger: 0.1 }, 0);
         }
         if (item.type === 'mail') {
             tl.to(card.querySelectorAll('.mail-flap'), { rotateX: 180, transformOrigin: 'top' }, 0);
@@ -606,24 +606,31 @@ export default function ZuwosEcosystem() {
             ) : (
                 /* MOBILE LAYOUT (Stacked) */
                 <div className="flex flex-col gap-4 pb-20">
-                    {items.filter(item => !item.isLogo).map((item) => (
-                        <motion.div
-                            key={item.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="w-full h-[180px]"
-                        >
-                            <AnimatedCard
-                                item={item}
-                                onClick={() => item.label && setActiveId(item.id)}
-                            />
-                        </motion.div>
-                    ))}
-                    {/* Mobile Logo */}
-                    <div className="w-full h-[180px] flex items-center justify-center">
-                        <ZuwosLogoCard item={{ className: 'w-full h-full' }} />
-                    </div>
+                    {items.map((item) => {
+                        // Mobile Logo
+                        if (item.isLogo) {
+                            return (
+                                <div key="LOGO" className="w-full h-[180px] flex items-center justify-center">
+                                    <ZuwosLogoCard item={{ className: 'w-full h-full' }} />
+                                </div>
+                            );
+                        }
+
+                        return (
+                            <motion.div
+                                key={item.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="w-full h-[180px]"
+                            >
+                                <AnimatedCard
+                                    item={item}
+                                    onClick={() => item.label && setActiveId(item.id)}
+                                />
+                            </motion.div>
+                        );
+                    })}
                 </div>
             )}
 
