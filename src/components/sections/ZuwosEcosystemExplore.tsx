@@ -26,108 +26,108 @@ import { useNavigate } from 'react-router-dom';
 const items = [
     // --- ROW 1 ---
     {
-        id: 'hoto', label: 'HOTO', sub: '(Handover Takeover)', color: 'bg-[#1C3144]', text: 'text-white', className: 'col-start-1 row-start-1', type: 'grid',
+        id: 'hoto', label: 'HOTO', sub: '(Handover Takeover)', color: 'bg-[#1C3144]', text: 'text-white', className: 'lg:col-start-1 lg:row-start-1', type: 'grid',
         desc: "Seamless transition of assets and responsibilities.",
         features: ["Asset Verification", "Documentation", "Sign-offs"]
     },
     {
-        id: 'fitout', label: 'Fitout', sub: 'Management', color: 'bg-[#FF6D00]', text: 'text-white', className: 'col-start-2 row-start-1', type: 'kanban',
+        id: 'fitout', label: 'Fitout', sub: 'Management', color: 'bg-[#FF6D00]', text: 'text-white', className: 'lg:col-start-2 lg:row-start-1', type: 'kanban',
         desc: "Manage workspace fit-out projects start to finish.",
         features: ["Design Approval", "Vendor Coordination", "Progress Tracking"]
     },
     {
-        id: 'snagging', label: 'Snagging', sub: 'Management', color: 'bg-[#00897B]', text: 'text-white', className: 'col-start-3 row-start-1', type: 'kanban', // Was list
+        id: 'snagging', label: 'Snagging', sub: 'Management', color: 'bg-[#00897B]', text: 'text-white', className: 'lg:col-start-3 lg:row-start-1', type: 'kanban', // Was list
         desc: "Identify and resolve defects efficiently.",
         features: ["Photo Capture", "Location Tagging", "Closure Workflow"]
     },
     {
-        id: 'amc', label: 'AMC', sub: 'Management', color: 'bg-[#6200EA]', text: 'text-white', className: 'col-start-4 row-start-1', type: 'type', // Was doc
+        id: 'amc', label: 'AMC', sub: 'Management', color: 'bg-[#6200EA]', text: 'text-white', className: 'lg:col-start-4 lg:row-start-1', type: 'type', // Was doc
         desc: "Track Annual Maintenance Contracts comprehensively.",
         features: ["Renewals", "SLA Monitoring", "Vendor Performance"]
     },
     {
-        id: 'audits', label: 'Audits', sub: '', color: 'bg-[#2962FF]', text: 'text-white', className: 'col-start-5 row-start-1', type: 'type', // Was check
+        id: 'audits', label: 'Audits', sub: '', color: 'bg-[#2962FF]', text: 'text-white', className: 'lg:col-start-5 lg:row-start-1', type: 'type', // Was check
         desc: "Conduct systematic inspections and audits.",
         features: ["Checklists", "Compliance", "Scoring"]
     },
 
     // --- ROW 2 ---
     {
-        id: 'ptw', label: 'Permit', sub: 'to Work', color: 'bg-[#D81B60]', text: 'text-white', className: 'col-start-1 row-start-2', type: 'lock',
+        id: 'ptw', label: 'Permit', sub: 'to Work', color: 'bg-[#D81B60]', text: 'text-white', className: 'lg:col-start-1 lg:row-start-2', type: 'lock',
         desc: "Ensure safety with digital work permits.",
         features: ["Approvals", "Risk Assessment", "Validity Tracking"]
     },
     {
-        id: 'safety', label: 'Safety', sub: 'Management', color: 'bg-[#FFD600]', text: 'text-[#1C3144]', className: 'col-start-2 row-start-2', type: 'lock', // Was shield
+        id: 'safety', label: 'Safety', sub: 'Management', color: 'bg-[#FFD600]', text: 'text-[#1C3144]', className: 'lg:col-start-2 lg:row-start-2', type: 'lock', // Was shield
         desc: "Prioritize workplace safety protocols.",
         features: ["Incident Reporting", "Training", "Emergency Plans"]
     },
     {
-        id: 'incident', label: 'Incident', sub: 'Management', color: 'bg-[#00E5FF]', text: 'text-[#1C3144]', className: 'col-start-3 row-start-2', type: 'waves', // Was alert
+        id: 'incident', label: 'Incident', sub: 'Management', color: 'bg-[#00E5FF]', text: 'text-[#1C3144]', className: 'lg:col-start-3 lg:row-start-2', type: 'waves', // Was alert
         desc: "Rapid response and resolution for incidents.",
         features: ["Logging", "Investigation", "CAPA"]
     },
     {
-        id: 'waste', label: 'Waste', sub: 'Management', color: 'bg-[#2962FF]', text: 'text-white', className: 'col-start-4 row-start-2', type: 'nodes', // Was recycle
+        id: 'waste', label: 'Waste', sub: 'Management', color: 'bg-[#2962FF]', text: 'text-white', className: 'lg:col-start-4 lg:row-start-2', type: 'nodes', // Was recycle
         desc: "Track and optimize waste disposal processes.",
         features: ["Categorization", "Recycling", "Vendor Manifests"]
     },
     {
-        id: 'survey', label: 'Survey', sub: '', color: 'bg-[#D50000]', text: 'text-white', className: 'col-start-5 row-start-2', type: 'funnel', // Was poll
+        id: 'survey', label: 'Survey', sub: '', color: 'bg-[#D50000]', text: 'text-white', className: 'lg:col-start-5 lg:row-start-2', type: 'funnel', // Was poll
         desc: "Gather feedback to improve workplace experience.",
         features: ["Custom Forms", "Analytics", "Anonymous Feedback"]
     },
 
     // --- ROW 3 ---
     {
-        id: 'todo', label: 'To Do', sub: 'Management', color: 'bg-[#00C853]', text: 'text-white', className: 'col-start-1 row-start-3', type: 'kanban', // Was list
+        id: 'todo', label: 'To Do', sub: 'Management', color: 'bg-[#00C853]', text: 'text-white', className: 'lg:col-start-1 lg:row-start-3', type: 'kanban', // Was list
         desc: "Organize tasks and priorities effectively.",
         features: ["Deadlines", "Reminders", "Collaboration"]
     },
     {
-        id: 'utility-meter', label: 'Utility', sub: 'Meter Reading', color: 'bg-[#C6FF00]', text: 'text-[#1C3144]', className: 'col-start-2 row-start-3', type: 'chart', // Was gauge
+        id: 'utility-meter', label: 'Utility', sub: 'Meter Reading', color: 'bg-[#C6FF00]', text: 'text-[#1C3144]', className: 'lg:col-start-2 lg:row-start-3', type: 'chart', // Was gauge
         desc: "Automated and manual utility meter tracking.",
         features: ["Electricity", "Water", "Gas"]
     },
     {
-        id: 'patrolling', label: 'Patrolling', sub: 'Management', color: 'bg-[#FF6D00]', text: 'text-white', className: 'col-start-3 row-start-3', type: 'nodes', // Was map
+        id: 'patrolling', label: 'Patrolling', sub: 'Management', color: 'bg-[#FF6D00]', text: 'text-white', className: 'lg:col-start-3 lg:row-start-3', type: 'nodes', // Was map
         desc: "Monitor security patrols and guard tours.",
         features: ["Checkpoints", "QR Scanning", "Incident Reporting"]
     },
     {
-        id: 'staff-entry', label: 'Staff Entry', sub: 'Management', color: 'bg-[#00897B]', text: 'text-white', className: 'col-start-4 row-start-3', type: 'people', // Was id-card
+        id: 'staff-entry', label: 'Staff Entry', sub: 'Management', color: 'bg-[#00897B]', text: 'text-white', className: 'lg:col-start-4 lg:row-start-3', type: 'people', // Was id-card
         desc: "Secure and streamlined staff access control.",
         features: ["Biometrics", "Attendance", "Access Logs"]
     },
     {
-        id: 'gatepass', label: 'Gatepass', sub: 'Management', color: 'bg-[#6200EA]', text: 'text-white', className: 'col-start-5 row-start-3', type: 'mail', // Was ticket
+        id: 'gatepass', label: 'Gatepass', sub: 'Management', color: 'bg-[#6200EA]', text: 'text-white', className: 'lg:col-start-5 lg:row-start-3', type: 'mail', // Was ticket
         desc: "Control movement of materials and visitors.",
         features: ["Returnable", "Non-Returnable", "Digital Approvals"]
     },
 
     // --- ROW 4 ---
     {
-        id: 'osr', label: 'OSR', sub: 'Management', color: 'bg-[#FFD600]', text: 'text-[#1C3144]', className: 'col-start-1 row-start-4', type: 'grid',
+        id: 'osr', label: 'OSR', sub: 'Management', color: 'bg-[#FFD600]', text: 'text-[#1C3144]', className: 'lg:col-start-1 lg:row-start-4', type: 'grid',
         desc: "Occupancy Service Request management.",
         features: ["Request Flow", "SLA Tracking", "Feedback"]
     },
     {
-        id: 'booking', label: 'Booking', sub: 'Management', color: 'bg-[#2962FF]', text: 'text-white', className: 'col-start-2 row-start-4', type: 'grid', // Was calendar
+        id: 'booking', label: 'Booking', sub: 'Management', color: 'bg-[#2962FF]', text: 'text-white', className: 'lg:col-start-2 lg:row-start-4', type: 'grid', // Was calendar
         desc: "Universal booking system for all resources.",
         features: ["Desks", "Rooms", "Parking"]
     },
     {
-        id: 'lease', label: 'Lease', sub: 'Management', color: 'bg-[#D81B60]', text: 'text-white', className: 'col-start-3 row-start-4', type: 'type', // Was doc
+        id: 'lease', label: 'Lease', sub: 'Management', color: 'bg-[#D81B60]', text: 'text-white', className: 'lg:col-start-3 lg:row-start-4', type: 'type', // Was doc
         desc: "Manage property leases and critical dates.",
         features: ["Contracts", "Renewals", "Payments"]
     },
     {
-        id: 'water', label: 'Water', sub: 'Management', color: 'bg-[#00E5FF]', text: 'text-[#1C3144]', className: 'col-start-4 row-start-4', type: 'waves', // Was droplet
+        id: 'water', label: 'Water', sub: 'Management', color: 'bg-[#00E5FF]', text: 'text-[#1C3144]', className: 'lg:col-start-4 lg:row-start-4', type: 'waves', // Was droplet
         desc: "Monitor water compatibility and usage.",
         features: ["Quality Checks", "Consumption", "Alerts"]
     },
     {
-        id: 'energy', label: 'Energy', sub: 'Management', color: 'bg-[#D50000]', text: 'text-white', className: 'col-start-5 row-start-4', type: 'chart', // Was lightning
+        id: 'energy', label: 'Energy', sub: 'Management', color: 'bg-[#D50000]', text: 'text-white', className: 'lg:col-start-5 lg:row-start-4', type: 'chart', // Was lightning
         desc: "Track and optimize energy consumption.",
         features: ["Real-time Monitoring", "Savings Analysis", "Carbon Footprint"]
     },

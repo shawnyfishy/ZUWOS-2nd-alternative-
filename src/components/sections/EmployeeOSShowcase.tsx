@@ -103,7 +103,7 @@ export default function EmployeeOSShowcase() {
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-[90rem] flex justify-center relative px-4 lg:pl-80 pointer-events-none">
                     {/* Inner Wrapper for interaction if needed */}
                     <motion.div
-                        className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-20 transform scale-90 md:scale-100 transition-all duration-500 hover:scale-[0.92] md:hover:scale-[1.02] pointer-events-auto"
+                        className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-20 md:scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto"
                     >
 
                         {/* MacBook - More Smaller (max-w-2xl now) */}
@@ -127,7 +127,7 @@ export default function EmployeeOSShowcase() {
                         </div>
 
                         {/* iPhone Separated & Even Smaller */}
-                        <div className="w-[100px] md:w-[130px] lg:w-[170px] shrink-0">
+                        <div className="w-[200px] md:w-[130px] lg:w-[170px] shrink-0">
                             <IPhoneFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">

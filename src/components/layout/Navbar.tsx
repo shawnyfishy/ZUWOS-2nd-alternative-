@@ -57,7 +57,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
                     >
                         <Link
                             to="/"
-                            className={`font-display font-bold text-[2.6rem] tracking-tighter ${textColor} block`}
+                            className={`font-display font-bold text-3xl md:text-[2.6rem] tracking-tighter ${textColor} block`}
                             data-cursor="Home"
                         >
                             ZUWOS
@@ -92,6 +92,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
                 <button
                     className={`md:hidden ${textColor}`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label="Toggle mobile menu"
                 >
                     {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                 </button>

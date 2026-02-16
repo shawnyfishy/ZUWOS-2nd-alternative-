@@ -8,7 +8,7 @@ export default function ValueProposition() {
     const navigate = useNavigate()
 
     return (
-        <section className="pb-12 md:pb-20">
+        <section className="pb-32 md:pb-40">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col items-center text-center mb-12">
                     <TextRevealer

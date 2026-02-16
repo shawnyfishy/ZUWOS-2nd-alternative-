@@ -30,7 +30,7 @@ const FacilitiesView = () => {
             <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-20 relative perspective-1000 min-h-[500px]">
 
                 {/* Isometric Map Card */}
-                <div className="relative w-[600px] h-[400px] bg-white rounded-3xl shadow-2xl border-4 border-white transform rotate-x-12 rotate-y-12 rotate-z-2 transition-transform hover:rotate-0 duration-700 bg-[url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center overflow-hidden">
+                <div className="relative w-full max-w-[600px] h-[300px] md:h-[400px] bg-white rounded-3xl shadow-2xl border-4 border-white transform md:rotate-x-12 md:rotate-y-12 md:rotate-z-2 transition-transform hover:rotate-0 duration-700 bg-[url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center overflow-hidden">
                     <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
 
                     {/* Live Pins */}
@@ -48,19 +48,19 @@ const FacilitiesView = () => {
                     </div>
 
                     {/* Dashboard Overlay */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-xl p-4 flex justify-between items-center shadow-lg">
+                    <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-xl p-3 md:p-4 flex justify-between items-center shadow-lg">
                         <div className="flex gap-4">
                             <div className="text-center">
-                                <div className="text-xs text-gray-500 uppercase">Open Tickets</div>
-                                <div className="text-xl font-bold text-red-500">12</div>
+                                <div className="text-[10px] md:text-xs text-gray-500 uppercase">Open Tickets</div>
+                                <div className="text-lg md:text-xl font-bold text-red-500">12</div>
                             </div>
                             <div className="w-px bg-gray-300" />
                             <div className="text-center">
-                                <div className="text-xs text-gray-500 uppercase">Assets</div>
-                                <div className="text-xl font-bold text-graphite">450</div>
+                                <div className="text-[10px] md:text-xs text-gray-500 uppercase">Assets</div>
+                                <div className="text-lg md:text-xl font-bold text-graphite">450</div>
                             </div>
                         </div>
-                        <button className="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-orange-600 transition-colors">
+                        <button className="bg-orange-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-bold text-xs md:text-sm hover:bg-orange-600 transition-colors">
                             View 3D Model
                         </button>
                     </div>

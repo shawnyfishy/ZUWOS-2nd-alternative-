@@ -118,6 +118,7 @@ export default function RequestAccess() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="John Doe"
+                                                    autoComplete="name"
                                                     disabled={status === 'loading'}
                                                     className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg disabled:opacity-50"
                                                 />
@@ -133,6 +134,7 @@ export default function RequestAccess() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="john@company.com"
+                                                    autoComplete="email"
                                                     disabled={status === 'loading'}
                                                     className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg disabled:opacity-50"
                                                 />
@@ -147,6 +149,7 @@ export default function RequestAccess() {
                                                     value={formData.phone}
                                                     onChange={handleChange}
                                                     placeholder="+91 99999 99999"
+                                                    autoComplete="tel"
                                                     disabled={status === 'loading'}
                                                     className="w-full bg-coconut border border-graphite/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-lg disabled:opacity-50"
                                                 />

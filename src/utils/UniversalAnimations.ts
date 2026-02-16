@@ -14,7 +14,7 @@ const Animate = {
     /**
      * Simple fade from opacity 0.
      */
-    fadeIn: (target, duration = 1, delay = 0) => {
+    fadeIn: (target: gsap.TweenTarget, duration = 1, delay = 0) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.from(el, {
@@ -28,7 +28,7 @@ const Animate = {
     /**
      * Moves from y: 50, opacity: 0 to y: 0.
      */
-    slideUp: (target, duration = 1, delay = 0) => {
+    slideUp: (target: gsap.TweenTarget, duration = 1, delay = 0) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.from(el, {
@@ -43,7 +43,7 @@ const Animate = {
     /**
      * Moves from x: -50, opacity: 0 to x: 0.
      */
-    slideInLeft: (target, duration = 1, delay = 0) => {
+    slideInLeft: (target: gsap.TweenTarget, duration = 1, delay = 0) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.from(el, {
@@ -58,7 +58,7 @@ const Animate = {
     /**
      * Moves from x: 50, opacity: 0 to x: 0.
      */
-    slideInRight: (target, duration = 1, delay = 0) => {
+    slideInRight: (target: gsap.TweenTarget, duration = 1, delay = 0) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.from(el, {
@@ -73,7 +73,7 @@ const Animate = {
     /**
      * Scales from 0.8, opacity 0 with back.out easing (bouncy).
      */
-    popIn: (target, duration = 0.8, delay = 0) => {
+    popIn: (target: gsap.TweenTarget, duration = 0.8, delay = 0) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.from(el, {
@@ -88,8 +88,8 @@ const Animate = {
     /**
      * Animates children one-by-one with 0.1s stagger.
      */
-    staggerList: (parent, childClass, duration = 0.8, stagger = 0.1) => {
-        const parentEl = gsap.utils.toArray(parent)[0];
+    staggerList: (parent: gsap.TweenTarget, childClass: string, duration = 0.8, stagger = 0.1) => {
+        const parentEl = gsap.utils.toArray(parent)[0] as HTMLElement;
         if (!parentEl) return;
         const children = parentEl.querySelectorAll(childClass);
         if (!children.length) return;
@@ -107,14 +107,14 @@ const Animate = {
     /**
      * Uses scrub: true to move element slower/faster than scroll.
      */
-    parallax: (target, speed = 1) => {
+    parallax: (target: gsap.TweenTarget, speed = 1) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.to(el, {
             y: -100 * speed,
             ease: "none",
             scrollTrigger: {
-                trigger: el,
+                trigger: el as gsap.DOMTarget,
                 start: "top bottom",
                 end: "bottom top",
                 scrub: true,
@@ -125,11 +125,11 @@ const Animate = {
     /**
      * Pins the element in place while user scrolls past.
      */
-    pinSection: (target, end = "+=100%") => {
+    pinSection: (target: gsap.TweenTarget, end = "+=100%") => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return ScrollTrigger.create({
-            trigger: el,
+            trigger: el as gsap.DOMTarget,
             start: "top top",
             end: end,
             pin: true,
@@ -140,7 +140,7 @@ const Animate = {
     /**
      * Standard 'fade up' that triggers only when element enters viewport.
      */
-    revealOnScroll: (target, start = "top 85%") => {
+    revealOnScroll: (target: gsap.TweenTarget, start = "top 85%") => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.from(el, {
@@ -149,7 +149,7 @@ const Animate = {
             duration: 1,
             ease: "power3.out",
             scrollTrigger: {
-                trigger: el,
+                trigger: el as gsap.DOMTarget,
                 start: start,
                 toggleActions: "play none none reverse",
             },
@@ -159,7 +159,7 @@ const Animate = {
     /**
      * Scales a width from 0% to 100% linked to the page scroll progress.
      */
-    progressBar: (target) => {
+    progressBar: (target: gsap.TweenTarget) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.fromTo(el,
@@ -184,15 +184,15 @@ const Animate = {
      * Animates text content character by character.
      * Simulates with opacity since SplitText is premium.
      */
-    typewriter: (target, duration = 0.05) => {
-        const el = gsap.utils.toArray(target)[0];
+    typewriter: (target: gsap.TweenTarget, duration = 0.05) => {
+        const el = gsap.utils.toArray(target)[0] as HTMLElement;
         if (!el) return;
         const text = el.innerText;
         el.innerText = "";
         const chars = text.split("").map(char => {
             const span = document.createElement("span");
             span.innerText = char;
-            span.style.opacity = 0;
+            span.style.opacity = "0";
             el.appendChild(span);
             return span;
         });
@@ -208,8 +208,8 @@ const Animate = {
     /**
      * The 'Luxury' effect. Text translates Y from 100% to 0% inside a container with overflow: hidden.
      */
-    maskReveal: (target, duration = 1.2) => {
-        const el = gsap.utils.toArray(target);
+    maskReveal: (target: gsap.TweenTarget, duration = 1.2) => {
+        const el = gsap.utils.toArray(target) as HTMLElement[];
         if (!el.length) return;
 
         el.forEach(item => {
@@ -239,7 +239,7 @@ const Animate = {
     /**
      * Infinite loop scaling up/down slightly.
      */
-    pulse: (target, scale = 1.05, duration = 0.5) => {
+    pulse: (target: gsap.TweenTarget, scale = 1.05, duration = 0.5) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         return gsap.to(el, {
@@ -254,7 +254,7 @@ const Animate = {
     /**
      * Error state animation (rapid x-axis movement).
      */
-    shake: (target, duration = 0.1, pixels = 10) => {
+    shake: (target: gsap.TweenTarget, duration = 0.1, pixels = 10) => {
         const el = gsap.utils.toArray(target);
         if (!el.length) return;
         const tl = gsap.timeline();
@@ -268,8 +268,8 @@ const Animate = {
     /**
      * Add event listeners for mouseenter/leave to scale up slightly.
      */
-    hoverScale: (target, scale = 1.1, duration = 0.3) => {
-        const elements = gsap.utils.toArray(target);
+    hoverScale: (target: gsap.TweenTarget, scale = 1.1, duration = 0.3) => {
+        const elements = gsap.utils.toArray(target) as HTMLElement[];
         if (!elements.length) return;
 
         elements.forEach(el => {
@@ -285,8 +285,8 @@ const Animate = {
     /**
      * Animate strokeDashoffset to simulate drawing a line.
      */
-    drawSVG: (target, duration = 2, delay = 0) => {
-        const el = gsap.utils.toArray(target);
+    drawSVG: (target: gsap.TweenTarget, duration = 2, delay = 0) => {
+        const el = gsap.utils.toArray(target) as SVGPathElement[];
         if (!el.length) return;
 
         el.forEach(svgPath => {

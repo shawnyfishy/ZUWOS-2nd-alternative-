@@ -605,7 +605,7 @@ export default function ZuwosEcosystem() {
                 </motion.div>
             ) : (
                 /* MOBILE LAYOUT (Stacked) */
-                <div className="flex flex-col gap-4 pb-20">
+                <div className="flex flex-col gap-4 pb-40">
                     {items.map((item) => {
                         // Mobile Logo
                         if (item.isLogo) {
@@ -688,7 +688,7 @@ export default function ZuwosEcosystem() {
                                         </div>
 
                                         <div className="flex items-center gap-2 mt-auto opacity-60 font-mono text-sm uppercase tracking-widest hidden">
-                                            <span>ZUWOS 2.0</span>
+                                            <span>ZUWOS OS</span>
                                             <ArrowUpRight size={16} />
                                         </div>
                                     </motion.div>

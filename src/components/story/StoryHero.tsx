@@ -21,9 +21,9 @@ export default function StoryHero() {
 
                 <motion.div
                     style={{ opacity, scale, filter: `blur(${blur})` }}
-                    className="relative z-10 text-center px-4"
+                    className="relative z-10 text-center px-6 pt-32 md:pt-0"
                 >
-                    <div className="text-display-md md:text-display-lg font-display font-bold mb-12 tracking-tighter leading-[1.05] flex flex-col items-center">
+                    <div className="text-5xl md:text-display-lg font-display font-bold mb-8 md:mb-12 tracking-tighter leading-[1.1] flex flex-col items-center">
                         <TextRevealer text="Work has changed." duration={1.2} className="justify-center" />
                         <TextRevealer text="Why hasn't your software?" className="text-white/40 justify-center" delay={0.2} duration={1.2} />
                     </div>

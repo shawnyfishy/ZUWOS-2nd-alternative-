@@ -43,8 +43,8 @@ const ProcurementView = () => {
                     </div>
 
                     {/* Inventory Grid */}
-                    <div className="p-6">
-                        <div className="grid grid-cols-4 gap-4 mb-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    <div className="p-4 md:p-6">
+                        <div className="hidden md:grid grid-cols-4 gap-4 mb-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
                             <span>Item Name</span>
                             <span>Category</span>
                             <span>Stock Level</span>
@@ -53,32 +53,44 @@ const ProcurementView = () => {
 
                         <div className="space-y-3">
                             {/* Item 1 */}
-                            <div className="grid grid-cols-4 gap-4 items-center p-3 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-100">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600"><Package size={20} /></div>
+                            <div className="flex flex-col md:grid md:grid-cols-4 gap-4 items-start md:items-center p-4 md:p-3 hover:bg-gray-50 rounded-lg transition-colors border border-gray-100 md:border-transparent md:hover:border-gray-100">
+                                <div className="flex items-center gap-3 w-full">
+                                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0"><Package size={20} /></div>
                                     <span className="font-medium">Paper Reams A4</span>
                                 </div>
-                                <span className="text-sm text-gray-500">Office Supplies</span>
-                                <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                    <div className="h-full bg-green-500 w-[80%]" />
+                                <div className="w-full flex justify-between md:block md:w-auto">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Category</span>
+                                    <span className="text-sm text-gray-500">Office Supplies</span>
                                 </div>
-                                <button className="text-gray-400 hover:text-emerald-600 text-sm font-medium text-left">Details</button>
+                                <div className="w-full">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden mb-1 block">Stock</span>
+                                    <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                        <div className="h-full bg-green-500 w-[80%]" />
+                                    </div>
+                                </div>
+                                <button className="text-gray-400 hover:text-emerald-600 text-sm font-medium text-left w-full md:w-auto mt-2 md:mt-0">Details</button>
                             </div>
 
                             {/* Item 2 (Low Stock) */}
-                            <div className="grid grid-cols-4 gap-4 items-center p-3 bg-red-50/50 hover:bg-red-50 rounded-lg transition-colors border border-red-100">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600"><Package size={20} /></div>
+                            <div className="flex flex-col md:grid md:grid-cols-4 gap-4 items-start md:items-center p-4 md:p-3 bg-red-50/50 hover:bg-red-50 rounded-lg transition-colors border border-red-100">
+                                <div className="flex items-center gap-3 w-full">
+                                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 flex-shrink-0"><Package size={20} /></div>
                                     <span className="font-medium">Printer Toner (BLK)</span>
                                 </div>
-                                <span className="text-sm text-gray-500">Office Supplies</span>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden flex-1">
-                                        <div className="h-full bg-red-500 w-[15%] animate-pulse" />
-                                    </div>
-                                    <AlertCircle size={14} className="text-red-500" />
+                                <div className="w-full flex justify-between md:block md:w-auto">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Category</span>
+                                    <span className="text-sm text-gray-500">Office Supplies</span>
                                 </div>
-                                <button className="text-red-600 text-sm font-bold text-left animate-bounce">Reorder</button>
+                                <div className="w-full">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden mb-1 block">Stock</span>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden flex-1">
+                                            <div className="h-full bg-red-500 w-[15%] animate-pulse" />
+                                        </div>
+                                        <AlertCircle size={14} className="text-red-500 flex-shrink-0" />
+                                    </div>
+                                </div>
+                                <button className="text-red-600 text-sm font-bold text-left animate-bounce w-full md:w-auto mt-2 md:mt-0">Reorder</button>
                             </div>
 
                             {/* Delivery Visual */}

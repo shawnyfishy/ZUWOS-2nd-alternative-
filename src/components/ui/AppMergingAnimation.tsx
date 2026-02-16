@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ANIMATION_DURATION } from '../../utils/constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,7 +136,7 @@ const AppMergingAnimation: React.FC = () => {
                 tl.to(elementsRef.current, {
                     opacity: 1,
                     scale: isDesktop ? 1 : 0.8, // Smaller on mobile
-                    duration: 0.8,
+                    duration: ANIMATION_DURATION.SLOW,
                     stagger: {
                         from: "random",
                         amount: 0.4
@@ -157,7 +158,7 @@ const AppMergingAnimation: React.FC = () => {
                     .to(logoRef.current, {
                         opacity: 1,
                         scale: 1,
-                        duration: 1.5,
+                        duration: ANIMATION_DURATION.EPIC,
                         ease: "elastic.out(1, 0.3)",
                     }, "-=0.1");
             });

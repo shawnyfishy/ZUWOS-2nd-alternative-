@@ -24,15 +24,15 @@ export default function Hero() {
             <div className="sticky top-0 h-screen overflow-hidden">
                 <motion.div
                     style={{ opacity, scale, filter: `blur(${blur})` }}
-                    className="w-full h-full pt-20 lg:pt-32 pb-12 md:pt-40 md:pb-12 flex flex-col justify-center"
+                    className="w-full h-full pt-28 lg:pt-32 pb-8 md:pt-40 md:pb-12 flex flex-col justify-start md:justify-center"
                 >
                     <GridSystem>
                         <div className="col-span-12 lg:col-span-10">
-                            <div className="text-display-md md:text-display-lg font-display mb-12 tracking-tighter leading-[1.05] flex flex-col items-start">
+                            <div className="text-display-sm md:text-display-md lg:text-display-lg font-display mb-6 md:mb-12 tracking-tighter leading-[1.05] flex flex-col items-start">
                                 <TextRevealer
                                     text="India’s Integrated"
                                 />
-                                <div className="h-24 md:h-32 w-full relative -mt-1 md:-mt-4">
+                                <div className="h-20 md:h-32 w-full relative -mt-1 md:-mt-4">
                                     <GooeyText
                                         texts={["Workplace Management OS", "Employee Super-App", "Smart Facility Control"]}
                                         textClassName="text-blue-600 leading-tight text-[clamp(2rem,6vw,4.5rem)] pb-2"
@@ -43,10 +43,10 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="col-span-12 lg:col-span-7 -mt-12">
+                        <div className="col-span-12 lg:col-span-7 -mt-4 md:-mt-12">
                             <TextRevealer
                                 text="ZUWOS is an Indigenous Workplace Operating System, built for the new-age workforce, that seamlessly manages workflows with data sovereignty and unifies every stakeholder on one platform"
-                                className="text-2xl md:text-3xl font-medium leading-relaxed tracking-tight mb-12 text-graphite/80"
+                                className="text-lg md:text-3xl font-medium leading-relaxed tracking-tight mb-8 md:mb-12 text-graphite/80"
                                 delay={0.3}
                                 stagger={0.01}
                             />
@@ -58,7 +58,7 @@ export default function Hero() {
                                             <Button
                                                 size="lg"
                                                 variant="primary"
-                                                className="rounded-full px-12"
+                                                className="rounded-full px-12 py-4 text-lg"
                                                 data-cursor="Get Started"
                                             >
                                                 Get Started

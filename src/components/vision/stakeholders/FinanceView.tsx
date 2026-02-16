@@ -28,22 +28,22 @@ const FinanceView = () => {
 
             {/* Right Panel: Content / Mockups */}
             <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-20 relative min-h-[500px]">
-                <div className="w-full max-w-4xl grid grid-cols-2 gap-6">
+                <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     {/* Card 1: Main Metric */}
-                    <div className="col-span-2 bg-white rounded-3xl p-8 shadow-xl border border-indigo-50 flex items-center justify-between">
+                    <div className="col-span-1 md:col-span-2 bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-indigo-50 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0">
                         <div>
                             <div className="text-indigo-500 font-bold uppercase text-xs tracking-wider mb-2">Total Opex (YTD)</div>
-                            <div className="text-5xl font-display font-bold text-graphite flex items-center gap-1">
-                                <IndianRupee size={36} className="text-gray-400" />
+                            <div className="text-4xl md:text-5xl font-display font-bold text-graphite flex items-center gap-1">
+                                <IndianRupee size={32} className="text-gray-400" />
                                 42,50,000
                             </div>
                             <div className="flex items-center gap-1 text-green-500 mt-2 font-medium">
                                 <TrendingUp size={16} /> 12% under budget
                             </div>
                         </div>
-                        <div className="w-32 h-32 rounded-full border-[12px] border-indigo-100 border-t-indigo-500 flex items-center justify-center">
-                            <span className="text-xl font-bold text-indigo-600">88%</span>
+                        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-[8px] md:border-[12px] border-indigo-100 border-t-indigo-500 flex items-center justify-center self-center md:self-auto">
+                            <span className="text-lg md:text-xl font-bold text-indigo-600">88%</span>
                         </div>
                     </div>
 

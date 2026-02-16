@@ -1,19 +1,14 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useMobile } from '../../../hooks/useMobile'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Server, Cloud, Shield, Lock, Database, CheckCircle, Network } from 'lucide-react'
+import { ANIMATION_DURATION, ANIMATION_DELAY } from '../../../utils/constants'
 
 export default function SovereignCloudAnimation() {
     const [activeNode, setActiveNode] = useState<string | null>(null)
-    const [isMobile, setIsMobile] = useState(false)
-
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768)
-        checkMobile()
-        window.addEventListener('resize', checkMobile)
-        return () => window.removeEventListener('resize', checkMobile)
-    }, [])
+    const isMobile = useMobile();
 
     return (
         <div className="w-full bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-graphite/5 overflow-hidden relative">
@@ -25,7 +20,7 @@ export default function SovereignCloudAnimation() {
                     className="text-3xl md:text-4xl font-display font-bold text-graphite mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: ANIMATION_DURATION.SLOW }}
                 >
                     Your Data, Your Rules
                 </motion.h2>
@@ -33,7 +28,7 @@ export default function SovereignCloudAnimation() {
                     className="text-lg text-graphite/60 max-w-2xl mx-auto"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
+                    transition={{ delay: ANIMATION_DELAY.MEDIUM, duration: ANIMATION_DURATION.SLOW }}
                 >
                     Complete sovereignty over your infrastructure. Choose where your data lives.
                 </motion.p>

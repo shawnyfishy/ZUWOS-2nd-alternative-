@@ -14,6 +14,8 @@ export const MacBookFrame: React.FC<FrameProps> = ({ children, className = '' })
                 <img
                     src={macbookSvg}
                     alt="MacBook Pro Frame"
+                    width="4096"
+                    height="2378"
                     className="w-full h-full object-contain"
                 />
             </div>

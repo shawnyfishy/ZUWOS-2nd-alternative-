@@ -81,7 +81,7 @@ export default function ProcurementShowcase() {
 
                 {/* Layer 2: Main Content (Centered) */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-5xl flex justify-center relative px-8 pointer-events-none">
-                    <div className="w-full max-w-2xl 2xl:max-w-4xl transform scale-90 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
+                    <div className="w-full max-w-2xl 2xl:max-w-4xl transform scale-100 lg:scale-90 transition-all duration-500 hover:scale-95 pointer-events-auto">
                         <MacBookFrame>
                             <div className="relative w-full h-full bg-white">
                                 <AnimatePresence mode="popLayout">

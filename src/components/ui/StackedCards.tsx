@@ -41,8 +41,20 @@ function StackedCard({
         }
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const fakeEvent = { preventDefault: () => { } } as React.MouseEvent; // Mock for compatibility if needed
+            handleClick(fakeEvent);
+            if (!isActive && onTap) onTap();
+        }
+    };
+
     return (
         <div
+            role="button"
+            tabIndex={0}
+            onKeyDown={handleKeyDown}
             onClick={handleClick}
             onMouseEnter={onHover}
             onMouseLeave={onLeave}

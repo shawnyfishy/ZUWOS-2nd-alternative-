@@ -195,7 +195,7 @@ export default function FacilitiesShowcase() {
                         </div>
 
                         {/* iPhone Separated & Even Smaller */}
-                        <div className="w-[140px] md:w-[170px] shrink-0">
+                        <div className="w-[200px] md:w-[170px] shrink-0">
                             <IPhoneFrame>
                                 <div className="relative w-full h-full bg-white">
                                     <AnimatePresence mode="popLayout">
