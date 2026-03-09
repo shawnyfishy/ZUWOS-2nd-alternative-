@@ -27,7 +27,7 @@ export default function TheReveal() {
         <section
             ref={containerRef}
             onMouseMove={handleMouseMove}
-            className="pb-20 text-center relative overflow-hidden bg-coconut perspective-1000"
+            className="py-16 md:py-24 text-center relative overflow-hidden bg-coconut perspective-1000"
         >
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 z-0 opacity-30 pointer-events-none bg-[radial-gradient(#1E1919_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
@@ -35,7 +35,7 @@ export default function TheReveal() {
             {/* Interactive Spotlight */}
             <motion.div
                 style={{ x: springX, y: springY }}
-                className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-primary/10 blur-[100px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0 mix-blend-multiply"
+                className="absolute top-1/2 left-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-primary/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0 mix-blend-multiply"
             />
 
             {/* Floating Orbs (for depth) */}
@@ -59,14 +59,13 @@ export default function TheReveal() {
                     initial={{ opacity: 0, z: 0 }}
                     whileInView={{ opacity: 1, z: 50 }}
                     transition={{ duration: 1 }}
-                    className="mb-6 md:mb-8"
+                    className="mb-4 md:mb-6"
                 >
                     <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs">The Vision</span>
                 </motion.div>
 
-                <div className="font-display font-bold text-3xl md:text-8xl text-graphite mb-10 md:mb-12 tracking-tighter leading-none flex flex-col items-center drop-shadow-sm">
+                <div className="font-display font-bold text-3xl md:text-8xl text-graphite mb-6 md:mb-10 tracking-tighter leading-none flex flex-col items-center drop-shadow-sm">
                     <TextRevealer text="One Workplace." duration={1.2} className="justify-center" />
-                    <div className="h-4 md:h-8" /> {/* Spacing */}
                     <TextRevealer text="One Operating System." delay={0.2} duration={1.2} className="justify-center" />
                 </div>
 

@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 
 export default function TheShift() {
     return (
-        <section className="py-24 bg-graphite text-coconut relative overflow-hidden">
-            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section className="py-12 md:py-24 bg-graphite text-coconut relative overflow-hidden">
+            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -11,7 +11,7 @@ export default function TheShift() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="font-display font-bold text-5xl md:text-7xl mb-8 leading-none">
+                        <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-7xl mb-6 md:mb-8 leading-none">
                             The<br />Workforce<br /><span className="text-primary">Has Changed.</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-coconut/80 max-w-md leading-relaxed">

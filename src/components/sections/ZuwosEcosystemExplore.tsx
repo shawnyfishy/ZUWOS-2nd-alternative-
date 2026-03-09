@@ -20,9 +20,6 @@ import { useNavigate } from 'react-router-dom';
 // id-card -> people (identity)
 // ticket -> mail (pass/envelope)
 // calendar -> grid (cells)
-// droplet -> waves (liquid)
-// lightning -> chart (energy/spikes)
-
 const items = [
     // --- ROW 1 ---
     {
@@ -313,7 +310,7 @@ export default function ZuwosEcosystemExplore() {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full max-w-[1400px] mx-auto px-4 my-12 md:my-16 font-sans">
+        <div className="w-full max-w-[1400px] mx-auto px-4 py-16 md:py-24 font-sans">
             <div className="flex justify-between items-center mb-10">
                 <button
                     onClick={() => navigate(-1)}
@@ -362,15 +359,15 @@ export default function ZuwosEcosystemExplore() {
                                         key={item.id}
                                         layoutId={`card-${item.id}`}
                                         className={`
-                                            pointer-events-auto w-full max-w-lg p-8 md:p-12
+                                            pointer-events-auto w-full max-w-lg p-6 md:p-8 lg:p-12
                                             ${item.color} ${item.text}
                                             shadow-2xl rounded-lg
-                                            flex flex-col gap-6 relative overflow-hidden
+                                            flex flex-col gap-5 md:gap-6 relative overflow-hidden
                                         `}
                                     >
                                         <div className="flex justify-between items-start relative z-10">
                                             <div>
-                                                <h3 className="text-4xl font-display font-black tracking-tight mb-2">{item.label}</h3>
+                                                <h3 className="text-3xl md:text-4xl font-display font-black tracking-tight mb-2">{item.label}</h3>
                                                 <p className="text-xl opacity-80 font-medium">{item.sub}</p>
                                             </div>
                                             <button onClick={() => setActiveId(null)} className="p-2 hover:bg-black/10 rounded-full transition-colors"><X size={32} /></button>
@@ -382,7 +379,7 @@ export default function ZuwosEcosystemExplore() {
                                             {item.desc}
                                         </p>
 
-                                        <div className="grid grid-cols-1 gap-3 mt-4 relative z-10 w-full">
+                                        <div className="grid grid-cols-1 gap-3 mt-4 relative z-10 w-full mb-12">
                                             {item.features?.map((feat, i) => (
                                                 <div key={i} className="flex items-start gap-3 opacity-90 font-medium">
                                                     <div className="mt-1 shrink-0">
@@ -391,6 +388,34 @@ export default function ZuwosEcosystemExplore() {
                                                     <span className="leading-snug">{feat}</span>
                                                 </div>
                                             ))}
+                                        </div>
+
+                                        <div className="flex items-center justify-between mt-auto pt-4 relative z-20 w-full border-t border-current/10">
+                                            <div className="flex items-center gap-2 opacity-60 font-mono text-sm uppercase tracking-widest hidden md:flex">
+                                                <span>ZUWOS OS</span>
+                                            </div>
+
+                                            {/* DEDICATED CTA BUTTON IN MODAL */}
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate('/request-access');
+                                                }}
+                                                className="
+                                                    flex items-center justify-center gap-2 
+                                                    px-6 py-2.5 
+                                                    bg-black/10 hover:bg-black/20 backdrop-blur-md 
+                                                    text-current text-sm font-semibold tracking-wide
+                                                    rounded-full transition-all duration-300
+                                                    shadow-[0_4px_16px_rgba(0,0,0,0.1)]
+                                                    group/cta border border-white/10
+                                                    ml-auto
+                                                "
+                                            >
+                                                <span>Get Started</span>
+                                                <ArrowLeft size={18} className="rotate-135 group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1 transition-transform hidden" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1 transition-transform"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                            </button>
                                         </div>
                                     </motion.div>
                                 );

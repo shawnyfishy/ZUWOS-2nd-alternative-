@@ -1,69 +1,63 @@
-import { AlertTriangle, CheckSquare } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+const features = [
+    { title: "Energy & Utilities", image: "/features/fac_energy.png" },
+    { title: "Space Optimization", image: "/features/fac_space.png" },
+    { title: "Vendor SLAs", image: "/features/fac_vendor.png" },
+    { title: "Asset Maintenance", image: "/features/fac_asset.png" },
+    { title: "Safety & Security", image: "/features/fac_security.png" }
+];
 
 const FacilitiesView = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+
+        const interval = setInterval(() => {
+            setActiveIndex((current) => (current + 1) % features.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [isAutoPlaying]);
+
     return (
-        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-gray-900 flex flex-col lg:flex-row relative overflow-hidden text-white">
+        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-zinc-100 flex flex-col lg:flex-row relative overflow-hidden text-zinc-900">
             {/* Left Panel: Role & Features */}
-            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-gray-900 border-b lg:border-b-0 lg:border-r border-white/20 z-10">
+            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-zinc-100 border-b lg:border-b-0 lg:border-r border-zinc-200 z-10">
                 <div className="mb-8">
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-white mt-2">Facility Managers</h2>
-                    <p className="text-lg md:text-xl text-gray-400 mt-4">Total Operational Control.</p>
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 mt-2">Facility Managers</h2>
+                    <p className="text-lg md:text-xl text-zinc-600 mt-4">Total Operational Control.</p>
                 </div>
 
                 <ul className="space-y-4">
-                    {[
-                        "Energy & Utilities",
-                        "Space Optimization",
-                        "Vendor SLAs",
-                        "Asset Maintenance",
-                        "Safety & Security"
-                    ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-gray-300">
-                            <div className="w-2 h-2 rounded-full bg-white" />
-                            {item}
+                    {features.map((item, i) => (
+                        <li
+                            key={i}
+                            className={`flex items-center gap-3 text-sm md:text-base cursor-pointer transition-all duration-300 ${activeIndex === i ? 'text-zinc-900 font-medium translate-x-1' : 'text-zinc-600 hover:text-zinc-800'}`}
+                            onClick={() => {
+                                setActiveIndex(i);
+                                setIsAutoPlaying(false);
+                            }}
+                        >
+                            <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${activeIndex === i ? 'bg-zinc-900' : 'bg-zinc-300'}`} />
+                            {item.title}
                         </li>
                     ))}
                 </ul>
             </div>
 
             {/* Right Panel: Content / Mockups */}
-            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-20 relative perspective-1000 min-h-[500px]">
-
-                {/* Isometric Map Card */}
-                <div className="relative w-full max-w-[600px] h-[300px] md:h-[400px] bg-white rounded-3xl shadow-2xl border-4 border-white transform md:rotate-x-12 md:rotate-y-12 md:rotate-z-2 transition-transform hover:rotate-0 duration-700 bg-[url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center overflow-hidden">
-                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-
-                    {/* Live Pins */}
-                    <div className="absolute top-1/3 left-1/4 animate-bounce">
-                        <div className="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
-                            <AlertTriangle size={12} /> AC Malfunction
-                        </div>
-                        <div className="w-2 h-8 bg-red-500 mx-auto rounded-full mt-1 opacity-50" />
-                    </div>
-
-                    <div className="absolute bottom-1/3 right-1/3">
-                        <div className="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
-                            <CheckSquare size={12} /> Cleaning Done
-                        </div>
-                    </div>
-
-                    {/* Dashboard Overlay */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-xl p-3 md:p-4 flex justify-between items-center shadow-lg">
-                        <div className="flex gap-4">
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs text-gray-500 uppercase">Open Tickets</div>
-                                <div className="text-lg md:text-xl font-bold text-red-500">12</div>
-                            </div>
-                            <div className="w-px bg-gray-300" />
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs text-gray-500 uppercase">Assets</div>
-                                <div className="text-lg md:text-xl font-bold text-graphite">450</div>
-                            </div>
-                        </div>
-                        <button className="bg-orange-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-bold text-xs md:text-sm hover:bg-orange-600 transition-colors">
-                            View 3D Model
-                        </button>
-                    </div>
+            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-8 md:p-20 relative overflow-visible mt-8 md:mt-0">
+                <div className="w-full max-w-5xl relative aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-zinc-200/50 bg-white group">
+                    {features.map((item, i) => (
+                        <img
+                            key={i}
+                            src={item.image}
+                            alt={item.title}
+                            className={`absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-opacity duration-700 ease-in-out ${activeIndex === i ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                        />
+                    ))}
                 </div>
             </div>
         </div>

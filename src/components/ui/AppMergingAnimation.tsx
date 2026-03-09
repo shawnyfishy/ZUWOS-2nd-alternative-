@@ -93,13 +93,14 @@ const AppMergingAnimation: React.FC = () => {
                     while (!check && attempts < 100) {
                         if (isDesktop) {
                             // True Random Scatter for Desktop
-                            x = (Math.random() - 0.5) * (width - 100);
-                            y = (Math.random() - 0.5) * (height - 100);
+                            // Increased margins to prevent clipping at edges
+                            x = (Math.random() - 0.5) * (width - 180);
+                            y = (Math.random() - 0.5) * (height - 150);
                         } else {
                             // Constrained Scatter for Mobile (Vertical Bias)
                             // Keep X within narrow bounds to prevent horizontal overflow
-                            x = (Math.random() - 0.5) * (Math.min(width, 300) - 60);
-                            y = (Math.random() - 0.5) * (height - 60);
+                            x = (Math.random() - 0.5) * (Math.min(width, 240) - 80);
+                            y = (Math.random() - 0.5) * (height - 140);
                         }
 
                         // Check collision
@@ -135,7 +136,7 @@ const AppMergingAnimation: React.FC = () => {
                 // --- SEQUENCE ---
                 tl.to(elementsRef.current, {
                     opacity: 1,
-                    scale: isDesktop ? 1 : 0.8, // Smaller on mobile
+                    scale: isDesktop ? 1 : 0.6, // Smaller on mobile to prevent clipping
                     duration: ANIMATION_DURATION.SLOW,
                     stagger: {
                         from: "random",
@@ -171,7 +172,7 @@ const AppMergingAnimation: React.FC = () => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-[400px] lg:h-[600px] flex items-center justify-center overflow-hidden bg-transparent perspective-1000 pb-32"
+            className="relative w-full h-[300px] md:h-[400px] lg:h-[600px] flex items-center justify-center overflow-hidden bg-transparent perspective-1000 pb-10 md:pb-32"
         >
             {/* NO Singularity Dot anymore */}
 

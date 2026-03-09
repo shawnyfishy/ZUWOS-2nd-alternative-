@@ -1,116 +1,63 @@
-import { ShoppingCart, Package, Truck, AlertCircle, Search } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+const features = [
+    { title: "Smart Inventory Management", image: "/features/proc_inventory.png" },
+    { title: "Predictive Reordering", image: "/features/proc_reordering.png" },
+    { title: "Vendor Discovery", image: "/features/proc_discovery.png" },
+    { title: "Purchase Order Workflow", image: "/features/proc_po.png" },
+    { title: "Delivery Tracking", image: "/features/proc_delivery.png" }
+];
 
 const ProcurementView = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+
+        const interval = setInterval(() => {
+            setActiveIndex((current) => (current + 1) % features.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [isAutoPlaying]);
+
     return (
-        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-blue-100 flex flex-col lg:flex-row relative overflow-hidden text-graphite">
+        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-sky-50 flex flex-col lg:flex-row relative overflow-hidden text-graphite">
             {/* Left Panel: Role & Features */}
-            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-blue-100 border-b lg:border-b-0 lg:border-r border-black/10 z-10">
+            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-sky-50 border-b lg:border-b-0 lg:border-r border-sky-200 z-10">
                 <div className="mb-8">
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-black mt-2">Procurement</h2>
-                    <p className="text-lg md:text-xl text-black/70 mt-4">Demand to Delivery, Unified.</p>
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-sky-950 mt-2">Procurement</h2>
+                    <p className="text-lg md:text-xl text-sky-800/80 mt-4">Demand to Delivery, Unified.</p>
                 </div>
 
                 <ul className="space-y-4">
-                    {[
-                        "Smart Inventory Management",
-                        "Predictive Reordering",
-                        "Vendor Discovery",
-                        "Purchase Order Workflow",
-                        "Delivery Tracking"
-                    ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-black/80">
-                            <div className="w-2 h-2 rounded-full bg-black" />
-                            {item}
+                    {features.map((item, i) => (
+                        <li
+                            key={i}
+                            className={`flex items-center gap-3 text-sm md:text-base cursor-pointer transition-all duration-300 ${activeIndex === i ? 'text-sky-600 font-medium translate-x-1' : 'text-sky-900/80 hover:text-sky-900'}`}
+                            onClick={() => {
+                                setActiveIndex(i);
+                                setIsAutoPlaying(false);
+                            }}
+                        >
+                            <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${activeIndex === i ? 'bg-sky-500' : 'bg-sky-300'}`} />
+                            {item.title}
                         </li>
                     ))}
                 </ul>
             </div>
 
             {/* Right Panel: Content / Mockups */}
-            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-20 relative min-h-[500px]">
-                <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl border border-emerald-100 overflow-hidden">
-
-                    {/* Toolbar */}
-                    <div className="bg-gray-50 p-4 border-b border-gray-100 flex justify-between items-center">
-                        <div className="flex gap-4">
-                            <div className="flex items-center gap-2 bg-white border border-gray-200 px-3 py-1.5 rounded-lg text-sm text-gray-500">
-                                <Search size={16} /> Search Inventory...
-                            </div>
-                        </div>
-                        <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
-                            <ShoppingCart size={16} /> Create PO
-                        </button>
-                    </div>
-
-                    {/* Inventory Grid */}
-                    <div className="p-4 md:p-6">
-                        <div className="hidden md:grid grid-cols-4 gap-4 mb-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                            <span>Item Name</span>
-                            <span>Category</span>
-                            <span>Stock Level</span>
-                            <span>Action</span>
-                        </div>
-
-                        <div className="space-y-3">
-                            {/* Item 1 */}
-                            <div className="flex flex-col md:grid md:grid-cols-4 gap-4 items-start md:items-center p-4 md:p-3 hover:bg-gray-50 rounded-lg transition-colors border border-gray-100 md:border-transparent md:hover:border-gray-100">
-                                <div className="flex items-center gap-3 w-full">
-                                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0"><Package size={20} /></div>
-                                    <span className="font-medium">Paper Reams A4</span>
-                                </div>
-                                <div className="w-full flex justify-between md:block md:w-auto">
-                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Category</span>
-                                    <span className="text-sm text-gray-500">Office Supplies</span>
-                                </div>
-                                <div className="w-full">
-                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden mb-1 block">Stock</span>
-                                    <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                        <div className="h-full bg-green-500 w-[80%]" />
-                                    </div>
-                                </div>
-                                <button className="text-gray-400 hover:text-emerald-600 text-sm font-medium text-left w-full md:w-auto mt-2 md:mt-0">Details</button>
-                            </div>
-
-                            {/* Item 2 (Low Stock) */}
-                            <div className="flex flex-col md:grid md:grid-cols-4 gap-4 items-start md:items-center p-4 md:p-3 bg-red-50/50 hover:bg-red-50 rounded-lg transition-colors border border-red-100">
-                                <div className="flex items-center gap-3 w-full">
-                                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 flex-shrink-0"><Package size={20} /></div>
-                                    <span className="font-medium">Printer Toner (BLK)</span>
-                                </div>
-                                <div className="w-full flex justify-between md:block md:w-auto">
-                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Category</span>
-                                    <span className="text-sm text-gray-500">Office Supplies</span>
-                                </div>
-                                <div className="w-full">
-                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden mb-1 block">Stock</span>
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden flex-1">
-                                            <div className="h-full bg-red-500 w-[15%] animate-pulse" />
-                                        </div>
-                                        <AlertCircle size={14} className="text-red-500 flex-shrink-0" />
-                                    </div>
-                                </div>
-                                <button className="text-red-600 text-sm font-bold text-left animate-bounce w-full md:w-auto mt-2 md:mt-0">Reorder</button>
-                            </div>
-
-                            {/* Delivery Visual */}
-                            <div className="mt-8 pt-8 border-t border-gray-100">
-                                <h4 className="font-bold text-gray-600 mb-4 flex items-center gap-2"><Truck size={18} /> Active Deliveries</h4>
-                                <div className="relative h-2 bg-gray-100 rounded-full">
-                                    <div className="absolute top-0 left-0 h-full bg-emerald-500 w-[60%]" />
-                                    <div className="absolute top-1/2 left-[60%] transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow border-2 border-emerald-500 flex items-center justify-center text-emerald-600 z-10">
-                                        <Truck size={14} />
-                                    </div>
-                                </div>
-                                <div className="flex justify-between mt-2 text-xs text-gray-400 font-mono">
-                                    <span>Ordered</span>
-                                    <span>Out for Delivery</span>
-                                    <span>Delivered</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-8 md:p-20 relative overflow-visible mt-8 md:mt-0">
+                <div className="w-full max-w-5xl relative aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-sky-200/50 bg-white group">
+                    {features.map((item, i) => (
+                        <img
+                            key={i}
+                            src={item.image}
+                            alt={item.title}
+                            className={`absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-opacity duration-700 ease-in-out ${activeIndex === i ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                        />
+                    ))}
                 </div>
             </div>
         </div>

@@ -29,8 +29,8 @@ export function StickySection({
 
     // Animation values
     const opacity = useTransform(scrollYProgress, isTall ? [0, 1] : [0, 0.5], [1, 0])
-    const scale = useTransform(scrollYProgress, isTall ? [0, 1] : [0, 0.5], [1, 0.9])
-    const blur = useTransform(scrollYProgress, isTall ? [0, 1] : [0, 0.5], ["0px", "10px"])
+    const scale = useTransform(scrollYProgress, isTall ? [0, 1] : [0, 0.5], [1, 0.95])
+    const blur = useTransform(scrollYProgress, isTall ? [0, 1] : [0, 0.5], ["0px", "4px"])
 
     return (
         <div
@@ -42,7 +42,7 @@ export function StickySection({
                 "w-full",
                 // If tall, stick to bottom so we can scroll the whole content. 
                 // If short, stick to top to hold it in place.
-                isTall ? "sticky bottom-0 min-h-screen" : "sticky top-0 h-screen overflow-hidden"
+                isTall ? "sticky bottom-0" : "sticky top-0 overflow-hidden"
             )}>
                 <motion.div
                     style={{ opacity, scale, filter: `blur(${blur})` }}

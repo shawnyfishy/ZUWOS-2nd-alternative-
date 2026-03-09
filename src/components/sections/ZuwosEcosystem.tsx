@@ -490,27 +490,30 @@ const ZuwosLogoCard = ({ item }: { item: any }) => {
             `}
             style={{ perspective: '1200px' }}
         >
+            {/* Ambient Aura */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#2962FF]/40 to-[#00C853]/30 blur-3xl opacity-60 rounded-full transform scale-125 -z-10" />
+
             <motion.div
                 className="w-full h-full relative transform-style-3d text-center"
                 style={{ transformStyle: 'preserve-3d' }}
-                animate={{ rotateY: [0, 360] }}
+                animate={{ rotateY: [0, -360] }}
                 transition={{
                     repeat: Infinity,
                     duration: 6,
                     ease: "linear"
                 }}
             >
-                {/* --- CLAY SLAB STACK (Extra Thinner Version) --- */}
+                {/* --- CLAY SLAB STACK (Thickened for Solid Look) --- */}
                 {/* 
-                    Reduced to 12 layers for an even thinner profile.
-                    Spread: -6x to +6px.
+                    Increased to 30 layers to remove gaps.
+                    Spread: -6x to +6px using 0.4px steps.
                 */}
-                {[...Array(12)].map((_, i) => (
+                {[...Array(30)].map((_, i) => (
                     <div
                         key={i}
                         className="absolute inset-0 bg-[#0047FF] rounded-[2rem] border-[0.5px] border-white/5"
                         style={{
-                            transform: `translateZ(${(i - 6) * 1.2}px)`,
+                            transform: `translateZ(${(i - 15) * 0.4}px)`,
                             width: '100%',
                             height: '100%',
                         }}
@@ -521,7 +524,7 @@ const ZuwosLogoCard = ({ item }: { item: any }) => {
                 <div
                     className="absolute inset-0 bg-blue-600 rounded-[2rem] flex items-center justify-center overflow-hidden backface-hidden"
                     style={{
-                        transform: 'translateZ(12px)',
+                        transform: 'translateZ(6px)',
                         backfaceVisibility: 'hidden'
                     }}
                 >
@@ -539,7 +542,7 @@ const ZuwosLogoCard = ({ item }: { item: any }) => {
                 <div
                     className="absolute inset-0 bg-blue-700 rounded-[2rem] flex items-center justify-center overflow-hidden backface-hidden"
                     style={{
-                        transform: 'rotateY(180deg) translateZ(12px)',
+                        transform: 'rotateY(180deg) translateZ(6px)',
                         backfaceVisibility: 'hidden'
                     }}
                 >
@@ -559,6 +562,98 @@ const ZuwosLogoCard = ({ item }: { item: any }) => {
     );
 };
 
+// --- Mobile Swipeable Stacked Carousel ---
+const MobileStackedCarousel = ({ items, setActiveId }: { items: any[], setActiveId: (id: string) => void }) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleDragEnd = (_e: any, info: any) => {
+        const threshold = 50;
+        if (info.offset.x < -threshold && activeIndex < items.length - 1) {
+            setActiveIndex((prev) => prev + 1);
+        } else if (info.offset.x > threshold && activeIndex > 0) {
+            setActiveIndex((prev) => prev - 1);
+        }
+    };
+
+    return (
+        <div className="relative w-full h-[260px] flex items-center justify-center overflow-visible touch-none my-8">
+            <AnimatePresence>
+                {items.map((item, index) => {
+                    // Only render active card and next 3 cards behind it for performance
+                    if (index < activeIndex || index > activeIndex + 3) return null;
+
+                    const isTop = index === activeIndex;
+                    const offset = index - activeIndex;
+
+                    return (
+                        <motion.div
+                            key={item.id || "LOGO"}
+                            className="absolute z-10 w-[85vw] max-w-[320px] h-[180px]"
+                            drag={isTop ? "x" : false}
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0.2}
+                            onDragEnd={isTop ? handleDragEnd : undefined}
+                            initial={{
+                                opacity: 0,
+                                scale: 0.8,
+                                y: 80,
+                            }}
+                            animate={{
+                                opacity: isTop ? 1 : Math.max(0, 1 - offset * 0.25),
+                                scale: 1 - offset * 0.05,
+                                y: offset * 22,
+                                zIndex: 30 - offset,
+                            }}
+                            exit={{
+                                opacity: 0,
+                                scale: 0.8,
+                                x: -200, // Throws completed cards leftwards
+                                transition: { duration: 0.2 }
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 25,
+                            }}
+                        >
+                            {/* Inner wrapper for card + overlay */}
+                            <div className="w-full h-full relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                                {item.isLogo ? (
+                                    <ZuwosLogoCard item={{ ...item, className: 'w-full h-full shadow-2xl' }} />
+                                ) : (
+                                    <AnimatedCard
+                                        item={item}
+                                        onClick={() => {
+                                            if (isTop && item.label) setActiveId(item.id);
+                                        }}
+                                    />
+                                )}
+                                {/* Glass Overlay to fade cards deeper in the stack */}
+                                {!isTop && (
+                                    <div
+                                        className="absolute inset-0 bg-[#f9fafb]/50 backdrop-blur-[2px] rounded-xl pointer-events-none"
+                                        style={{ opacity: offset * 0.2 }}
+                                    />
+                                )}
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </AnimatePresence>
+
+            {/* Pagination Indicators - Placed lower */}
+            <div className="absolute -bottom-6 left-0 right-0 flex justify-center gap-1.5 opacity-40">
+                {items.map((_, i) => (
+                    <div
+                        key={i}
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-[#1C3144] w-5 opacity-100' : 'bg-[#1C3144]'}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
+
 
 
 export default function ZuwosEcosystem() {
@@ -567,11 +662,11 @@ export default function ZuwosEcosystem() {
     const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     return (
-        <div className="w-full max-w-[1400px] mx-auto px-4 my-12 md:my-16 font-sans">
+        <div className="w-full max-w-[1400px] mx-auto px-4 my-12 md:my-16 font-sans overflow-x-clip">
             <div className="flex justify-center mb-10">
                 <TextRevealer
                     text="One OS. Infinite Possibilities."
-                    className="text-display-sm md:text-display-md font-display font-bold tracking-tighter text-[#162A4C] text-center justify-center"
+                    className="text-display-sm md:text-display-md font-display font-bold tracking-tighter text-[#162A4C] text-center justify-center relative z-20"
                 />
             </div>
             {/* ENTIRE GRID COORDINATED REVEAL */}
@@ -579,50 +674,66 @@ export default function ZuwosEcosystem() {
                 /* DESKTOP LAYOUT */
                 <motion.div
                     className="grid grid-cols-7 auto-rows-[100px] gap-2"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true, margin: "-10%" }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    variants={{
+                        visible: {
+                            transition: {
+                                staggerChildren: 0.05,
+                            }
+                        }
+                    }}
                 >
                     {items.map((item) => {
-                        // Logo Specifics
-                        if (item.isLogo) {
-                            return <ZuwosLogoCard key="LOGO" item={item} />;
+                        // Calculate spawn direction based on grid column
+                        let xOffset = 0;
+                        let yOffset = 0;
+                        if (item.className?.includes('col-start-1')) xOffset = -800;
+                        else if (item.className?.includes('col-start-2')) xOffset = -500;
+                        else if (item.className?.includes('col-start-3')) xOffset = -300;
+                        else if (item.className?.includes('col-start-5')) xOffset = 300;
+                        else if (item.className?.includes('col-start-6')) xOffset = 500;
+                        else if (item.className?.includes('col-start-7')) xOffset = 800;
+                        else if (item.className?.includes('col-start-4')) {
+                            if (item.className?.includes('row-start-1') || item.className?.includes('row-start-2')) yOffset = -400;
+                            else if (item.className?.includes('row-start-4') || item.className?.includes('row-start-5')) yOffset = 400;
                         }
 
-                        return (
-                            <div
-                                key={item.id}
-                                className={`${item.className} col-span-1 row-span-1`}
-                            >
-                                <AnimatedCard
-                                    item={item}
-                                    onClick={() => item.label && setActiveId(item.id)}
-                                />
-                            </div>
-                        );
-                    })}
-                </motion.div>
-            ) : (
-                /* MOBILE LAYOUT (Stacked) */
-                <div className="flex flex-col gap-4 pb-40">
-                    {items.map((item) => {
-                        // Mobile Logo
+                        // Logo Specifics
                         if (item.isLogo) {
                             return (
-                                <div key="LOGO" className="w-full h-[180px] flex items-center justify-center">
-                                    <ZuwosLogoCard item={{ className: 'w-full h-full' }} />
-                                </div>
+                                <motion.div
+                                    key="LOGO"
+                                    className={`${item.className} z-20`}
+                                    variants={{
+                                        hidden: { scale: 0, opacity: 0 },
+                                        visible: {
+                                            scale: 1,
+                                            opacity: 1,
+                                            transition: { type: "spring", bounce: 0.5, duration: 1.2 }
+                                        }
+                                    }}
+                                >
+                                    <ZuwosLogoCard item={{ ...item, className: 'w-full h-full' }} />
+                                </motion.div>
                             );
                         }
 
                         return (
                             <motion.div
                                 key={item.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className="w-full h-[180px]"
+                                className={`${item.className} col-span-1 row-span-1 relative z-10`}
+                                variants={{
+                                    hidden: { x: xOffset, y: yOffset, opacity: 0, scale: 0.8 },
+                                    visible: {
+                                        x: 0,
+                                        y: 0,
+                                        opacity: 1,
+                                        scale: 1,
+                                        transition: { type: "spring", bounce: 0.5, duration: 1.4 }
+                                    }
+                                }}
                             >
                                 <AnimatedCard
                                     item={item}
@@ -631,7 +742,10 @@ export default function ZuwosEcosystem() {
                             </motion.div>
                         );
                     })}
-                </div>
+                </motion.div>
+            ) : (
+                /* MOBILE LAYOUT (Stacked Card/Coverflow Effect) */
+                <MobileStackedCarousel items={items} setActiveId={setActiveId} />
             )}
 
 
@@ -687,9 +801,31 @@ export default function ZuwosEcosystem() {
                                             ))}
                                         </div>
 
-                                        <div className="flex items-center gap-2 mt-auto opacity-60 font-mono text-sm uppercase tracking-widest hidden">
-                                            <span>ZUWOS OS</span>
-                                            <ArrowUpRight size={16} />
+                                        <div className="flex items-center justify-between mt-auto pt-4 relative z-20 w-full border-t border-current/10">
+                                            <div className="flex items-center gap-2 opacity-60 font-mono text-sm uppercase tracking-widest hidden md:flex">
+                                                <span>ZUWOS OS</span>
+                                            </div>
+
+                                            {/* DEDICATED CTA BUTTON IN MODAL */}
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate('/request-access');
+                                                }}
+                                                className="
+                                                    flex items-center justify-center gap-2 
+                                                    px-6 py-2.5 
+                                                    bg-black/10 hover:bg-black/20 backdrop-blur-md 
+                                                    text-current text-sm font-semibold tracking-wide
+                                                    rounded-full transition-all duration-300
+                                                    shadow-[0_4px_16px_rgba(0,0,0,0.1)]
+                                                    group/cta border border-white/10
+                                                    ml-auto
+                                                "
+                                            >
+                                                <span>Get Started</span>
+                                                <ArrowUpRight size={18} className="group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1 transition-transform" />
+                                            </button>
                                         </div>
                                     </motion.div>
                                 );

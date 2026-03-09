@@ -29,7 +29,7 @@ export default function Documentation() {
         return (
             <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
                 <Navbar />
-                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                <main className="flex-grow py-16 md:py-24 flex flex-col items-center">
                     <div className="w-full max-w-7xl mx-auto px-6 mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
                             <ArrowLeft className="w-5 h-5" />
@@ -47,7 +47,7 @@ export default function Documentation() {
         return (
             <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
                 <Navbar />
-                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                <main className="flex-grow py-16 md:py-24 flex flex-col items-center">
                     <div className="w-full max-w-7xl mx-auto px-6 mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
                             <ArrowLeft className="w-5 h-5" />
@@ -65,7 +65,7 @@ export default function Documentation() {
         return (
             <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
                 <Navbar />
-                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                <main className="flex-grow py-16 md:py-24 flex flex-col items-center">
                     <div className="w-full max-w-7xl mx-auto px-6 mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
                             <ArrowLeft className="w-5 h-5" />
@@ -83,7 +83,7 @@ export default function Documentation() {
         return (
             <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
                 <Navbar />
-                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                <main className="flex-grow py-16 md:py-24 flex flex-col items-center">
                     <div className="w-full max-w-7xl mx-auto px-6 mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
                             <ArrowLeft className="w-5 h-5" />
@@ -101,7 +101,7 @@ export default function Documentation() {
         return (
             <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
                 <Navbar />
-                <main className="flex-grow pt-24 pb-24 flex flex-col items-center">
+                <main className="flex-grow py-16 md:py-24 flex flex-col items-center">
                     <div className="w-full max-w-7xl mx-auto px-6 mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite transition-colors">
                             <ArrowLeft className="w-5 h-5" />
@@ -122,7 +122,7 @@ export default function Documentation() {
     return (
         <PageTransition className="font-sans text-graphite bg-coconut min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow pt-24 pb-24">
+            <main className="flex-grow py-16 md:py-24">
                 <GridSystem>
                     {/* Header */}
                     <div className="col-span-12 lg:col-span-8 mb-24">

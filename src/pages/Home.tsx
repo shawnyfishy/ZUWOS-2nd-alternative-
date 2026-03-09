@@ -29,25 +29,25 @@ export default function Home() {
             <motion.main ref={containerRef} style={{ backgroundColor }}>
                 <Hero />
 
-                <StickySection zIndex={10} isTall className="-mt-24 rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-coconut border-t border-graphite/5 shadow-[0_-30px_60px_rgba(0,0,0,0.1)] pt-24 md:pt-32">
+                <StickySection zIndex={10} isTall className="rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-coconut border-t border-graphite/5 shadow-[0_-30px_60px_rgba(0,0,0,0.1)] py-16 md:py-24">
                     <div id="solutions">
                         <ValueProposition />
                     </div>
                 </StickySection>
 
-                <StickySection zIndex={20} isTall className="-mt-24 rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-coconut border-t border-graphite/5 shadow-[0_-30px_60px_rgba(0,0,0,0.1)] pt-24 md:pt-32">
+                <StickySection zIndex={20} isTall className="rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-coconut border-t border-graphite/5 shadow-[0_-30px_60px_rgba(0,0,0,0.1)] py-16 md:py-24">
                     <div id="features">
                         <BentoGrid />
                     </div>
                 </StickySection>
 
-                <StickySection zIndex={30} className="-mt-24 rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-coconut border-t border-graphite/5 shadow-[0_-30px_60px_rgba(0,0,0,0.1)] pt-24 md:pt-32 min-h-[100dvh] lg:h-[150vh]">
+                <StickySection zIndex={30} className="rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-coconut border-t border-graphite/5 shadow-[0_-30px_60px_rgba(0,0,0,0.1)] py-16 md:py-24 min-h-[70vh]">
                     <div id="vision">
                         <TheReveal />
                     </div>
                 </StickySection>
 
-                <StickySection zIndex={40} isTall className="-mt-24 rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-graphite border-t border-coconut/10 shadow-[0_-30px_60px_rgba(0,0,0,0.4)] pt-24 md:pt-32 text-coconut">
+                <StickySection zIndex={40} isTall className="rounded-t-[2.5rem] md:rounded-t-[3.5rem] bg-graphite border-t border-coconut/10 shadow-[0_-30px_60px_rgba(0,0,0,0.4)] py-16 md:py-24 text-coconut">
                     <div id="manifesto">
                         <AntiBigTech />
                     </div>

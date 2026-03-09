@@ -89,7 +89,7 @@ export default function EngagementCycle() {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-32 bg-coconut relative" id="engagement">
+        <section ref={containerRef} className="py-16 md:py-32 bg-coconut relative" id="engagement">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">
                     <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-primary mb-6">
@@ -131,8 +131,8 @@ export default function EngagementCycle() {
                 </div>
 
                 {/* --- NEW REAL-TIME GRATIFICATION SECTION (Sticky Scroll) --- */}
-                < div className="w-full mt-20" >
-                    <h4 className="text-5xl md:text-7xl font-bold text-center mb-16 text-primary font-display tracking-tight">
+                < div className="w-full mt-10 md:mt-20" >
+                    <h4 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center mb-2 md:mb-16 text-primary font-display tracking-tight">
                         <StaggerText>Real-Time Gratification</StaggerText>
                     </h4>
                     <StickyScroll

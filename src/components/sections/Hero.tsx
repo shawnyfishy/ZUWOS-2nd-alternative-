@@ -20,22 +20,22 @@ export default function Hero() {
     const blur = useTransform(scrollYProgress, [0, 0.5], ["0px", "10px"])
 
     return (
-        <div ref={ref} className="h-[150vh] bg-coconut relative z-0">
-            <div className="sticky top-0 h-screen overflow-hidden">
+        <div ref={ref} className="min-h-[90vh] pb-12 bg-coconut relative z-0">
+            <div className="sticky top-0">
                 <motion.div
                     style={{ opacity, scale, filter: `blur(${blur})` }}
-                    className="w-full h-full pt-28 lg:pt-32 pb-8 md:pt-40 md:pb-12 flex flex-col justify-start md:justify-center"
+                    className="w-full h-full pt-16 md:pt-28 lg:pt-32 pb-8 md:pt-40 md:pb-12 flex flex-col justify-start md:justify-center"
                 >
                     <GridSystem>
                         <div className="col-span-12 lg:col-span-10">
-                            <div className="text-display-sm md:text-display-md lg:text-display-lg font-display mb-6 md:mb-12 tracking-tighter leading-[1.05] flex flex-col items-start">
+                            <div className="text-4xl sm:text-display-sm md:text-display-md lg:text-display-lg font-display mb-4 md:mb-12 tracking-tighter leading-[1.05] flex flex-col items-start">
                                 <TextRevealer
                                     text="India’s Integrated"
                                 />
                                 <div className="h-20 md:h-32 w-full relative -mt-1 md:-mt-4">
                                     <GooeyText
                                         texts={["Workplace Management OS", "Employee Super-App", "Smart Facility Control"]}
-                                        textClassName="text-blue-600 leading-tight text-[clamp(2rem,6vw,4.5rem)] pb-2"
+                                        textClassName="text-blue-600 leading-tight text-[clamp(1.75rem,6vw,4.5rem)] pb-2"
                                         morphTime={1.5}
                                         cooldownTime={0.5}
                                     />
@@ -46,7 +46,7 @@ export default function Hero() {
                         <div className="col-span-12 lg:col-span-7 -mt-4 md:-mt-12">
                             <TextRevealer
                                 text="ZUWOS is an Indigenous Workplace Operating System, built for the new-age workforce, that seamlessly manages workflows with data sovereignty and unifies every stakeholder on one platform"
-                                className="text-lg md:text-3xl font-medium leading-relaxed tracking-tight mb-8 md:mb-12 text-graphite/80"
+                                className="text-lg md:text-3xl font-medium leading-relaxed tracking-tight mb-4 md:mb-12 text-graphite/80"
                                 delay={0.3}
                                 stagger={0.01}
                             />

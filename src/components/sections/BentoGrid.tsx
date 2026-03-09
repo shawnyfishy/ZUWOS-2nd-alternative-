@@ -156,7 +156,7 @@ export default function BentoGrid() {
     const navigate = useNavigate()
 
     return (
-        <section className="pb-12 md:pb-20 relative" id="solutions">
+        <section className="py-10 md:py-16 lg:py-24 relative" id="solutions">
             <GridSystem>
                 <div className="col-span-12 mb-12 md:mb-20 flex flex-col items-center">
                     <div className="w-full mb-8">
@@ -180,7 +180,7 @@ export default function BentoGrid() {
             </GridSystem>
 
             {/* The Grid */}
-            <GridSystem className="gap-6 max-w-5xl mx-auto lg:px-20">
+            <GridSystem className="gap-6 max-w-[1400px] mx-auto">
                 {silos.map((item, idx) => (
                     <CinematicReveal
                         key={item.id}
@@ -196,7 +196,7 @@ export default function BentoGrid() {
                         >
                             <TiltCard
                                 whileHover="hover"
-                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-6 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
+                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-4 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
                             >
                                 {/* Visual Background */}
                                 {item.visual && <item.visual />}

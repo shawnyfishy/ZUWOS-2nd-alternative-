@@ -71,7 +71,7 @@ const FragmentationSection = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full min-h-dvh relative bg-coconut flex flex-col items-center justify-center p-6 overflow-hidden md:p-8"
+            className="w-full min-h-[70vh] py-16 md:py-24 relative bg-coconut flex flex-col items-center justify-center overflow-hidden"
         >
             <div className="max-w-6xl w-full text-center z-10">
                 <h2 ref={headlineRef} className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-graphite mb-10 md:mb-16">
