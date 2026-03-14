@@ -46,7 +46,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div className="max-w-[1920px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
+            <div className="max-w-[1920px] mx-auto px-4 md:px-12 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center">
                     <motion.div
@@ -57,7 +57,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
                     >
                         <Link
                             to="/"
-                            className={`font-display font-bold text-3xl md:text-[2.6rem] tracking-tighter ${textColor} block`}
+                            className={`font-display font-bold text-4xl md:text-[2.6rem] tracking-tighter ${textColor} block`}
                             data-cursor="Home"
                         >
                             ZUWOS
@@ -101,11 +101,17 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <motion.div
-                    className="md:hidden fixed inset-0 z-40 bg-white/80 backdrop-blur-xl pt-24 px-6 flex flex-col gap-8 h-[100dvh]"
+                    className="md:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-8 h-[100dvh]"
                     initial={{ opacity: 0, x: '100%' }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                 >
+                    <button 
+                        onClick={() => setIsMobileMenuOpen(false)} 
+                        className="absolute top-5 right-4 p-2 text-graphite z-50 bg-white/50 rounded-full"
+                    >
+                        <X className="w-8 h-8" />
+                    </button>
                     {isHome ? (
                         <a href="#vision" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-display font-bold tracking-tight">Vision</a>
                     ) : (

@@ -156,15 +156,15 @@ export default function BentoGrid() {
     const navigate = useNavigate()
 
     return (
-        <section className="py-10 md:py-16 lg:py-24 relative" id="solutions">
+        <section className="py-8 md:py-16 lg:py-24 relative" id="solutions">
             <GridSystem>
-                <div className="col-span-12 mb-12 md:mb-20 flex flex-col items-center">
+                <div className="col-span-12 mb-12 md:mb-16 flex flex-col items-center">
                     <div className="w-full mb-8">
                         <AppMergingAnimation />
                     </div>
 
                     {/* NEW SECTION: Ecosystem Showcase */}
-                    <div className="w-full mb-20 md:mb-32">
+                    <div className="w-full mb-16 md:mb-24">
                         <ZuwosEcosystem />
                     </div>
 
@@ -196,7 +196,7 @@ export default function BentoGrid() {
                         >
                             <TiltCard
                                 whileHover="hover"
-                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-4 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
+                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-5 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
                             >
                                 {/* Visual Background */}
                                 {item.visual && <item.visual />}

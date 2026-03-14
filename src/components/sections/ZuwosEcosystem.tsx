@@ -662,8 +662,8 @@ export default function ZuwosEcosystem() {
     const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     return (
-        <div className="w-full max-w-[1400px] mx-auto px-4 my-12 md:my-16 font-sans overflow-x-clip">
-            <div className="flex justify-center mb-10">
+        <div className="w-full max-w-[1400px] mx-auto px-4 my-8 md:my-16 font-sans overflow-x-clip">
+            <div className="flex justify-center mb-8 md:mb-12">
                 <TextRevealer
                     text="One OS. Infinite Possibilities."
                     className="text-display-sm md:text-display-md font-display font-bold tracking-tighter text-[#162A4C] text-center justify-center relative z-20"
@@ -768,10 +768,10 @@ export default function ZuwosEcosystem() {
                                         key={item.id}
                                         layoutId={`card-${item.id}`}
                                         className={`
-                                            pointer-events-auto w-full max-w-lg p-8 md:p-12
+                                            pointer-events-auto w-full max-w-lg p-6 md:p-12
                                             ${item.color} ${item.text}
-                                            shadow-2xl rounded-none
-                                            flex flex-col gap-6 relative overflow-hidden
+                                            shadow-2xl rounded-2xl max-h-[85vh] overflow-y-auto
+                                            flex flex-col gap-6 relative
                                         `}
                                     >
                                         <div className="flex justify-between items-start relative z-10">

@@ -22,7 +22,7 @@ const ProcurementView = () => {
     }, [isAutoPlaying]);
 
     return (
-        <div className="w-full lg:w-[100vw] min-h-screen lg:h-screen flex-shrink-0 bg-sky-50 flex flex-col lg:flex-row relative overflow-hidden text-graphite">
+        <div className="w-full lg:w-full min-h-screen lg:h-screen flex-shrink-0 bg-sky-50 flex flex-col lg:flex-row relative overflow-hidden text-graphite">
             {/* Left Panel: Role & Features */}
             <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-sky-50 border-b lg:border-b-0 lg:border-r border-sky-200 z-10">
                 <div className="mb-8">
@@ -48,13 +48,16 @@ const ProcurementView = () => {
             </div>
 
             {/* Right Panel: Content / Mockups */}
-            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-8 md:p-20 relative overflow-visible mt-8 md:mt-0">
+            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-12 relative overflow-visible mt-8 md:mt-0">
                 <div className="w-full max-w-5xl relative aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-sky-200/50 bg-white group">
                     {features.map((item, i) => (
                         <img
                             key={i}
                             src={item.image}
+                            srcSet={`${item.image} 1x, ${item.image.replace(/\.(png|jpe?g)$/i, '@2x.$1')} 2x, ${item.image.replace(/\.(png|jpe?g)$/i, '@3x.$1')} 3x`}
                             alt={item.title}
+                            loading="lazy"
+                            decoding="async"
                             className={`absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-opacity duration-700 ease-in-out ${activeIndex === i ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                         />
                     ))}

@@ -54,7 +54,7 @@ const PlatformPage = () => {
 
                     <main className="pt-24 pb-20 px-6">
                         <div className="max-w-7xl mx-auto">
-                            <div className="max-w-4xl mb-24">
+                            <div className="max-w-4xl mb-16 md:mb-24">
                                 <h1 className="text-6xl md:text-8xl font-display font-bold mb-8 tracking-tighter leading-none">
                                     {data.title}
                                 </h1>

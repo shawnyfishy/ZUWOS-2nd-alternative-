@@ -33,7 +33,7 @@ export default function Fragmentation() {
     return (
         <section className="py-24 bg-coconut relative">
             <div className="container mx-auto px-6">
-                <div className="text-center mb-20">
+                <div className="text-center mb-16 md:mb-20">
                     <motion.h2
                         className="font-display font-bold text-4xl md:text-5xl mb-6"
                         initial={{ opacity: 0, y: 20 }}

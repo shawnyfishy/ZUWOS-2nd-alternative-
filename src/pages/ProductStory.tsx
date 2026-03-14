@@ -43,12 +43,12 @@ export default function ProductStory() {
                 <StoryHero />
 
                 {/* Philosophy Section */}
-                <section className="relative z-10 py-48 bg-black px-6 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
+                <section className="relative z-10 py-24 md:py-32 bg-black px-6 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
                     <div className="container mx-auto max-w-6xl text-center">
                         {philosophy.map((text, i) => {
                             const [they, we] = text.split(". ")
                             return (
-                                <div key={i} className="mb-24 last:mb-0">
+                                <div key={i} className="mb-16 last:mb-0">
                                     <div className="flex flex-col items-center gap-4">
                                         <TextRevealer
                                             text={they + "."}
@@ -76,7 +76,7 @@ export default function ProductStory() {
                 </section>
 
                 {/* Sticky Scroll Experience */}
-                <section className="relative z-20 bg-black pt-24 pb-48 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
+                <section className="relative z-20 bg-black pt-24 pb-32 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
                     <div className="container mx-auto px-4">
                         <CinematicReveal>
                             <h3 className="text-center text-primary font-bold uppercase tracking-[0.3em] mb-12 text-sm">One Platform. All Stakeholders.</h3>
@@ -86,9 +86,9 @@ export default function ProductStory() {
                 </section>
 
                 {/* Comparison / Value Section */}
-                <section className="relative z-30 py-40 bg-neutral-900 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
+                <section className="relative z-30 py-24 md:py-32 bg-neutral-900 rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
                     <div className="container mx-auto px-6 text-center">
-                        <div className="mb-20">
+                        <div className="mb-16">
                             <TextRevealer
                                 text="The Shift is Here."
                                 className="text-5xl md:text-7xl font-display font-bold tracking-tighter justify-center"
@@ -126,7 +126,7 @@ export default function ProductStory() {
                 </section>
 
                 {/* CTA */}
-                <section className="relative z-40 py-48 bg-black text-center relative overflow-hidden rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
+                <section className="relative z-40 py-24 md:py-32 bg-black text-center relative overflow-hidden rounded-t-[3.5rem] -mt-24 border-t border-white/10 shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#3b82f6_0%,_transparent_60%)] opacity-10"></div>
                     <div className="container mx-auto px-6 relative z-10">
                         <div className="mb-12">

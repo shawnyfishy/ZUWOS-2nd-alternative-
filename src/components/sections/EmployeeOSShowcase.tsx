@@ -103,7 +103,7 @@ export default function EmployeeOSShowcase() {
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-[90rem] flex justify-center relative px-4 lg:pl-80 pointer-events-none">
                     {/* Inner Wrapper for interaction if needed */}
                     <motion.div
-                        className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-20 md:scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto"
+                        className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-16 md:scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto"
                     >
 
                         {/* MacBook - More Smaller (max-w-2xl now) */}
@@ -150,27 +150,27 @@ export default function EmployeeOSShowcase() {
             </div>
 
             {/* 3. Footer (Bottom) */}
-            <div className="shrink-0 w-full flex justify-center pt-16 pb-4 md:pb-8 z-20 px-6 relative z-20">
-                <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">Integrates</span>
+            <div className="shrink-0 w-full flex justify-center pt-16 pb-4 md:pb-8 z-20 px-4 md:px-6 relative z-20">
+                <h3 className="flex items-baseline justify-center gap-1 sm:gap-[0.4em] tracking-tight leading-none text-center whitespace-nowrap w-full overflow-hidden">
+                    <span className="text-[min(3.8vw,1.125rem)] md:text-lg lg:text-xl font-medium text-graphite/80">Integrates</span>
 
                     {/* Morphing Word Container */}
                     <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
                         <AnimatePresence mode="wait">
                             <motion.span
                                 key={currentModule.name}
-                                initial={{ opacity: 0, y: 15, filter: 'blur(8px)' }}
+                                initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                                exit={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="text-lg md:text-2xl lg:text-3xl text-primary font-black whitespace-nowrap"
+                                exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+                                transition={{ duration: 0.4, ease: "easeOut" }}
+                                className="text-[min(4.5vw,1.5rem)] md:text-2xl lg:text-3xl text-primary font-black"
                             >
                                 {currentModule.name}
                             </motion.span>
                         </AnimatePresence>
                     </span>
 
-                    <span className="whitespace-nowrap text-sm md:text-lg lg:text-xl font-medium text-graphite/80">into one unified platform</span>
+                    <span className="text-[min(3.8vw,1.125rem)] md:text-lg lg:text-xl font-medium text-graphite/80">into one unified platform</span>
                 </h3>
             </div>
         </section >

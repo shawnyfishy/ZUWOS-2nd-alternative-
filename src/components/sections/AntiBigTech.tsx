@@ -8,7 +8,7 @@ import TextRevealer from '../utils/TextRevealer'
 export default function AntiBigTech() {
     return (
         <section className="pb-20 text-coconut relative overflow-hidden" id="manifesto">
-            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center relative z-10">
+            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
                 <div>
                     <div className="font-display font-bold text-3xl md:text-6xl mb-8 md:mb-12 tracking-tighter leading-tight flex flex-col items-start">
                         <TextRevealer text="Big Tech sells software licenses." />

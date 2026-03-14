@@ -28,6 +28,14 @@
     padding-right: var(--sar);
   }
 
+  /* Force crisp rendering for graphics and disable blurry anti-aliasing */
+  img, svg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
   /* Engineered Fluid Typography for Perfection across 320px - 1440px+ */
   h1 {
     font-size: clamp(2.5rem, 9vw, 6rem);
@@ -69,7 +77,7 @@
   }
 
   .section-padding {
-    @apply py-12 md:py-32;
+    @apply py-12 md:py-24;
   }
 
   .tap-feedback {

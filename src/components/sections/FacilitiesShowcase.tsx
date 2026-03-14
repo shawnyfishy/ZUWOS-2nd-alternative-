@@ -169,7 +169,7 @@ export default function FacilitiesShowcase() {
                 {/* Layer 2: Main Content (Centered) */}
                 {/* Added lg:pl-80 to shift center right and avoid sidebar overlap */}
                 <div className="col-start-1 row-start-1 justify-self-center w-full max-w-[90rem] flex justify-center relative px-4 lg:pl-80 pointer-events-none">
-                    <div className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-20 transform scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto">
+                    <div className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-center gap-8 md:gap-12 xl:gap-16 transform scale-100 transition-all duration-500 hover:scale-[1.02] pointer-events-auto">
 
                         {/* MacBook - More Smaller */}
                         <div className="w-full max-w-lg md:max-w-xl 2xl:max-w-4xl">

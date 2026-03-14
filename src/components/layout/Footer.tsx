@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
-        <footer className="bg-graphite text-coconut py-20 px-6 md:px-12">
+        <footer className="bg-graphite text-coconut py-16 md:py-24 px-6 md:px-12">
             <div className="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div>
                     <h3 className="font-display font-bold text-2xl mb-6">ZUWOS</h3>

@@ -13,7 +13,7 @@ interface GridSystemProps {
 
 export function GridSystem({ children, className }: GridSystemProps) {
     return (
-        <div className={cn("grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-12 px-4 md:px-12 max-w-[1920px] mx-auto", className)}>
+        <div className={cn("grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-8 md:gap-y-12 px-4 md:px-12 max-w-[1920px] mx-auto", className)}>
             {children}
         </div>
     )

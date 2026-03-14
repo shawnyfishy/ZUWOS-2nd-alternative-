@@ -20,11 +20,11 @@ export default function Hero() {
     const blur = useTransform(scrollYProgress, [0, 0.5], ["0px", "10px"])
 
     return (
-        <div ref={ref} className="min-h-[90vh] pb-12 bg-coconut relative z-0">
+        <div ref={ref} className="min-h-0 md:min-h-[90vh] pb-0 md:pb-12 bg-coconut relative z-0">
             <div className="sticky top-0">
                 <motion.div
                     style={{ opacity, scale, filter: `blur(${blur})` }}
-                    className="w-full h-full pt-16 md:pt-28 lg:pt-32 pb-8 md:pt-40 md:pb-12 flex flex-col justify-start md:justify-center"
+                    className="w-full h-full pt-20 md:pt-32 pb-12 md:pb-12 flex flex-col justify-start md:justify-center"
                 >
                     <GridSystem>
                         <div className="col-span-12 lg:col-span-10">
@@ -58,7 +58,7 @@ export default function Hero() {
                                             <Button
                                                 size="lg"
                                                 variant="primary"
-                                                className="rounded-full px-12 py-4 text-lg"
+                                                className="w-full sm:w-auto rounded-full px-12 py-4 text-lg"
                                                 data-cursor="Get Started"
                                             >
                                                 Get Started

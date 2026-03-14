@@ -125,7 +125,7 @@ export default function Documentation() {
             <main className="flex-grow py-16 md:py-24">
                 <GridSystem>
                     {/* Header */}
-                    <div className="col-span-12 lg:col-span-8 mb-24">
+                    <div className="col-span-12 lg:col-span-8 mb-16">
                         <Link to="/" className="inline-flex items-center gap-2 text-graphite/50 hover:text-graphite mb-8 transition-colors">
                             <ArrowLeft className="w-5 h-5" />
                             <span className="font-medium">Back to Overview</span>

@@ -89,9 +89,9 @@ export default function EngagementCycle() {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-16 md:py-32 bg-coconut relative" id="engagement">
+        <section ref={containerRef} className="py-16 md:py-24 bg-coconut relative" id="engagement">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-20">
+                <div className="text-center mb-16 md:mb-20">
                     <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-primary mb-6">
                         <StaggerText>The Game Changer</StaggerText>
                     </h2>
@@ -101,7 +101,7 @@ export default function EngagementCycle() {
                 </div>
 
                 {/* --- ORIGINAL WHEEL SECTION --- */}
-                <div className="relative w-full max-w-[300px] lg:max-w-2xl mx-auto aspect-square flex items-center justify-center mb-12 lg:mb-32">
+                <div className="relative w-full max-w-[300px] lg:max-w-2xl mx-auto aspect-square flex items-center justify-center mb-12 lg:mb-24">
                     {/* Golden/Premium Glow at Center - Adjusted for light theme visibility */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 lg:w-64 lg:h-64 bg-primary/20 rounded-full blur-3xl" />
 

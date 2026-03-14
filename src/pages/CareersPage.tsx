@@ -40,7 +40,7 @@ const CareersPage = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };
@@ -117,9 +117,9 @@ const CareersPage = () => {
                         </div>
                     )}
 
-                    <main className="pt-28 pb-20">
+                    <main className="pt-28 pb-16 md:pb-24">
 
-                        <div className="px-6 mb-24">
+                        <div className="px-6 mb-16">
                             <div className="max-w-7xl mx-auto text-center">
                                 <TextRevealer
                                     text="Build the Future of Work."
@@ -133,7 +133,7 @@ const CareersPage = () => {
                         </div>
 
                         {/* Positions */}
-                        <div className="bg-coconut py-32 px-6">
+                        <div className="bg-coconut py-24 px-6 md:px-12">
                             <div className="max-w-5xl mx-auto">
                                 <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12">Open Positions</h2>
 

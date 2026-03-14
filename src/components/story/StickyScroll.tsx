@@ -45,12 +45,12 @@ export const StickyScroll = ({
 
 
     return (
-        <div ref={ref} className="relative py-10 md:py-20">
+        <div ref={ref} className="relative py-0 md:py-20">
             <div className="flex justify-between items-start">
                 <div className="w-full md:w-[35%] flex flex-col items-center">
                     <div className="max-w-xs">
                         {content.map((item, index) => (
-                            <div key={item.title + index} className="min-h-[30vh] md:min-h-[60vh] flex flex-col justify-center py-8 md:py-0">
+                            <div key={item.title + index} className="my-6 md:my-0 md:min-h-[60vh] flex flex-col justify-center">
                                 <motion.h2
                                     animate={{ opacity: activeCard === index ? 1 : 0.2 }}
                                     transition={{ duration: 0.5 }}
@@ -65,7 +65,7 @@ export const StickyScroll = ({
                                     animate={{ opacity: activeCard === index ? 1 : 0.2 }}
                                     transition={{ duration: 0.5 }}
                                     className={cn(
-                                        "text-xl max-w-lg mt-4 md:mt-8 leading-relaxed",
+                                        "text-xl max-w-lg mt-3 md:mt-8 leading-relaxed",
                                         descriptionClassName || "text-slate-400"
                                     )}
                                 >

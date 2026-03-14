@@ -16,6 +16,8 @@ export const MacBookFrame: React.FC<FrameProps> = ({ children, className = '' })
                     alt="MacBook Pro Frame"
                     width="4096"
                     height="2378"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
                 />
             </div>

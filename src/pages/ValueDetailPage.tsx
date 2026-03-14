@@ -37,7 +37,7 @@ export default function ValueDetailPage() {
         if (id === 'integrated-ecosystem') {
             return (
                 <div className="w-full relative mt-[-2rem]">
-                    <div className="py-32">
+                    <div className="py-16 md:py-24">
                         <AppMergingAnimation />
                     </div>
                     <StakeholderSection />
@@ -47,7 +47,7 @@ export default function ValueDetailPage() {
 
         if (id === 'real-time-gratification') {
             return (
-                <div className="w-full space-y-20">
+                <div className="w-full space-y-12 md:space-y-16">
                     <div className="container mx-auto px-6 max-w-7xl">
                         <EngagementCycle />
                     </div>
@@ -82,7 +82,7 @@ export default function ValueDetailPage() {
                     </div>
 
                     {/* NEW: Enriching Content */}
-                    <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Benefit Cards */}
                         <div className="bg-white p-8 rounded-3xl border border-graphite/5 shadow-lg hover:shadow-xl transition-all duration-300">
                             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary">
@@ -115,7 +115,7 @@ export default function ValueDetailPage() {
                         </div>
                     </div>
 
-                    <div className="mt-20 border-t border-graphite/10 pt-16 mb-20">
+                    <div className="mt-16 border-t border-graphite/10 pt-16 mb-16">
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">Security First Architecture</h2>
                             <p className="text-xl text-graphite/70 leading-relaxed">
