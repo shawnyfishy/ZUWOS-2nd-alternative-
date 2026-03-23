@@ -1,16 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
+
+import eventsImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of Events procurement web.png';
+import materialIssueSlipImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of Material Issue Slip web.png';
+import materialOrderApprovalImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of Material Order Approval web.png';
+import morImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of MOR web.png';
+import mtoInitiationImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of MTO initiation web.png';
+import poImportImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of PO (Import) web.png';
+import purchaseOrderImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of Purchase Order web.png';
+import ropoImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of ROPO Web.png';
+import serviceIndentImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of Service Indent WEb.png';
+import unassignedMorImg from '../../sections/NEWPROCUREMENTHDZUWOS/Copy of Unassigned MOR web.png';
+import morManagementImg from '../../sections/NEWPROCUREMENTHDZUWOS/MOR Management.png';
 
 const features = [
-    { title: "Smart Inventory Management", image: "/features/proc_inventory.png" },
-    { title: "Predictive Reordering", image: "/features/proc_reordering.png" },
-    { title: "Vendor Discovery", image: "/features/proc_discovery.png" },
-    { title: "Purchase Order Workflow", image: "/features/proc_po.png" },
-    { title: "Delivery Tracking", image: "/features/proc_delivery.png" }
+    { title: 'MOR', image: morImg },
+    { title: 'Material Issue Slip', image: materialIssueSlipImg },
+    { title: 'Material Order Approval', image: materialOrderApprovalImg },
+    { title: 'Service Intent', image: serviceIndentImg },
+    { title: 'MTO initiation', image: mtoInitiationImg },
+    { title: 'MOR Management', image: morManagementImg },
+    { title: 'Unassigned MOR', image: unassignedMorImg },
+    { title: 'Events', image: eventsImg },
+    { title: 'Purchase Order', image: purchaseOrderImg },
+    { title: 'ROPO', image: ropoImg },
+    { title: 'PO import', image: poImportImg },
 ];
 
 const ProcurementView = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
+    const listRef = useRef<HTMLUListElement>(null);
 
     useEffect(() => {
         if (!isAutoPlaying) return;
@@ -21,44 +42,82 @@ const ProcurementView = () => {
         return () => clearInterval(interval);
     }, [isAutoPlaying]);
 
+    // Auto-scroll list to keep active item visible without triggering native browser scroll jumps
+    useEffect(() => {
+        const list = listRef.current;
+        const item = itemRefs.current[activeIndex];
+        if (list && item) {
+            const targetScroll = item.offsetTop - (list.clientHeight / 2) + (item.clientHeight / 2);
+            
+            const startScroll = list.scrollTop;
+            const distance = targetScroll - startScroll;
+            const duration = 400; // ms
+            let startTime: number | null = null;
+
+            const animateScroll = (currentTime: number) => {
+                if (startTime === null) startTime = currentTime;
+                const elapsed = currentTime - startTime;
+                
+                if (elapsed < duration) {
+                    // Ease-out cubic
+                    const progress = elapsed / duration;
+                    const ease = 1 - Math.pow(1 - progress, 3);
+                    list.scrollTop = startScroll + (distance * ease);
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    list.scrollTop = targetScroll;
+                }
+            };
+            
+            requestAnimationFrame(animateScroll);
+        }
+    }, [activeIndex]);
+
     return (
-        <div className="w-full lg:w-full min-h-screen lg:h-screen flex-shrink-0 bg-sky-50 flex flex-col lg:flex-row relative overflow-hidden text-graphite">
+        <div className="w-full lg:w-screen min-h-screen lg:h-screen flex-shrink-0 bg-sky-50 flex flex-col lg:flex-row relative overflow-hidden text-graphite">
             {/* Left Panel: Role & Features */}
-            <div className="w-full lg:w-[30%] h-auto lg:h-full p-8 md:p-12 flex flex-col justify-center bg-sky-50 border-b lg:border-b-0 lg:border-r border-sky-200 z-10">
-                <div className="mb-8">
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-sky-950 mt-2">Procurement</h2>
-                    <p className="text-lg md:text-xl text-sky-800/80 mt-4">Demand to Delivery, Unified.</p>
+            <div className="w-full lg:w-[320px] xl:w-[380px] 2xl:w-[420px] flex-shrink-0 h-auto lg:h-full px-8 lg:px-10 lg:pl-14 xl:pl-16 2xl:pl-20 flex flex-col justify-start bg-sky-50 border-b lg:border-b-0 lg:border-r border-sky-200 z-10 pt-[100px] lg:pt-[120px] pb-10">
+                <div className="mb-6 xl:mb-8">
+                    <h2 className="text-3xl xl:text-4xl font-display font-bold text-sky-950 mt-2">Procurement</h2>
+                    <p className="text-base xl:text-lg text-sky-800/80 mt-2">Demand to Delivery, Unified.</p>
                 </div>
 
-                <ul className="space-y-4">
-                    {features.map((item, i) => (
-                        <li
-                            key={i}
-                            className={`flex items-center gap-3 text-sm md:text-base cursor-pointer transition-all duration-300 ${activeIndex === i ? 'text-sky-600 font-medium translate-x-1' : 'text-sky-900/80 hover:text-sky-900'}`}
-                            onClick={() => {
-                                setActiveIndex(i);
-                                setIsAutoPlaying(false);
-                            }}
-                        >
-                            <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${activeIndex === i ? 'bg-sky-500' : 'bg-sky-300'}`} />
-                            {item.title}
-                        </li>
-                    ))}
+                <ul ref={listRef} className="relative space-y-2 xl:space-y-4 max-h-[40vh] lg:max-h-[calc(100vh-320px)] overflow-y-auto pr-4 minimal-scrollbar mask-gradient" style={{ overscrollBehavior: 'contain' }}>
+                    {features.map((item, i) => {
+                        const isActive = activeIndex === i;
+                        return (
+                            <li
+                                key={i}
+                                ref={(el) => { itemRefs.current[i] = el; }}
+                                className={`flex items-center gap-3 cursor-pointer group w-full`}
+                                onClick={() => {
+                                    setActiveIndex(i);
+                                    setIsAutoPlaying(false);
+                                }}
+                            >
+                                <div className="w-6 flex justify-center shrink-0">
+                                    <ArrowRight className={`w-4 h-4 transition-all duration-300 ${isActive ? 'opacity-100 text-sky-600 translate-x-0' : 'opacity-0 -translate-x-2'}`} />
+                                </div>
+                                <span className={`text-base md:text-lg lg:text-base xl:text-xl font-bold tracking-tight transition-colors duration-300 ${isActive ? 'text-sky-600' : 'text-sky-900/40 group-hover:text-sky-900/60'}`}>
+                                    {item.title}
+                                </span>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
 
             {/* Right Panel: Content / Mockups */}
-            <div className="w-full lg:w-[70%] h-auto lg:h-full flex flex-col items-center justify-center p-6 md:p-12 relative overflow-visible mt-8 md:mt-0">
-                <div className="w-full max-w-5xl relative aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-sky-200/50 bg-white group">
+            <div className="flex-1 h-auto lg:h-full flex flex-col items-center lg:items-start justify-center p-6 lg:p-12 lg:pl-10 xl:pl-16 relative overflow-visible mt-8 lg:mt-0">
+                <div className="w-full max-w-5xl 2xl:max-w-6xl relative aspect-video bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-sky-200/50 group">
                     {features.map((item, i) => (
                         <img
                             key={i}
                             src={item.image}
-                            srcSet={`${item.image} 1x, ${item.image.replace(/\.(png|jpe?g)$/i, '@2x.$1')} 2x, ${item.image.replace(/\.(png|jpe?g)$/i, '@3x.$1')} 3x`}
                             alt={item.title}
                             loading="lazy"
                             decoding="async"
-                            className={`absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-opacity duration-700 ease-in-out ${activeIndex === i ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                            className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out ${activeIndex === i ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                         />
                     ))}
                 </div>

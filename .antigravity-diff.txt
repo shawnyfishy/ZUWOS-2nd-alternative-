@@ -1,0 +1,24 @@
+﻿diff --git a/src/components/sections/EmployeeOSShowcase.tsx b/src/components/sections/EmployeeOSShowcase.tsx
+index 93611fe..d28d530 100644
+--- a/src/components/sections/EmployeeOSShowcase.tsx
++++ b/src/components/sections/EmployeeOSShowcase.tsx
+@@ -155,7 +155,9 @@ export default function EmployeeOSShowcase() {
+                     <span className="text-[min(3.8vw,1.125rem)] md:text-lg lg:text-xl font-medium text-graphite/80">Integrates</span>
+ 
+                     {/* Morphing Word Container */}
+-                    <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
++                    <span className="relative inline-flex items-center justify-center overflow-visible">
++                        {/* Invisible longest word sets the exact static width & height */}
++                        <span className="invisible font-black text-[min(4.5vw,1.5rem)] md:text-2xl lg:text-3xl whitespace-nowrap pointer-events-none select-none" aria-hidden="true">Performance</span>
+                         <AnimatePresence mode="wait">
+                             <motion.span
+                                 key={currentModule.name}
+@@ -163,7 +165,7 @@ export default function EmployeeOSShowcase() {
+                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                 exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+                                 transition={{ duration: 0.4, ease: "easeOut" }}
+-                                className="text-[min(4.5vw,1.5rem)] md:text-2xl lg:text-3xl text-primary font-black"
++                                className="absolute inset-0 flex items-center justify-center text-[min(4.5vw,1.5rem)] md:text-2xl lg:text-3xl text-primary font-black whitespace-nowrap"
+                             >
+                                 {currentModule.name}
+                             </motion.span>

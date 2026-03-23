@@ -52,10 +52,7 @@ const StakeholderSection = () => {
                 <ProcurementView />
             </div>
 
-            {/* Sticky Navigation Title Overlay */}
-            <div className="absolute top-20 left-8 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full shadow-sm border border-gray-100 z-50">
-                <span className="font-bold text-graphite uppercase tracking-widest text-xs">Workplace Ecosystem</span>
-            </div>
+            {/* Removed Navigation Title Overlay */}
         </section>
     );
 };

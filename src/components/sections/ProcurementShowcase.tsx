@@ -108,7 +108,8 @@ export default function ProcurementShowcase() {
                     <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Optimize critical</span>
 
                     {/* Morphing Word Container */}
-                    <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
+                    <span className="relative inline-flex items-center justify-center overflow-visible">
+                        <span className="invisible font-black text-xl md:text-3xl whitespace-nowrap pointer-events-none select-none" aria-hidden="true">Purchase Order</span>
                         <AnimatePresence mode="wait">
                             <motion.span
                                 key={currentModule.name}
@@ -116,7 +117,7 @@ export default function ProcurementShowcase() {
                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                                 exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
                                 transition={{ duration: 0.5, ease: "easeOut" }}
-                                className="text-xl md:text-3xl text-primary font-black whitespace-nowrap"
+                                className="absolute inset-0 flex items-center justify-center text-xl md:text-3xl text-primary font-black whitespace-nowrap"
                             >
                                 {currentModule.name}
                             </motion.span>

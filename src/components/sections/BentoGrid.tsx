@@ -27,7 +27,7 @@ const silos = [
         bg: "bg-primary",
         text: "text-white",
         colSpan: "col-span-12 md:col-span-6",
-        aspect: "aspect-[2/1]",
+        aspect: "aspect-[2.3/1]",
         content: (
             <div className="space-y-6">
                 <h4 className="text-2xl font-bold">Unify the Employee Experience</h4>
@@ -49,7 +49,7 @@ const silos = [
         bg: "bg-accent-yellow",
         text: "text-graphite",
         colSpan: "col-span-12 md:col-span-6",
-        aspect: "aspect-[2/1]",
+        aspect: "aspect-[2.3/1]",
         content: (
             <div className="space-y-6">
                 <h4 className="text-2xl font-bold">Automate the Mundane</h4>
@@ -71,7 +71,7 @@ const silos = [
         bg: "bg-atlas",
         text: "text-white",
         colSpan: "col-span-12 md:col-span-4",
-        aspect: "aspect-square",
+        aspect: "aspect-[1.1/1]",
         content: (
             <div className="space-y-6">
                 <h4 className="text-2xl font-bold">Asset Lifecycle Management</h4>
@@ -93,7 +93,7 @@ const silos = [
         bg: "bg-accent-pink",
         text: "text-graphite",
         colSpan: "col-span-12 md:col-span-8",
-        aspect: "aspect-[2/1]",
+        aspect: "aspect-[2.3/1]",
         content: (
             <div className="space-y-6">
                 <h4 className="text-2xl font-bold">Total Financial Control</h4>
@@ -115,7 +115,7 @@ const silos = [
         bg: "bg-graphite",
         text: "text-white",
         colSpan: "col-span-12 md:col-span-6",
-        aspect: "aspect-[2/1]",
+        aspect: "aspect-[2.3/1]",
         content: (
             <div className="space-y-6">
                 <h4 className="text-2xl font-bold">Efficient Sourcing</h4>
@@ -137,7 +137,7 @@ const silos = [
         bg: "bg-primary",
         text: "text-white",
         colSpan: "col-span-12 md:col-span-6",
-        aspect: "aspect-[2/1]",
+        aspect: "aspect-[2.3/1]",
         content: (
             <div className="space-y-6">
                 <h4 className="text-2xl font-bold">Complete Oversight</h4>
@@ -154,6 +154,36 @@ const silos = [
 
 export default function BentoGrid() {
     const navigate = useNavigate()
+
+    const renderCard = (item: typeof silos[0], isSideCard: boolean) => (
+        <motion.div
+            onClick={() => (item.id === 'employees' || item.id === 'admins') ? navigate(`/values/${item.id}`) : navigate(`/docs/${item.id}`)}
+            className={`relative z-10 w-full ${isSideCard ? 'h-full min-h-[400px] lg:min-h-0' : 'h-full'}`}
+            data-cursor="Experience"
+            whileHover={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        >
+            <TiltCard
+                whileHover="hover"
+                className={`w-full ${isSideCard ? 'h-full' : item.aspect} ${item.bg} ${item.text} p-5 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
+            >
+                {/* Visual Background */}
+                {item.visual && <item.visual />}
+
+                <div className="flex justify-between items-start relative z-10">
+                    <item.icon className="w-8 h-8 md:w-10 md:h-10" />
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest border border-current px-2 md:px-3 py-1 rounded-full">Explore</span>
+                    </div>
+                </div>
+
+                <div className="relative z-10 mt-auto">
+                    <h3 className="text-xl md:text-3xl font-display font-bold mb-1 tracking-tight">{item.title}</h3>
+                    <p className="text-base md:text-lg opacity-80 font-medium">{item.subtitle}</p>
+                </div>
+            </TiltCard>
+        </motion.div>
+    );
 
     return (
         <section className="py-8 md:py-16 lg:py-24 relative" id="solutions">
@@ -180,42 +210,25 @@ export default function BentoGrid() {
             </GridSystem>
 
             {/* The Grid */}
-            <GridSystem className="gap-6 max-w-[1400px] mx-auto">
-                {silos.map((item, idx) => (
-                    <CinematicReveal
-                        key={item.id}
-                        className={item.colSpan}
-                        delay={idx * 0.1}
-                    >
-                        <motion.div
-                            onClick={() => (item.id === 'employees' || item.id === 'admins') ? navigate(`/values/${item.id}`) : navigate(`/docs/${item.id}`)}
-                            className="relative z-10 w-full"
-                            data-cursor="Experience"
-                            whileHover={{ scale: 0.98 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                        >
-                            <TiltCard
-                                whileHover="hover"
-                                className={`w-full ${item.aspect} ${item.bg} ${item.text} p-5 md:p-6 rounded-none md:rounded-lg flex flex-col justify-between group cursor-pointer hover:shadow-brutalist transition-shadow duration-300 overflow-hidden relative`}
-                            >
-                                {/* Visual Background */}
-                                {item.visual && <item.visual />}
+            <GridSystem className="gap-5 xl:gap-8 max-w-[1800px] w-full mx-auto">
+                {/* Left Side: Procurement Card */}
+                <CinematicReveal className="col-span-12 lg:col-span-3 xl:col-span-2 h-full" delay={0.1}>
+                    {renderCard(silos.find(s => s.id === "procurement")!, true)}
+                </CinematicReveal>
 
-                                <div className="flex justify-between items-start relative z-10">
-                                    <item.icon className="w-8 h-8 md:w-10 md:h-10" />
-                                    <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest border border-current px-2 md:px-3 py-1 rounded-full">Explore</span>
-                                    </div>
-                                </div>
+                {/* Middle Area: Remaining 4 Cards */}
+                <div className="col-span-12 lg:col-span-6 xl:col-span-8 grid grid-cols-1 md:grid-cols-12 gap-5 xl:gap-8 h-full">
+                    {silos.filter(s => s.id !== "procurement" && s.id !== "admins").map((item, idx) => (
+                        <CinematicReveal key={item.id} className={item.colSpan} delay={(idx + 2) * 0.1}>
+                            {renderCard(item, false)}
+                        </CinematicReveal>
+                    ))}
+                </div>
 
-                                <div className="relative z-10">
-                                    <h3 className="text-xl md:text-3xl font-display font-bold mb-1 tracking-tight">{item.title}</h3>
-                                    <p className="text-base md:text-lg opacity-80 font-medium">{item.subtitle}</p>
-                                </div>
-                            </TiltCard>
-                        </motion.div>
-                    </CinematicReveal>
-                ))}
+                {/* Right Side: Admin Card */}
+                <CinematicReveal className="col-span-12 lg:col-span-3 xl:col-span-2 h-full" delay={0.6}>
+                    {renderCard(silos.find(s => s.id === "admins")!, true)}
+                </CinematicReveal>
             </GridSystem>
         </section>
     )

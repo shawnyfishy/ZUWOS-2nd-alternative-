@@ -50,7 +50,7 @@ export const StickyScroll = ({
                 <div className="w-full md:w-[35%] flex flex-col items-center">
                     <div className="max-w-xs">
                         {content.map((item, index) => (
-                            <div key={item.title + index} className="my-6 md:my-0 md:min-h-[60vh] flex flex-col justify-center">
+                            <div key={item.title + index} className={cn("my-6 md:my-0 flex flex-col justify-center", index < content.length - 1 ? "md:min-h-[60vh]" : "md:min-h-[30vh]")}>
                                 <motion.h2
                                     animate={{ opacity: activeCard === index ? 1 : 0.2 }}
                                     transition={{ duration: 0.5 }}

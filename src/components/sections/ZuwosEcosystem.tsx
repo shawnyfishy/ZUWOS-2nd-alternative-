@@ -768,16 +768,16 @@ export default function ZuwosEcosystem() {
                                         key={item.id}
                                         layoutId={`card-${item.id}`}
                                         className={`
-                                            pointer-events-auto w-full max-w-lg p-6 md:p-12
+                                            pointer-events-auto w-full max-w-md p-5 md:p-8
                                             ${item.color} ${item.text}
-                                            shadow-2xl rounded-2xl max-h-[85vh] overflow-y-auto
-                                            flex flex-col gap-6 relative
+                                            shadow-2xl rounded-2xl max-h-[80vh] overflow-y-auto
+                                            flex flex-col gap-5 relative
                                         `}
                                     >
                                         <div className="flex justify-between items-start relative z-10">
                                             <div>
-                                                <h3 className="text-5xl font-display font-black tracking-tight mb-2">{item.label}</h3>
-                                                <p className="text-xl opacity-80 font-medium">{item.sub}{item.id === 'parking' ? '' : ' Platform'}</p>
+                                                <h3 className="text-4xl font-display font-black tracking-tight mb-1">{item.label}</h3>
+                                                <p className="text-lg opacity-80 font-medium">{item.sub}{item.id === 'parking' ? '' : ' Platform'}</p>
                                             </div>
                                             <button onClick={() => setActiveId(null)} className="p-2 hover:bg-black/10 rounded-full transition-colors"><X size={32} /></button>
                                         </div>
@@ -785,7 +785,7 @@ export default function ZuwosEcosystem() {
                                         <div className="h-px w-full bg-current opacity-20" />
 
                                         {/* SPECIFIC CONTENT RENDERED HERE */}
-                                        <p className="text-2xl font-medium leading-relaxed opacity-90 relative z-10">
+                                        <p className="text-xl font-medium leading-relaxed opacity-90 relative z-10">
                                             {item.desc}
                                         </p>
 

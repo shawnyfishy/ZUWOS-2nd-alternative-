@@ -25,7 +25,7 @@ import walletImg from '../ui/MOBILEEMPLOYEESHD/Wallet ios.png';
 const modules = [
     { name: 'Calendar', description: 'Sync meetings, leaves, and events instantly.', mac: '/employees-new/calendar.png', mobile: calendarImg },
     { name: 'Chat', description: 'Team Collaborations on the go', mac: '/employees-new/chat.png', mobile: chatImg },
-    { name: 'Community', description: 'Engage with internal communities and interest groups', mac: '/employees-new/community.png', mobile: communityImg },
+    { name: 'Community', description: 'Engage with internal communities and interest groups', mac: '/assets/community-dashboard.png', mobile: communityImg },
     { name: 'Digital Card', description: 'Contact details shared in a single tap.', mac: '/employees-new/digital-card.png', mobile: digitalCardImg },
     { name: 'Documents', description: 'Create, upload, and store files on the go.', mac: '/employees-new/documents.png', mobile: documentsImg },
     { name: 'F & B', description: 'Order food directly from the cafeteria.', mac: '/employees-new/fnb.png', mobile: fnbImg },

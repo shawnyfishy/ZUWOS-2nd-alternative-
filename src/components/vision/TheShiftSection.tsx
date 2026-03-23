@@ -65,7 +65,7 @@ const TheShiftSection = () => {
                     <span className="text-blue-500">changed.</span>
                 </h2>
 
-                <ul className="flex flex-col gap-5 text-xl text-atlas/70 font-light">
+                <ul className="flex flex-col gap-5 text-xl text-graphite font-normal">
                     {[
                         "Gen Z expects instant access",
                         "Real-time recognition",
