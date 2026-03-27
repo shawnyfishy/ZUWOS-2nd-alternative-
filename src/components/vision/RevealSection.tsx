@@ -80,7 +80,7 @@ const RevealSection = () => {
                         className="w-full max-w-4xl aspect-video rounded-2xl border border-white/10 shadow-2xl overflow-hidden relative bg-black/40 transition-all hover:border-white/20"
                     >
                         <img
-                            src="/assets/dashboard-ZU.png"
+                            src="/assets/vision-page-ss.png"
                             alt="ZUWOS Workplace OS"
                             className="w-full h-full object-cover object-top transition-transform duration-500 ease-out hover:scale-[1.02]"
                             loading="eager"

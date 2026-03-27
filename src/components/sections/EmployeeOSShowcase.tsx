@@ -25,7 +25,7 @@ import walletImg from '../ui/MOBILEEMPLOYEESHD/Wallet ios.png';
 const modules = [
     { name: 'Calendar', description: 'Sync meetings, leaves, and events instantly.', mac: '/employees-new/calendar.png', mobile: calendarImg },
     { name: 'Chat', description: 'Team Collaborations on the go', mac: '/employees-new/chat.png', mobile: chatImg },
-    { name: 'Community', description: 'Engage with internal communities and interest groups', mac: '/assets/community-dashboard.png', mobile: communityImg },
+    { name: 'Community', description: 'Engage with internal communities and interest groups', mac: '/employees-new/community.png', mobile: communityImg },
     { name: 'Digital Card', description: 'Contact details shared in a single tap.', mac: '/employees-new/digital-card.png', mobile: digitalCardImg },
     { name: 'Documents', description: 'Create, upload, and store files on the go.', mac: '/employees-new/documents.png', mobile: documentsImg },
     { name: 'F & B', description: 'Order food directly from the cafeteria.', mac: '/employees-new/fnb.png', mobile: fnbImg },
@@ -151,27 +151,28 @@ export default function EmployeeOSShowcase() {
 
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-16 pb-4 md:pb-8 z-20 px-4 md:px-6 relative z-20">
-                <h3 className="flex items-baseline justify-center gap-1 sm:gap-[0.4em] tracking-tight leading-none text-center whitespace-nowrap w-full overflow-hidden">
-                    <span className="text-[min(3.8vw,1.125rem)] md:text-lg lg:text-xl font-medium text-graphite/80">Integrates</span>
+                <motion.h3 layout className="flex items-baseline justify-center gap-1 sm:gap-[0.4em] tracking-tight leading-none text-center whitespace-nowrap w-full overflow-hidden">
+                    <motion.span layout className="text-[min(3.8vw,1.125rem)] md:text-lg lg:text-xl font-medium text-graphite/80">Integrates</motion.span>
 
                     {/* Morphing Word Container */}
-                    <span className="relative inline-flex flex-col items-center justify-center min-w-[3ch]">
-                        <AnimatePresence mode="wait">
+                    <motion.span layout className="relative flex items-center justify-center">
+                        <AnimatePresence mode="popLayout">
                             <motion.span
+                                layout
                                 key={currentModule.name}
                                 initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                                 exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
                                 transition={{ duration: 0.4, ease: "easeOut" }}
-                                className="text-[min(4.5vw,1.5rem)] md:text-2xl lg:text-3xl text-primary font-black"
+                                className="text-[min(4.5vw,1.5rem)] md:text-2xl lg:text-3xl text-primary font-black whitespace-nowrap"
                             >
                                 {currentModule.name}
                             </motion.span>
                         </AnimatePresence>
-                    </span>
+                    </motion.span>
 
-                    <span className="text-[min(3.8vw,1.125rem)] md:text-lg lg:text-xl font-medium text-graphite/80">into one unified platform</span>
-                </h3>
+                    <motion.span layout className="text-[min(3.8vw,1.125rem)] md:text-lg lg:text-xl font-medium text-graphite/80">into one unified platform</motion.span>
+                </motion.h3>
             </div>
         </section >
     );

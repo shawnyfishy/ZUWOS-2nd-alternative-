@@ -1,15 +1,25 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { GridSystem } from '../layout/GridSystem'
 import CinematicReveal from '../utils/CinematicReveal'
 import Magnetic from '../utils/Magnetic'
 import { Button } from '../ui/Button'
 import TextRevealer from '../utils/TextRevealer'
-import { GooeyText } from '../ui/GooeyText'
+
+const texts = ["Workplace Management OS", "Employee Super-App", "Smart Facility Control"];
 
 export default function Hero() {
     const ref = useRef(null)
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % texts.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"]
@@ -32,13 +42,20 @@ export default function Hero() {
                                 <TextRevealer
                                     text="India’s Integrated"
                                 />
-                                <div className="h-20 md:h-32 w-full relative -mt-1 md:-mt-4">
-                                    <GooeyText
-                                        texts={["Workplace Management OS", "Employee Super-App", "Smart Facility Control"]}
-                                        textClassName="text-blue-600 leading-tight text-[clamp(1.75rem,6vw,4.5rem)] pb-2"
-                                        morphTime={1.5}
-                                        cooldownTime={0.5}
-                                    />
+                                <div className="h-auto md:h-32 w-full relative -mt-1 md:-mt-2 flex items-center justify-start overflow-visible">
+                                    <AnimatePresence mode="popLayout">
+                                        <motion.div
+                                            layout
+                                            key={currentIndex}
+                                            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                            exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                                            transition={{ duration: 0.6, ease: "easeOut" }}
+                                            className="text-blue-600 font-bold leading-tight text-[clamp(1.75rem,6vw,4.5rem)] pb-2 whitespace-nowrap"
+                                        >
+                                            {texts[currentIndex]}
+                                        </motion.div>
+                                    </AnimatePresence>
                                 </div>
                             </div>
                         </div>

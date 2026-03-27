@@ -210,14 +210,14 @@ export default function BentoGrid() {
             </GridSystem>
 
             {/* The Grid */}
-            <GridSystem className="gap-5 xl:gap-8 max-w-[1800px] w-full mx-auto">
+            <GridSystem className="gap-3 xl:gap-6 max-w-[1800px] w-full mx-auto">
                 {/* Left Side: Procurement Card */}
                 <CinematicReveal className="col-span-12 lg:col-span-3 xl:col-span-2 h-full" delay={0.1}>
                     {renderCard(silos.find(s => s.id === "procurement")!, true)}
                 </CinematicReveal>
 
                 {/* Middle Area: Remaining 4 Cards */}
-                <div className="col-span-12 lg:col-span-6 xl:col-span-8 grid grid-cols-1 md:grid-cols-12 gap-5 xl:gap-8 h-full">
+                <div className="col-span-12 lg:col-span-6 xl:col-span-8 grid grid-cols-1 md:grid-cols-12 gap-3 xl:gap-6 h-full">
                     {silos.filter(s => s.id !== "procurement" && s.id !== "admins").map((item, idx) => (
                         <CinematicReveal key={item.id} className={item.colSpan} delay={(idx + 2) * 0.1}>
                             {renderCard(item, false)}

@@ -104,28 +104,28 @@ export default function ProcurementShowcase() {
 
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-8 pb-4 md:pb-8 z-20 px-6 relative z-20">
-                <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Optimize critical</span>
+                <motion.h3 layout className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
+                    <motion.span layout className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Optimize critical</motion.span>
 
                     {/* Morphing Word Container */}
-                    <span className="relative inline-flex items-center justify-center overflow-visible">
-                        <span className="invisible font-black text-xl md:text-3xl whitespace-nowrap pointer-events-none select-none" aria-hidden="true">Purchase Order</span>
-                        <AnimatePresence mode="wait">
+                    <motion.span layout className="relative flex items-center justify-center">
+                        <AnimatePresence mode="popLayout">
                             <motion.span
+                                layout
                                 key={currentModule.name}
                                 initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                                 exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
                                 transition={{ duration: 0.5, ease: "easeOut" }}
-                                className="absolute inset-0 flex items-center justify-center text-xl md:text-3xl text-primary font-black whitespace-nowrap"
+                                className="text-xl md:text-3xl text-primary font-black whitespace-nowrap"
                             >
                                 {currentModule.name}
                             </motion.span>
                         </AnimatePresence>
-                    </span>
+                    </motion.span>
 
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">workflows</span>
-                </h3>
+                    <motion.span layout className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">workflows</motion.span>
+                </motion.h3>
             </div>
         </section>
     );

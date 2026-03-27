@@ -219,47 +219,47 @@ export default function FacilitiesShowcase() {
 
             {/* 3. Footer (Bottom) */}
             <div className="shrink-0 w-full flex justify-center pt-16 pb-4 md:pb-8 z-20 px-6 relative z-20">
-                <h3 className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Enables</span>
+                <motion.h3 layout className="flex flex-wrap items-baseline justify-center gap-[0.4em] tracking-tight leading-none text-center">
+                    <motion.span layout className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">Enables</motion.span>
 
-                    {/* Morphing Category */}
-                    <span className="relative inline-flex items-center justify-center overflow-visible">
-                        <span className="invisible font-black text-xl md:text-3xl whitespace-nowrap pointer-events-none select-none" aria-hidden="true">Maintenance</span>
-                        <AnimatePresence mode="wait">
+                    {/* Morphing Category Container */}
+                    <motion.span layout className="relative flex items-center justify-center">
+                        <AnimatePresence mode="popLayout">
                             <motion.span
+                                layout
                                 key={`cat-${currentModule.category}`}
                                 initial={{ opacity: 0, y: 15, filter: 'blur(8px)' }}
                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                                 exit={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="absolute inset-0 flex items-center justify-center text-xl md:text-3xl text-primary font-black whitespace-nowrap"
+                                className="text-xl md:text-3xl text-primary font-black whitespace-nowrap"
                             >
                                 {currentModule.category}
                             </motion.span>
                         </AnimatePresence>
-                    </span>
+                    </motion.span>
 
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">to manage</span>
+                    <motion.span layout className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">to manage</motion.span>
 
-                    {/* Morphing Module Name */}
-                    <span className="relative inline-flex items-center justify-center overflow-visible">
-                        <span className="invisible font-black text-xl md:text-3xl whitespace-nowrap pointer-events-none select-none" aria-hidden="true">Booking Management</span>
-                        <AnimatePresence mode="wait">
+                    {/* Morphing Module Name Container */}
+                    <motion.span layout className="relative flex items-center justify-center">
+                        <AnimatePresence mode="popLayout">
                             <motion.span
+                                layout
                                 key={`mod-${currentModule.name}`}
                                 initial={{ opacity: 0, y: 15, filter: 'blur(8px)' }}
                                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                                 exit={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="absolute inset-0 flex items-center justify-center text-xl md:text-3xl text-primary font-black whitespace-nowrap"
+                                className="text-xl md:text-3xl text-primary font-black whitespace-nowrap"
                             >
                                 {currentModule.name}
                             </motion.span>
                         </AnimatePresence>
-                    </span>
+                    </motion.span>
 
-                    <span className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">seamlessly</span>
-                </h3>
+                    <motion.span layout className="whitespace-nowrap text-base md:text-xl font-medium text-graphite/80">seamlessly</motion.span>
+                </motion.h3>
             </div>
         </section>
     );
