@@ -1,5 +1,5 @@
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { X, Check, ArrowLeft, ArrowUpRight } from 'lucide-react';
@@ -296,12 +296,12 @@ const LOGO_ITEM = { id: 'LOGO', isLogo: true };
 // Insert logo at center position
 // 7-column grid: 55 items = 8 rows. Center = row 4, col 4 = index 24 (0-indexed)
 const allDataCards = [...ecosystemItems, ...exploreItems];
-const LOGO_INDEX = 24; // Exact center: row 4, col 4 in a 7-column grid
-const allItems: any[] = [
-    ...allDataCards.slice(0, LOGO_INDEX),
-    LOGO_ITEM,
-    ...allDataCards.slice(LOGO_INDEX),
-];
+const getLogoIndex = (width: number) => {
+    if (width < 640) return 28; // cols-3, row 10, col 2 -> (9*3 + 1)
+    if (width < 768) return 26; // cols-4, row 7, col 3 -> (6*4 + 2)
+    if (width < 1024) return 27; // cols-5, row 6, col 3 -> (5*5 + 2)
+    return 24; // cols-7, row 4, col 4 -> (3*7 + 3)
+};
 
 // --- GSAP Animated Content Components ---
 const CardContent = ({ type }: { type: string }) => {
@@ -595,6 +595,20 @@ const ZuwosLogoCard = () => {
 export default function ZuwosEcosystemExplore() {
     const [activeId, setActiveId] = useState<string | null>(null);
     const navigate = useNavigate();
+
+    const [logoIndex, setLogoIndex] = useState(() => getLogoIndex(typeof window !== 'undefined' ? window.innerWidth : 1024));
+
+    useEffect(() => {
+        const handleResize = () => setLogoIndex(getLogoIndex(window.innerWidth));
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const allItems: any[] = useMemo(() => [
+        ...allDataCards.slice(0, logoIndex),
+        LOGO_ITEM,
+        ...allDataCards.slice(logoIndex),
+    ], [logoIndex]);
 
     return (
         <div className="w-full max-w-[1400px] mx-auto px-4 py-16 md:py-24 font-sans">

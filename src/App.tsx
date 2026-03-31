@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion'
 import ScrollToTop from './components/utils/ScrollToTop'
 import SmoothScroll from './components/utils/SmoothScroll'
+import GlobalCTA from './components/ui/GlobalCTA'
 
 // Lazy Load Pages
 const Home = lazy(() => import('./pages/Home'))
@@ -59,6 +60,7 @@ function App() {
         <ScrollToTop />
         <div className="bg-coconut min-h-screen text-graphite font-sans selection:bg-primary selection:text-white">
           <AnimatedRoutes />
+          <GlobalCTA />
         </div>
       </SmoothScroll>
     </Router>

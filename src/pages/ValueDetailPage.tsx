@@ -47,10 +47,8 @@ export default function ValueDetailPage() {
 
         if (id === 'real-time-gratification') {
             return (
-                <div className="w-full space-y-12 md:space-y-16">
-                    <div className="container mx-auto px-6 max-w-7xl">
-                        <EngagementCycle />
-                    </div>
+                <div className="w-full">
+                    <EngagementCycle />
                 </div>
             )
         }

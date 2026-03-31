@@ -2,7 +2,6 @@ import { useRef, useLayoutEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { StickyScroll } from '../story/StickyScroll';
 import StaggerText from '../ui/StaggerText';
 
 // Images
@@ -16,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function EngagementCycle() {
     const containerRef = useRef<HTMLDivElement>(null);
     const wheelRef = useRef<HTMLDivElement>(null);
+    const horizontalSectionRef = useRef<HTMLDivElement>(null);
+    const horizontalContainerRef = useRef<HTMLDivElement>(null);
     const [selectedFeature, setSelectedFeature] = useState<typeof content[0] | null>(null);
 
     const content = [
@@ -45,35 +46,7 @@ export default function EngagementCycle() {
         },
     ];
 
-    // Transform content for StickyScroll
-    const stickyScrollContent = content.map(item => ({
-        title: item.title,
-        description: item.description,
-        content: (
-            <motion.div
-                layoutId={`card-${item.id}`} // Keep only for open animation? No, let's keep it for open animation but maybe conditional? Actually removing it here might break the open animation if we remove it completely. But having it in a list that toggles opacity is heavy.
-                // Let's keep layoutId but optimize OTHER things first?
-                // The prompt instruction is to remove layoutId from list items.
-                // If I remove layoutId here, the shared element transition to modal will break.
-                // BUT, maybe we don't need shared element transition for the list scroll?
-                // The user complained about SCROLL lag.
-                // Scroll lag + 5MB image = GPU texture upload or decoding.
-                // Let's try optimizing image props first.
-                onClick={() => setSelectedFeature(item)}
-                className="h-full w-full flex items-center justify-center bg-transparent aspect-video rounded-xl overflow-hidden relative group cursor-zoom-in shadow-sm border border-black/5"
-                style={{ willChange: 'opacity, transform' }}
-            >
-                <motion.img
-                    layoutId={`image-${item.id}`}
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="eager"
-                    decoding="async"
-                />
-            </motion.div>
-        )
-    }));
+    // Content arrays are mapped directly in JSX
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -83,6 +56,28 @@ export default function EngagementCycle() {
                 repeat: -1,
                 ease: "linear",
             });
+
+            // Horizontal Scroll
+            const hContainer = horizontalContainerRef.current;
+            if (hContainer && horizontalSectionRef.current) {
+                const mm = gsap.matchMedia();
+                mm.add("(min-width: 1024px)", () => {
+                    const totalWidth = hContainer.scrollWidth;
+                    const viewportWidth = window.innerWidth;
+                    
+                    gsap.to(hContainer, {
+                        x: () => -(totalWidth - viewportWidth),
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: horizontalSectionRef.current,
+                            pin: true,
+                            scrub: 1,
+                            end: () => "+=" + (totalWidth),
+                            invalidateOnRefresh: true,
+                        }
+                    });
+                });
+            }
         }, containerRef);
 
         return () => ctx.revert();
@@ -130,22 +125,46 @@ export default function EngagementCycle() {
                     </div>
                 </div>
 
-                {/* --- NEW REAL-TIME GRATIFICATION SECTION (Sticky Scroll) --- */}
-                < div className="w-full mt-10 md:mt-20" >
-                    <h4 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center mb-2 md:mb-16 text-primary font-display tracking-tight">
-                        <StaggerText>Real-Time Gratification</StaggerText>
-                    </h4>
-                    <StickyScroll
-                        content={stickyScrollContent}
-                        contentClassName="bg-transparent"
-                        titleClassName="text-slate-900"
-                        descriptionClassName="text-slate-600"
-                    />
-                </div >
-            </div >
+                {/* --- NEW REAL-TIME GRATIFICATION SECTION (Horizontal Slide) --- */}
+            </div>
+
+            <div ref={horizontalSectionRef} className="relative z-10 w-full overflow-hidden h-auto lg:h-screen lg:flex lg:flex-col lg:justify-center bg-slate-100">
+                
+                <div ref={horizontalContainerRef} className="flex flex-col lg:flex-row w-full lg:w-fit h-auto lg:h-full">
+                    {content.map((item, i) => (
+                        <div key={i} className="w-full lg:w-screen min-h-screen lg:h-screen flex-shrink-0 bg-slate-100 flex flex-col lg:flex-row relative overflow-hidden text-slate-800">
+                            {/* Left Panel: Role & Features */}
+                            <div className="w-full lg:w-[320px] xl:w-[380px] 2xl:w-[420px] flex-shrink-0 h-auto lg:h-full px-8 lg:px-10 lg:pl-14 xl:pl-16 2xl:pl-20 flex flex-col justify-center bg-slate-100 border-b lg:border-b-0 lg:border-r border-slate-200 z-10 pt-20 lg:pt-0 pb-10">
+                                <div className="mb-6 xl:mb-8">
+                                    <p className="text-sm font-bold tracking-widest uppercase mb-4 text-primary">Real-Time Gratification</p>
+                                    <h2 className="text-3xl xl:text-4xl font-display font-bold text-slate-900 mt-2">{item.title}</h2>
+                                    <p className="text-base xl:text-lg text-slate-500 mt-4 leading-relaxed">{item.description}</p>
+                                </div>
+                            </div>
+
+                            {/* Right Panel: Content / Mockups */}
+                            <div className="flex-1 h-auto lg:h-full flex flex-col items-center justify-center p-6 lg:p-12 lg:pl-10 xl:pl-16 relative overflow-visible mt-8 lg:mt-0">
+                                {/* Decorative BG */}
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/10 rounded-full blur-3xl z-0" />
+
+                                <div className="w-full max-w-4xl 2xl:max-w-6xl relative aspect-video bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-slate-200/50 flex flex-col justify-center items-center group cursor-zoom-in z-10" onClick={() => setSelectedFeature(item)}>
+                                    <motion.img
+                                        layoutId={`image-${item.id}`}
+                                        src={item.image}
+                                        alt={item.title}
+                                        loading="eager"
+                                        decoding="async"
+                                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             {/* Background Ambience - Keeps light theme feeling */}
-            < div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-primary/5 to-transparent -z-0 pointer-events-none" />
+            <div className="absolute inset-0 w-full h-full bg-gradient-radial from-primary/5 to-transparent pointer-events-none" />
 
             {/* Lightbox / Modal */}
             <AnimatePresence>

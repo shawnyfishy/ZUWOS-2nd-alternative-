@@ -69,10 +69,10 @@ export default function EmployeeOSShowcase() {
     }, [currentIndex]);
 
     return (
-        <section ref={containerRef} className="w-full min-h-screen py-8 md:py-12 2xl:py-20 bg-coconut flex flex-col justify-between items-center relative overflow-hidden">
+        <section ref={containerRef} className="w-full min-h-[auto] md:min-h-screen py-16 md:py-12 2xl:py-20 bg-coconut flex flex-col justify-center gap-12 md:gap-0 md:justify-between items-center relative overflow-hidden">
 
             {/* 1. Header (Top) */}
-            <div className="shrink-0 text-center z-10 px-6 relative z-20 mb-10 md:mb-12">
+            <div className="shrink-0 text-center z-10 px-6 relative z-20 md:mb-12">
                 <h2 className="text-4xl md:text-6xl 2xl:text-7xl font-display font-black text-primary tracking-tighter uppercase mb-2">
                     Zuwos's smart workplace
                 </h2>
@@ -82,7 +82,7 @@ export default function EmployeeOSShowcase() {
             </div>
 
             {/* 2. Main Content (Fluid Grid Overlay) */}
-            <div className="flex-grow w-full max-w-[1600px] mx-auto grid grid-cols-1 items-center relative z-10 px-6 md:px-12">
+            <div className="md:flex-grow w-full max-w-[1600px] mx-auto grid grid-cols-1 items-center relative z-10 px-6 md:px-12">
 
                 {/* Layer 1: Sidebar (Left Aligned, Flow Aware) */}
                 <div className="col-start-1 row-start-1 justify-self-start hidden lg:block w-[300px]">
